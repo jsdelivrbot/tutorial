@@ -1,0 +1,28 @@
+<h2 id="lab-3-go-live-deploy-to-cloud-and-use-a-cdn">Lab 3: Go-Live - Deploy to Cloud and use a CDN</h2>
+<ol>
+<li><p>Go to <a href="https://zeit.co/">https://zeit.co/</a> and create a free account. We use their NOW product to deploy our apps to the cloud. Install the NOW client.
+Instead, you could zip up the /topseed-webroot folder and deploy to any
+static web hosting service via FTP. However, we will need some &quot;dynamic&quot;, server-side features later, so we wrap our static webroot content with some code that works on a Node.js server, such as used by NOW.</p>
+</li>
+<li><p>Rename /topseed-webroot/cache.mfx to cache.mf. To deploy, drag the /topseed-srv folder into the ZEIT.co NOW client. For advanced users: this folder includes index.js and package.json needed by Node.js.
+Once the deployment is completed, your clipboard will have a URL unique to the version you deployed. Test the URL in the browser. Bookmark the URL. You are in the Cloud and live on the Web!</p>
+</li>
+<li><p>The remainder of this lab is optional for development (but mandatory for QA/Staging/Production): To give your site a &quot;proper&quot; domain, you will need a domain name and DNS. If you do not have a domain yet, we recommend to register a cheap domain at <a href="https://www.namecheap.com/">https://www.namecheap.com/</a> now and have it use the namecheap DNS.
+If you already own a domain and host a site, e.g. at www.mydomain.com, you may want to configure a CNAME to map a &#39;staging&#39; subdomain, such as staging.mydomain.com, so you can keep using www for your public site. See below for more detailed instructions. </p>
+</li>
+<li><p>For scalability and caching, you will also want to use a Content Delivery Network (CDN). With a CDN, you also get SSL/HTTPS for free. No need to buy an expensive SSL certificate. SSL is important when using advanced Javascript functions in the browser, such as cross-domain data requests. We recommend <a href="https://www.cdn77.com/">https://www.cdn77.com/</a>. For this tutorial, register for the CDN77 14-day free trial now.</p>
+</li>
+<li><p>In the CDN77 web app, go to menu item CDN and click &quot;ADD NEW CDN RESOURCE&quot;. Give it a label, such as &#39;appthings-web&#39; and select &quot;My Origin&quot;. As domain, specify HTTPS and the ZEIT.co DOMAIN from the URL you bookmarked under 2. (e.g. demos-oosnsyzlphl.now.sh). Click &quot;CREATE CDN RESOURCE&quot;.</p>
+</li>
+<li><p>Choose 4-step setup with CNAME. Click &quot;Add new CNAME&quot;, and &quot;+ ADD CNAMES&quot;. Enter &quot;staging.mydomain.com&quot; and Click &quot;ADD CNAME&quot;. Click &quot;Go back to Integration&quot;. In Step 2, copy the DOMAIN NAME (AKA HOST), e.g 1234567890.rsc.cdn77.org, then follow instructions for your hosting provider. If your domain is with namecheap.com, do the following:
+On the namecheap dashbord, click &quot;Manage&quot; for your domain, and &quot;Advanced DNS&quot;. Click &quot;ADD NEW RECORD&quot;, select &quot;CNAME&quot; and enter the following: Host: staging Value: [DOMAIN NAME from clipboard, e.g. 1234567890.rsc.cdn77.org], TTL: Automatic. Click checkmark to save.
+No need to do CDN77 Step 3. One final step is to go to the &quot;Other Settings&quot; tab, check &quot;HTTPS redirect&quot; and click &quot;SAVE CHANGES&quot;.</p>
+</li>
+<li><p>After an hour or so, you should be able to reach the deployed site in your browser under e.g. <a href="https://staging.mydomain.com">https://staging.mydomain.com</a>. Note the use of &quot;https&quot;. If you visit too quickly, the browser will complain that the site certificate is invalid. If this happens, try again after a while. The CDN caches static files for greater performance in multiple distributed datacenters. For advanced users: Cache-Control response headers are set in /web-app/util/Decider.js.</p>
+</li>
+<li><p>TBD Edit /topseed-webroot/page/one/mission.md again (see Lab 1: 5.). To deploy the change, follow step 2 above. In CDN77 Overview, change &quot;What is your domain?&quot; to the new URL, and click &quot;SAVE CHANGES&quot;. To make the changes appear on the CDN edge servers immediately, use CDN77 &quot;CDN/Purge&quot; on /page/one/.</p>
+</li>
+<li><p>Optional: Once you are ready to move from staging to production, you would either edit the CNAME for www to point to the same CDN domain (e.g. 1234567890.rsc.cdn77.org) or add a new CDN resource such as &#39;topseed-prod&#39; that may also use a new ZEIT.co domain created when redeploying the app to ZEIT.co NOW (see 2.)</p>
+</li>
+</ol>
+<p><a href="./0-agenda/">Return to Agenda</a></p>
