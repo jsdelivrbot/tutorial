@@ -12,5 +12,5 @@
 
 6. Optional: Use Prepros to auto-refresh on edits. In Prepros, click on the arrows on the right side of the prepros project name 'topseed-webroot', check Sync Browsers and click Preview. (Or rightclick on 'topseed-webroot' and select 'Open Live Preview.') A browser should open and display the Home page. In VS Code, edit and save index.md again. The opened browser should refresh and include your changes.
 
-[Next Tutorial](./2-theBasics/)
-[Return to Agenda](./0-agenda/)
+[Next Tutorial](/2-theBasics/) 
+[Return to Agenda](/0-agenda/)

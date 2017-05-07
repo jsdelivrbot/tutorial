@@ -1,48 +1,4 @@
-<!DOCTYPE html>
-<html lang="en-us" manifest="/cache.mf">
-  <head>
-    <title>Hello World</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="">
-    <link href="/favicon.ico" rel="icon">
-    <link href="/_sass/main.css" rel="stylesheet">
-    <script src="//code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-    <script src="https://cdn.rawgit.com/topseed/topseed-setup/master/vendor/loadjs.min.js"></script>
-    <script src="https://cdn.rawgit.com/topseed/topseed-setup/master/release/topseed-setup-1.21.js"></script>
-    <script src="/_js/main.js" async=""></script>
-  </head>
-  <body>
-    <div id="appbar">
-      <div id="appbar--brand" onclick="openDrawer()">&nbsp; ☰ &nbsp;<span class="mui--hidden-xs">Topseed&trade; Tutorials</span></div>
-      <ul id="appbar--menu">
-        <li><a href="/0-agenda/">Home</a></li>
-        <li><a href="/1-helloWorld/">One</a></li>
-        <li><a href="/2-theBasics/">Two</a></li>
-        <li><a href="/3-goLive/">Three</a></li>
-      </ul>
-    </div>
-    <div id="sidedrawer" onclick="closeDrawer()">
-      <div id="sidedrawer--brand">&nbsp; ☰ Topseed&trade; Tutorials</div>
-      <div class="mui-divider"></div>
-      <ul id="sidedrawer--menu">
-        <li><a href="/0-agenda/">Home</a></li>
-        <li><a href="/1-helloWorld/">One: Hello World</a></li>
-        <li><a href="/2-theBasics/">Two: The Basics</a></li>
-        <li><a href="/3-goLive/">Three: Golive</a></li>
-      </ul>
-    </div>
-    <script>
-      function openDrawer(px, e) {
-      	$('#sidedrawer').css('transform', 'translateX(201px)')
-      }
-      function closeDrawer(e) {
-      	$('#sidedrawer').css('transform', 'translateX(0px)')
-      }			
-    </script>
-    <div id="content-wrapper">
-      <div class="mui-container-fluid"><h2 id="lab-1-hello-world-using-markdown-with-preprocessor">Lab 1: Hello World - Using Markdown with Preprocessor</h2>
+<h2 id="lab-1-hello-world-using-markdown-with-preprocessor">Lab 1: Hello World - Using Markdown with Preprocessor</h2>
 <ol>
 <li><p>Downloand and unzip topseed-helloworld.zip from <a href="https://github.com/topseed/topseed-helloworld">https://github.com/topseed/topseed-helloworld</a> to your location of choice on your developer machine.</p>
 </li>
@@ -59,14 +15,3 @@
 </ol>
 <p><a href="/2-theBasics/">Next Tutorial</a> 
 <a href="/0-agenda/">Return to Agenda</a></p>
-
-      </div>
-    </div>
-    <div id="footer">
-      <div id="footer_div"><a href="https://gitter.im/topseed/Lobby" target="_blank">Forum </a>
-        <!--#footer_div--push-->
-        <div id="footer_div--right"><a href="https://github.com/topseed/topseed" target="_blank">Kitchen Sink</a></div>
-      </div>
-    </div>
-  </body>
-</html>

@@ -21,5 +21,5 @@ worry about closing tags. We write Pug. On save, Prepros converts it to HTML.
 
 9. Watch the video "Do you Even JADE bro" at https://www.youtube.com/watch?v=wzAWI9h3q18. Once you know how to write Pug, you can generate beautiful html quickly.
 
-[Next Tutorial](./3-goLive/)
-[Return to Agenda](./0-agenda/)
+[Next Tutorial](/3-goLive/)
+[Return to Agenda](/0-agenda/) 
