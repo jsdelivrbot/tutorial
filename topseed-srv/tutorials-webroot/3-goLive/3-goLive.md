@@ -24,4 +24,4 @@ No need to do CDN77 Step 3. One final step is to go to the "Other Settings" tab,
 
 9. Optional: Once you are ready to move from staging to production, you would either edit the CNAME for www to point to the same CDN domain (e.g. 1234567890.rsc.cdn77.org) or add a new CDN resource such as 'topseed-prod' that may also use a new ZEIT.co domain created when redeploying the app to ZEIT.co NOW (see 2.)
 
-[Return to Agenda](/0-agenda/) 
+[Return to Agenda](../0-agenda/) 
