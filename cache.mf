@@ -2,10 +2,14 @@ CACHE MANIFEST
 # load stable assets once and freeze on client, even if asset changes, it won't ping
 
 #index assets
-https://tutorials.topseed.io/favicon.ico
+https://doc.topseed.io/tutorial-basic/favicon.ico
+
 https://code.jquery.com/jquery-3.2.1.slim.min.js
-https://cdn.rawgit.com/topseed/topseed-setup/master/vendor/loadjs.min.js
-https://cdn.rawgit.com/topseed/topseed-setup/master/release/topseed-setup-1.21.js'
+https://cdn.rawgit.com/topseed/topseed-turbo/master/vendor/loadjs.min.js
+https://cdn.rawgit.com/topseed/topseed-turbo/master/vendor/bowser.min.js
+https://cdn.rawgit.com/topseed/topseed-turbo/master/vendor/flyd.min.js
+https://cdn.rawgit.com/topseed/topseed-turbo/master/setup/setup-2.3.js
+
 https://cdn.jsdelivr.net/fetch/2.0.1/fetch.min.js
 
 https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic&lang=en
