@@ -5,7 +5,8 @@
 	transition: transform .15s ease;
 }
 
-/*#sidedrawer:target { // makes it appear when anchor link is clicked
+/* AMP version only
+#sidedrawer:target { // makes it appear when anchor link is clicked, AMP version
 	transform: translateX(201px);
 }*/
 
@@ -42,11 +43,8 @@
 #sidedrawer--menu li a {
 	display: block;
 	padding-left: 28px;
-	transition: color .2s ease-in; // optional
 }
 
 #sidedrawer--menu li a:hover {
 	color: $primary-color-text;
 }
-
-

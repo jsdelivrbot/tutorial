@@ -1,5 +1,5 @@
 // AMP & Flexbox layout
-// main.sass may also import _classicFooter.scss overrides for compatibility with IE.
+// main.sass may also import _ieFooter.scss overrides for compatibility with IE.
 
 // Default M.ui variables (See muicss.com) ============================================
 $base-line-height: 24px !default; // This is your web-app's vertical rhythm. KEY!
@@ -7,7 +7,7 @@ $headerH: $base-line-height * 1.5 !default;
 $mui-appbar-height: $headerH;
 $mui-appbar-height-xs-portrait: $headerH;
 $mui-appbar-height-xs-landscape: $headerH;
-$mui-base-font-family: -apple-system, BlinkMacSystemFont, Roboto, "Segoe UI", Helvetica, Arial, sans-serif;
+$mui-base-font-family: -apple-system, BlinkMacSystemFont, Roboto, "Segoe UI", Helvetica, Arial, sans-serif !default;
 $mui-base-font-color: $primary-text-color;
 $mui-base-font-size: $base-line-height * .65; // golden ratio as % of line-height
 $mui-base-font-smoothing: true;
@@ -103,10 +103,6 @@ body {
 	color: $primary-color-light;
 	cursor: pointer;
 	line-height: $headerH;
-}
-
-#appbar--menu a {
-	transition: color .2s ease-in; // optional
 }
 
 #appbar--menu a:hover {
