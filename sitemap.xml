@@ -5,19 +5,19 @@
 		xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 	<url>
-		<loc>https://tutorials.topseed.io/0-agenda/</loc>
+		<loc>https://doc.topseed.io/tutorial-basic/0-agenda/</loc>
 	</url>
 
 	<url>
-		<loc>https://tutorials.topseed.io/1-helloWorld/</loc>
+		<loc>https://doc.topseed.io/tutorial-basic/1-helloWorld/</loc>
 	</url>
 
 	<url>
-		<loc>https://tutorials.topseed.io/2-theBasics/</loc>
+		<loc>https://doc.topseed.io/tutorial-basic/2-theBasics/</loc>
 	</url>
 
 	<url>
-		<loc>https://tutorials.topseed.io/3-goLive/</loc>
+		<loc>https://doc.topseed.io/tutorial-basic/3-goLive/</loc>
 	</url>
 
 </urlset>

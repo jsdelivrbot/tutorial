@@ -1,0 +1,4 @@
+User-agent: *
+Disallow:
+Host: tutorials.topseed.io
+Sitemap: https://doc.topseed.io/tutorial-basic/sitemap.xml

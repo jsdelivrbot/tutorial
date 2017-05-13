@@ -1,4 +1,4 @@
-# topseed-tutorials
+# tutorial-basic
 
 A series of tutorials to walk you through our best practices. 
 
@@ -27,5 +27,5 @@ We also welcome code contributions from seasoned designers and developers.
 
 For more: <http://github.com/topseed/topseed>
 
-For forum: <http://gitter.im/topseed-demos/Lobby>
+For forum: <http://gitter.im/topseed/Lobby>
 
