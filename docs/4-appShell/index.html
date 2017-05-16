@@ -21,6 +21,7 @@
         <li><a href="../1-helloWorld/">One</a></li>
         <li><a href="../2-theBasics/">Two</a></li>
         <li><a href="../3-goLive/">Three</a></li>
+        <li><a href="../4-appShell/">Four</a></li>
       </ul>
     </div>
     <div id="sidedrawer" onclick="closeDrawer()">
@@ -31,6 +32,7 @@
         <li><a href="../1-helloWorld/">One: Hello World</a></li>
         <li><a href="../2-theBasics/">Two: The Basics</a></li>
         <li><a href="../3-goLive/">Three: Golive</a></li>
+        <li><a href="../4-appShell/">Four: AppShell</a></li>
       </ul>
     </div>
     <script>
@@ -44,21 +46,20 @@
     <div id="content-wrapper">
       <div class="mui-container-fluid"><h2 id="lab-4-appshell-turbo-and-caching-for-performance">Lab 4: AppShell, Turbo and Caching for Performance</h2>
 <ol>
-<li><p>Inspect /helloworld-webroot/page/one/index.pug and its equivalent at /page/two/index.pug. These Pug files show how parts of the html pages that both pages have in common are used in both. Both pages use or &#39;extend&#39; the TEMPLATE /_part/_baseShell.pug. The template has &#39;blocks&#39; named &#39;head&#39;, &#39;main&#39;, and &#39;footer&#39;. The pages that use this template define how to replace these blocks. For example, /page/one/index.pug defines that the head block consists of a page-specific title tag and an included fragment /_part/_header.pug. The same fragment is also used by /page/two/index.pug.</p>
+<li><p>Inspect /helloworld-webroot/page/one/index.pug and /page/two/index.pug. These Pug files show how the parts of the html they have in common are pulled from central places. Both pages use or &#39;extend&#39; the TEMPLATE /_part/_baseShell.pug. Open this template file, and see that it has &#39;blocks&#39; named &#39;head&#39;, &#39;main&#39;, and &#39;footer&#39;. The Pug pages that extend this template define how to replace these blocks. For example, /page/one/index.pug defines that the head block consists of a page-specific title tag and an included fragment /_part/_header.pug. The same _header.pug is re-used by /page/two/index.pug.</p>
 </li>
-<li><p>Inspect /helloworld-webroot/_part/_top.pug. This fragment represents the top menu and side drawer used on all pages. You can find it referenced in /_part/_baseShell.pug as &#39;include _top&#39;. Now inspect /page/one/index.html. This is the complete HTML which Prepros has collatesd together from template and fragments. Since the server has been configured to return the &#39;default&#39; page index.html when the browser requests /page/one/, this is what the end user sees. </p>
+<li><p>Inspect /helloworld-webroot/_part/_top.pug. This fragment represents the top menu and side drawer used on all pages. You can find it referenced in /_part/_baseShell.pug as &#39;include _top&#39;. Now inspect /page/one/index.html. This is the complete HTML which Prepros has collated together from template and fragments. Since the server has been configured to return the &#39;default&#39; page index.html when the browser requests /page/one/, this is what the end user sees. </p>
 </li>
-<li><p>You have seen that a pug template or fragment can &#39;include&#39; another pug fragment. It can also include a fragment which is already in HTML format, such as /page/one/hello.html included in /page/one/index.html. As hello.html is the result of processing the &#39;markdown&#39; file hello.md, it is a great way to integrate elements that use different technologies. </p>
+<li><p>You have seen that a pug template or fragment can include other pug fragments. It can also include a fragment which is already in HTML format, such as /page/one/hello.html included in /page/one/index.html. hello.html is the result of processing the &#39;markdown&#39; file hello.md. We find that Pug is a great way to integrate and reuse elements provided by different technologies.</p>
 </li>
-<li><p>To give the application a &#39;Single-Page Application&#39; feel, we use an optional JavaScript library called topseed-turbo (&#39;TT&#39;). When a user navigates from one URL to the next, TT replaces only the part of the HTML body that is unique to each page (The section marked &#39;#content-wrapper&#39; in _baseShell.pug and /_js/main.js). TT is unobtrusively loaded by JavaScript included in the _header.pug section (/setup-x.x.js). This avoids &#39;page flash&#39; and makes for smoother navigation, very similar to a native &#39;rich client&#39; app where only individual panels are replaced on navigation. </p>
+<li><p>To give the application a &#39;Single-Page Application&#39; feel, we use an optional JavaScript library called topseed-turbo (&#39;TT&#39;). When a user navigates from one URL to the next, TT replaces only the part of the HTML body that is unique to each page (The section marked &#39;#content-wrapper&#39; in _baseShell.pug and /_js/main.js). TT is unobtrusively loaded by JavaScript included in the _header.pug section (/setup-x.x.js). Using TT avoids &#39;page flash&#39; and makes for smoother navigation, very similar to a native &#39;rich client&#39; app where only individual panels are replaced on navigation. </p>
 </li>
-<li><p>(Optional) Advanced JavaScript users may be interested to look at TS.onAppReady(UIinit) in /page/one/index.pug. TS stands for topseed-setup. TS receives an event when the #content-wrapper html is completely present in the browser (kind of like a &#39;pageLoaded&#39; event), providing a &#39;hook&#39; for more page-specific javascript that may require the HTML DOM to be fully initialized.</p>
+<li><p>(Optional) Advanced JavaScript users may be interested to look at TS.onAppReady(UIinit) in /page/one/index.pug. TS stands for topseed-setup. TS receives an event when the #content-wrapper html is fully present in the browser (kind of like a &#39;pageLoaded&#39; event). When using TT, TS.onAppReady provides an important &#39;hook&#39; for more page-specific javascript that requires the DOM to be fully initialized.</p>
 </li>
-<li><p>Rename /helloworld-webroot/cache.mfx to /cache.mf and inspect it. The AppCache is a good way to improve performance of a web application. The file is referred to as &#39;manifest&#39; in /_part/_baseshell.pug.  If the manifest file is present, the browser will keep its listed resources in the browser cache &#39;forever&#39;, and serve them from there, without going to the network, until the cache.mf file itself changes. For development, we disable this by renaming it from .mf to .mfx.</p>
+<li><p>Rename /helloworld-webroot/cache.mfx to /cache.mf and inspect it. The AppCache is a good way to improve performance of a web application. The file is referred to as &#39;manifest&#39; in /_part/_baseshell.pug.  If the manifest file is present, the browser will keep its listed resources in the browser cache &#39;forever&#39;, and serve them from there, without going to the network, until the cache.mf file itself changes. You can see what the browser does with this AppCache if you run a page in Developer mode (hit Ctrl-Shift+i and select the &#39;Console&#39; tab in your Chrome browser). For development, we disable the AppCache by renaming it from .mf to .mfx. If you ever suspect the browser having cached an older version of a resource, rightclick the refresh button on the left of the URL in the Chrome browser and select &quot;Empty Cache and Hard Reload&quot;.</p>
 </li>
-</ol>
-<ol>
-<li>In a later tutorial, we will discuss how in addition we may set response headers to allow caching of content at the &#39;edge&#39;, i.e. by the CDN, to achieve additional performance gains.</li>
+<li><p>In a later tutorial, we will discuss how we achieve additional performance gains by setting response headers to allow caching of content at the &#39;edge&#39;.</p>
+</li>
 </ol>
 
         <div class="mui--text-left"><a class="mui-btn" href="../0-agenda/">Return to Agenda</a></div>
