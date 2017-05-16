@@ -21,7 +21,7 @@ No need to do CDN77 Step 3. One final step is to go to the &quot;Other Settings&
 </li>
 <li><p>After an hour after the initial setup, you should be able to reach the deployed site in your browser under e.g. <a href='https://staging.mydomain.com' target='_blank'>https://staging.mydomain.com</a>. Note the use of &quot;https&quot;. If you visit too quickly, the browser will complain that the site certificate is invalid. If this happens, try again after a while. The CDN caches static files for greater performance in multiple distributed datacenters. For advanced users: Cache-Control response headers are set in /topseed-srv/util/Decider.js.</p>
 </li>
-<li><p>TBD Edit /helloworld-webroot/page/one/_hello.md again (see Lab 1: 5.). To deploy the change, follow step 2 above. In CDN77 Overview, change &quot;What is your domain?&quot; to the new URL, and click &quot;SAVE CHANGES&quot;. To make the changes appear on the CDN edge servers immediately, use CDN77 &quot;CDN/Purge&quot; on /page/one/.</p>
+<li><p>Edit /helloworld-webroot/page/one/_hello.md again (see Lab 1: 5.). To deploy the change, follow step 2 above. In CDN77 Overview, change &quot;What is your domain?&quot; to the new URL, and click &quot;SAVE CHANGES&quot;. To make the changes appear on the CDN edge servers immediately, use CDN77 &quot;CDN/Purge&quot; on /page/one/.</p>
 </li>
 <li><p>Optional: Once you are ready to move from staging to production, you would either edit the CNAME for www to point to the same CDN domain (e.g. 1234567890.rsc.cdn77.org) or add a new CDN resource such as &#39;www.mydomain.com&#39; that may also use a new ZEIT.co domain created when redeploying the app to ZEIT.co NOW (see 2.)</p>
 </li>
