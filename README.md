@@ -1,8 +1,8 @@
-# tutorial-basic
+# tutorial
 
 A series of tutorials to walk you through our best practices. 
 
-Hosted online at <https://docs.topseed.io/tutorial-basic/>
+Hosted online at <https://docs.topseed.io/tutorial/>
 
 Topseed aims to be a showcase of best practices and approaches for designers, digital creatives and front end developers
 who want to build stunning mobile-first web apps with some of the best technologies available now.
@@ -26,7 +26,7 @@ We also welcome code contributions from seasoned designers and developers.
 - Use Material Design, SASS, and BEM Standard
 - Use Pug to improve reuse and reduce maintenance costs.
 
-This tutorial is published online at <https://docs.topseed.io/tutorial-basic/>
+This tutorial is published online at <https://docs.topseed.io/tutorial/>
 
 For more: <http://github.com/topseed/topseed>
 
