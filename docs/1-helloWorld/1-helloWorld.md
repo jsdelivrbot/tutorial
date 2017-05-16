@@ -8,9 +8,6 @@
 
 4. Download, install and run Prepros (Unlimited Trial) from <a href='https://prepros.io/downloads' target='_blank'>here</a>. Use the + button on the bottom left to add the folder /helloworld-webroot (under /topseed-srv) as a new project. In Project/Settings/Compiler Settings/Markdown, uncheck 'Wrap with Html'. 
 
-5. In the browser, return to the home page (e.g. <a href='http://127.0.0.1:8887' target='_blank'>http://127.0.0.1:8887</a>). In VS Code, open /helloworld-webroot/page/one/hello.md and prefix the text with 'Hello World!' Save the file. In the same folder, inspect hello.html. Prepros will have 'preprocessed' your edited 'Markdown' file to HTML. Refresh the browser and see the edits. Search Google for 'Markdown syntax'. 
+5. In the browser, return to the home page (e.g. <a href='http://127.0.0.1:8887' target='_blank'>http://127.0.0.1:8887</a>). In VS Code, open /helloworld-webroot/page/one/_hello.md and prefix the text with 'Hello World!' Save the file. In the same folder, inspect _hello.html. Prepros will have 'preprocessed' your edited 'Markdown' file to HTML. Refresh the browser and see the edits. Search Google for 'Markdown syntax'. 
 
 6. Optional: Use Prepros to auto-refresh on edits. In Prepros, click on the arrows on the right side of the prepros project name 'helloworld-webroot', check Sync Browsers and click Preview. (Or rightclick on 'helloworld-webroot' and select 'Open Live Preview.') A browser should open and display the Home page. In VS Code, edit and save index.md again. The opened browser should refresh and include your changes.
-
-[Next Tutorial](../2-theBasics/) 
-[Return to Agenda](../0-agenda/)
