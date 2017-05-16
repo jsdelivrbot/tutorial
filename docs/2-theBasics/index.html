@@ -46,24 +46,24 @@
 <ol>
 <li><p>Ensure you have the sample project topseed-helloworld open in VS Code and Prepros running on the /topseed-webroot folder. Per Lab 1, make sure the home page is running in a browser.</p>
 </li>
-<li><p>Visit and browse these sites: <a href="http://materialpalette.com/">http://materialpalette.com/</a>, <a href="https://design.google.com/">https://design.google.com/</a>, <a href="https://material.io/">https://material.io/</a> and
-<a href="https://material.io/guidelines/#">https://material.io/guidelines/#</a>. We follow Material design guidelines, put forward by Google, to make our sites and mobile apps look better. </p>
+<li><p>Visit and browse these sites: <a href='http://materialpalette.com' target='_blank'>materialpalette.com</a>, <a href='https://design.google.com' target='_blank'>design.google.com</a>, <a href='https://material.io' target='_blank'>material.io</a> and
+<a href='https://material.io/guidelines/#' target='_blank'>material.io/guidelines/#</a>. We follow Material design guidelines, put forward by Google, to make our sites and mobile apps look better. </p>
 </li>
 <li><p>Find /_sass/main.css in the home page source, and inspect it. Other than fonts, all CSS used on the site is in this one CSS.</p>
 </li>
-<li><p>Visit <a href="https://www.muicss.com/">https://www.muicss.com/</a>. Read &quot;Getting Started/Introduction&quot;, then browse the section &quot;CSS/JS&quot;. We use the MUI CSS libraries in our project. Inspect /_sass/_base.scss in /topseed-webroot. SCSS is CSS with some added features, such as $variables and @import. You can turn any CSS file into SCSS by just changing the ending to .scss.</p>
+<li><p>Visit <a href='https://www.muicss.com' target='_blank'>muicss.com</a>. Read &#39;Getting Started/Introduction&#39;, then browse the section &#39;CSS/JS&#39;. We use the MUI CSS libraries in our project. Inspect /_sass/_base.scss in /topseed-webroot. SCSS is CSS with some added features, such as $variables and @import. You can turn any CSS file into SCSS by just changing the ending to .scss.</p>
 </li>
-<li><p>Inspect /_sass/main.sass in /appthings-webroot. At the top of _main.sass, see a color scheme we generated with materialpalette.com. Use /* */ to comment it out. Go back to <a href="http://materialpalette.com/">http://materialpalette.com/</a>, pick two colors, download your own palette in SASS format (same as CSS but without &quot;;&quot;) and paste it after the section you commented out. Save and refresh the browser, and you should see your new color scheme applied to the site. Revert to the palette you had commented out.</p>
+<li><p>Inspect /_sass/main.sass in /appthings-webroot. At the top of _main.sass, see a color scheme we generated with materialpalette.com. Use /* */ to comment it out. Go back to <a href='http://materialpalette.com' target='_blank'>materialpalette.com</a>, pick two colors, download your own palette in SASS format (same as CSS but without &#39;;&#39;) and paste it after the section you commented out. Save and refresh the browser, and you should see your new color scheme applied to the site. Revert to the palette you had commented out.</p>
 </li>
-<li><p>SASS has a special syntax without the curly braces that CSS has, but it can use SCSS imports such as @import &#39;_base&#39;. Prepros compiles the .sass and its dependent .scss imports into the single &quot;main.css&quot; used in the browser. In Prepros Files select _main.sass, check &quot;Minify Css&quot;, and click Process File. Open /_sass/main.css and see that it is now minified.</p>
+<li><p>SASS has a special syntax without the curly braces that CSS has, but it can use SCSS imports such as @import &#39;_base&#39;. Prepros compiles the .sass and its dependent .scss imports into the single &#39;main.css&#39; used in the browser. In Prepros Files select _main.sass, check &#39;Minify Css&#39;, and click Process File. Open /_sass/main.css and see that it is now minified.</p>
 </li>
-<li><p>TBD: In the browser, view the homepage source, and look for the div element with id=&quot;buttons&quot; Copy the entire div, including the two embedded divs.
+<li><p>TBD: In the browser, view the homepage source, and look for the div element with id=&#39;buttons&#39; Copy the entire div, including the two embedded divs.
 Go to html2jade.org (Pug used to be called Jade) and paste this html. In the right pane you see Pug markup, a way to write html without having to
 worry about closing tags. We write Pug. On save, Prepros converts it to HTML.</p>
 </li>
-<li><p>TBD: Inspect the code snippet at /en/home/_buttons.pug. It should match the output of html2jade. Every .pug file in the project has a corresponding .html used by the browser, with the exception of &quot;include&quot;s within another pug file. Inspect /en/home/index.pug to find the &quot;include _buttons&quot;. Inspect /en/home/index.html to find the generated buttons div.</p>
+<li><p>TBD: Inspect the code snippet at /en/home/_buttons.pug. It should match the output of html2jade. Every .pug file in the project has a corresponding .html used by the browser, with the exception of include&#39;s within another pug file. Inspect /en/home/index.pug to find the &#39;include _buttons&#39;. Inspect /en/home/index.html to find the generated buttons div.</p>
 </li>
-<li><p>Watch the video &quot;Do you Even JADE bro&quot; at <a href="https://www.youtube.com/watch?v=wzAWI9h3q18">https://www.youtube.com/watch?v=wzAWI9h3q18</a>. Once you know how to write Pug, you can generate beautiful html quickly.</p>
+<li><p>Watch the video &#39;Do you Even JADE bro&#39; at <a href="https://www.youtube.com/watch?v=wzAWI9h3q18">https://www.youtube.com/watch?v=wzAWI9h3q18</a>. Once you know how to write Pug, you can generate beautiful html quickly.</p>
 </li>
 </ol>
 <p><a href="../3-goLive/">Next Tutorial</a>
