@@ -1,0 +1,6 @@
+## Lab 5: Accelerated Mobile Pages (AMP)
+
+1. AMP is a way to ensure that web pages render fast on mobile devices. Visit and browse <a href='https://www.ampproject.org/learn/overview/' target='_blank'>ampproject.org</a> to learn more about AMP. Other than fast rendering, one advantage of AMP pages is that Google will cache AMP pages for you for free. There are some restrictions as to what a valid AMP page can include (such as no JavaScript), but it allows you to use the full power of CSS. 
+
+2. Topseed fully supports AMP. Download and unzip topseed-master.zip from <a href='https://github.com/topseed/topseed' target='_blank'>here</a> to your location of choice on your developer machine.
+

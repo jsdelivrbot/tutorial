@@ -1,6 +1,6 @@
 ## Lab 1: Hello World - Using Markdown with Preprocessor
 
-1. Downloand and unzip topseed-helloworld.zip from <a href='https://github.com/topseed/topseed-helloworld' target='_blank'>here</a> to your location of choice on your developer machine.
+1. Downloand and unzip topseed-helloworld-master.zip from <a href='https://github.com/topseed/topseed-helloworld' target='_blank'>here</a> to your location of choice on your developer machine.
 
 2. Open your Google Chrome web browser and install the 'Web Server for Chrome' app from <a href='https://chrome.google.com/webstore/search/Web%20Server?_category=apps' target-'_blank'>here</a>. Launch the app, click the 'Choose Folder' button and select the /helloworld-webroot folder under /topseed-helloworld/topseed-srv. Also ensure Options has 'Automatically show index.html' checked. Ensure the Web Server is STARTED, then navigate to the proposed URL (eg. <a href='http://127.0.0.1:8887' target='_blank'>http://127.0.0.1:8887</a>. You should see a demo website. Explore the site. It uses 'responsive design'. Resize the browser from fullscreen to narrow to see the layout adapt. 
 
