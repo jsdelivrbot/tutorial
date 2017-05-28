@@ -27,7 +27,7 @@ The Perspectives (expect some JavasSript)
 
 - 10: Dynamic dropdowns (populate with fetch) and validation, client- and serverside
 
-- 11: Security (login page, use of tokens)
+- 11: Security (login page, use of tokens) 
 
 
 
