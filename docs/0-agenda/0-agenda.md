@@ -21,11 +21,13 @@ The Perspectives (expect some JavasSript)
 
 - 7: Render dynamic data (example Firebase with DoT template, client- and serverside)
 
-- 8: From events to observers, client- and serverside (include 'Struts' submit)
+- 8: Going from events to observers, client- and serverside (include 'Struts' submit)
 
 - 9: Web Components (Integrate a standard and a react component (datepicker, mui suggests to use it as it doesn't support date input fields)
 
-- 10. Security (login page, use of tokens)
+- 10. Dynamic dropdowns (populate with fetch) and validation, client- and serverside
 
-- 11. Dynamic dropdowns (populate with fetch) and validation, client- and serverside
+- 11. Security (login page, use of tokens)
+
+
 
