@@ -25,3 +25,5 @@ The Perspectives (expect some JavasSript)
 
 - 9: Web Components (Integrate a standard and a react component (datepicker, mui suggests to use it as it doesn't support date input fields)
 
+- 10. Security
+
