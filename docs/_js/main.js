@@ -1,10 +1,12 @@
 'use strict'
-loadjs.ready(['dependencyIE', 'keyLibs'], {// loaded setup libs
+loadjs.ready(['polyfills', 'keyLibs'], {// loaded setup libs
 	success: function(){
 
 		loadjs([
 
-			'../_js/vendor/jquery.jsForm.min.js'
+			'/_js/vendor/jquery.jsForm.min.js'
+			,'/_js/vendor/jquery.fullpage.min.js'
+			,'/_js/vendor/jquery.fullpage.min.css'
 
 			], { success: function(){
 				libsLoaded()
