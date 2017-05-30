@@ -29,22 +29,90 @@ block main
 		.section1.section
 			.mui-container-fluid
 				.mui-panel
-					H3 Section 1. Scroll down for more
+					H3 Web Components, and Business Logic 
 
 		.section2.section
 			.mui-container-fluid
 				.mui-panel
-					H3 Welcome to Section 2
+					H3 There are many
+					a(href='http://jeffcarp.github.io/frontend-hyperpolyglot/', target="_blank") Frontend polyglot
+
+		.section1.section
+			.mui-container-fluid
+				.mui-panel
+					H3 Some are DOM based:
+					p Polymer, AMP, (Predix, Vaadmin), RIOT(like react), Vue?, Standard
 
 		.section3.section
 			.mui-container-fluid
 				.mui-panel
-					H3 Hi, I'm Section 3. We're friends now.
+					p Example standard comp:
+					code
+						pre.
+							template#xfirst-el
+							style.
+								p { color: orange; }
+							p I'm Shady
+							script.
+								class FirstEl extends HTMLElement {
+									constructor() {
+										super()
+										let shadowRoot = this.attachShadow({mode: 'open'})
+										const t = document.querySelector('#xfirst-el')// add the dom
+										const instance = t.content.cloneNode(true)
+										shadowRoot.appendChild(instance)
+									}//()
+									tst() { console.log('XXX') }
+								}//class
+		.section4.section
+			.mui-container-fluid
+				.mui-panel
+					p Example script to load a component on a page:
+					code
+						pre.
+							_loadedComp : {'exComp': true} // don't load 2x
+							loadComp: function($here, url, cb) { //load template, don't forget #comps
+								if(url in TS._loadedComp) {//guard: we loaded it before, thank you
+									cb()
+									return
+								} else {
+									fetch(url, {
+										method: 'get'
+									}).then(function(reSPonse) {
+										if (!reSPonse.ok) {
+											throw Error(reSPonse.statusText)
+										}
+										return reSPonse.text()
+									}).then(function(txt) {
+										TS._loadedComp[url] = true
+										$here.append( txt )
+										cb()
+									})
+								}
+							}//()
 
 		.section4.section
 			.mui-container-fluid
 				.mui-panel
-					H3 This is the last Section. Good Bye!
+					p Example page using a component:
+					code
+						pre.
+							&lt div class="mui-container-fluid"&gt
+								&ltfirst-el&gt&lt/first-el&gt
+							&lt/div&gt
+							&ltscript&gt
+								function UIinit() {
+									loadComp($('#comps'),'/_webComp/first.html', UIComp1Init)
+								}
+								function UIComp1Init() {//this does not execute yet
+									var el = customElements.get('first-el')
+									if(!el) // if it is not defined, define:
+										customElements.define('first-el', FirstEl)// loaded w/ template
+									var m = document.querySelector('first-el')
+									m.tst() // talk to it
+								}
+							&lt/script&gt
+
 
 
 	script.

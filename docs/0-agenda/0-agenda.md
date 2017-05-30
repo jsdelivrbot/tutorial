@@ -3,31 +3,26 @@
 
 The Basics
 
-- [1: Hello World - Using Markdown with Preprocessor](../1-helloWorld/)
+- [1: Material Design, SASS, MD and Pug](../2-theBasics/)
 
-- [2: Material Design, SASS and Pug](../2-theBasics/)
+- [2: AppShell, Turbo and Caching for Performance](../4-appShell/)
 
 - [3: Go-Live - Deploy to Cloud and use a CDN](../3-goLive/)
 
+- 3a: Creating a mobile app (Phonegap), SEO
+
 The Bricks and Mortar
 
-- [4: AppShell, Turbo and Caching for Performance](../4-appShell/)
+- [4: Accelerated Mobile Pages (AMP) and Node.js](../5-amp/)
 
-- [5: Accelerated Mobile Pages (AMP) and Node.js](../5-amp/)
 
-- 6: Creating a mobile app (Phonegap), SEO
+The Perspectives 
 
-The Perspectives (expect some JavasSript)
+- 7: Services (example Firebase)
 
-- 7: Render dynamic data (example Firebase with DoT template, client- and serverside)
+- 8: Web Components 
 
-- 8: Going from events to observers, client- and serverside (include 'Struts' submit)
-
-- 9: Web Components (Integrate a standard and a react component (datepicker, mui suggests to use it as it doesn't support date input fields)
-
-- 10: Dynamic dropdowns (populate with fetch) and validation, client- and serverside
-
-- 11: Security (login page, use of tokens) 
+- 9: Security
 
 
 

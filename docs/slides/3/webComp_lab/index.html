@@ -17,24 +17,18 @@
     <div id="appbar">
       <div id="appbar--brand" onclick="openDrawer()">&nbsp; ☰ &nbsp;<span class="mui--hidden-xs">Topseed&trade; Tutorial</span></div>
       <ul id="appbar--menu">
-        <li><a href="../0-agenda/">Agenda</a></li>
-        <li><a href="../1-helloWorld/">One</a></li>
-        <li><a href="../2-theBasics/">Two</a></li>
-        <li><a href="../3-goLive/">Three</a></li>
-        <li><a href="../4-appShell/">Four</a></li>
-        <li><a href="../5-amp/">Five</a></li>
+        <li><a href="/0-agenda/">Agenda</a></li>
       </ul>
     </div>
     <div id="sidedrawer" onclick="closeDrawer()">
       <div id="sidedrawer--brand">&nbsp; ☰ Topseed&trade; Tutorials</div>
       <div class="mui-divider"></div>
       <ul id="sidedrawer--menu">
-        <li><a href="../0-agenda/">Agenda</a></li>
-        <li><a href="../1-helloWorld/">One: Hello World</a></li>
-        <li><a href="../2-theBasics/">Two: The Basics</a></li>
-        <li><a href="../3-goLive/">Three: Golive</a></li>
-        <li><a href="../4-appShell/">Four: AppShell</a></li>
-        <li><a href="../5-amp/">Five: AMP and Node.js</a></li>
+        <li><a href="/0-agenda/">Agenda</a></li>
+        <li><a href="/2-theBasics/">Two: The Basics</a></li>
+        <li><a href="/3-goLive/">Three: Golive</a></li>
+        <li><a href="/4-appShell/">Four: AppShell</a></li>
+        <li><a href="/5-amp/">Five: AMP and Node.js</a></li>
       </ul>
     </div>
     <script>
@@ -71,28 +65,97 @@
         <div class="section1 section">
           <div class="mui-container-fluid">
             <div class="mui-panel">
-              <H3>Section 1. Scroll down for more</H3>
+              <H3>Web Components, and Business Logic </H3>
             </div>
           </div>
         </div>
         <div class="section2 section">
           <div class="mui-container-fluid">
             <div class="mui-panel">
-              <H3>Welcome to Section 2</H3>
+              <H3>There are many</H3><a href="http://jeffcarp.github.io/frontend-hyperpolyglot/" target="_blank">Frontend polyglot</a>
+            </div>
+          </div>
+        </div>
+        <div class="section1 section">
+          <div class="mui-container-fluid">
+            <div class="mui-panel">
+              <H3>Some are DOM based:</H3>
+              <p>Polymer, AMP, (Predix, Vaadmin), RIOT(like react), Vue?, Standard</p>
             </div>
           </div>
         </div>
         <div class="section3 section">
           <div class="mui-container-fluid">
             <div class="mui-panel">
-              <H3>Hi, I'm Section 3. We're friends now.</H3>
+              <p>Example standard comp:</p><code>
+                <pre>template#xfirst-el
+style.
+	p { color: orange; }
+p I'm Shady
+script.
+	class FirstEl extends HTMLElement {
+		constructor() {
+			super()
+			let shadowRoot = this.attachShadow({mode: 'open'})
+			const t = document.querySelector('#xfirst-el')// add the dom
+			const instance = t.content.cloneNode(true)
+			shadowRoot.appendChild(instance)
+		}//()
+		tst() { console.log('XXX') }
+	}//class</pre></code>
             </div>
           </div>
         </div>
         <div class="section4 section">
           <div class="mui-container-fluid">
             <div class="mui-panel">
-              <H3>This is the last Section. Good Bye!</H3>
+              <p>Example script to load a component on a page:</p><code>
+                <pre>_loadedComp : {'exComp': true} // don't load 2x
+loadComp: function($here, url, cb) { //load template, don't forget #comps
+	if(url in TS._loadedComp) {//guard: we loaded it before, thank you
+		cb()
+		return
+	} else {
+		fetch(url, {
+			method: 'get'
+		}).then(function(reSPonse) {
+			if (!reSPonse.ok) {
+				throw Error(reSPonse.statusText)
+			}
+			return reSPonse.text()
+		}).then(function(txt) {
+			TS._loadedComp[url] = true
+			$here.append( txt )
+			cb()
+		})
+	}
+}//()
+</pre></code>
+            </div>
+          </div>
+        </div>
+        <div class="section4 section">
+          <div class="mui-container-fluid">
+            <div class="mui-panel">
+              <p>Example page using a component:</p><code>
+                <pre>&lt div class="mui-container-fluid"&gt
+	&ltfirst-el&gt&lt/first-el&gt
+&lt/div&gt
+&ltscript&gt
+	function UIinit() {
+		loadComp($('#comps'),'/_webComp/first.html', UIComp1Init)
+	}
+	function UIComp1Init() {//this does not execute yet
+		var el = customElements.get('first-el')
+		if(!el) // if it is not defined, define:
+			customElements.define('first-el', FirstEl)// loaded w/ template
+		var m = document.querySelector('first-el')
+		m.tst() // talk to it
+	}
+&lt/script&gt
+
+
+</pre></code>
             </div>
           </div>
         </div>
