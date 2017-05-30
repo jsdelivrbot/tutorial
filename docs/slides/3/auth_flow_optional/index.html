@@ -71,28 +71,95 @@
         <div class="section1 section">
           <div class="mui-container-fluid">
             <div class="mui-panel">
-              <H3>Section 1. Scroll down for more</H3>
+              <H3>Authenthication Flow and Sample App</H3>
+              <p> </p>
             </div>
           </div>
         </div>
         <div class="section2 section">
           <div class="mui-container-fluid">
             <div class="mui-panel">
-              <H3>Welcome to Section 2</H3>
+              <H3>Basic and Token Auth.</H3>
+              <p>
+                There are several types of auth. Basic is just sending username and password.
+                Token is sending a token, that the server holds instead of username/password. Token can be via query string, header, cookie, etc. Token can comee to any of the distributed servers, so server use a distributed hashmap, such as Redis to store valid tokens. If a Token fails, the user is required to send username/password to the server to get a new token. In general, to be able to do token, you must be comfortable w/ basic, since token auth is just an 'upgrade' and reprsents the already sent username/password.
+                
+              </p>
             </div>
           </div>
         </div>
         <div class="section3 section">
           <div class="mui-container-fluid">
             <div class="mui-panel">
-              <H3>Hi, I'm Section 3. We're friends now.</H3>
+              <p>On the server:</p><code>
+                <pre>if('vic'== token.user && '123' == token.password)
+	return true
+return false
+</pre></code>
             </div>
           </div>
         </div>
         <div class="section4 section">
           <div class="mui-container-fluid">
+            <div class="mui-panel"><code>
+                <pre>if( !MyAuth.auth(jt))
+	res.status(403).send(JSON.stringify('Auth required, IP Logged')).end()
+</pre></code></div>
+          </div>
+        </div>
+        <div class="section3 section">
+          <div class="mui-container-fluid">
             <div class="mui-panel">
-              <H3>This is the last Section. Good Bye!</H3>
+              <p>On the client:</p><code>
+                <pre>fetch(ROOT + url , {
+	method: 'post'
+	, headers: {
+		'Content-Type': 'application/json'
+		,'X-JToken' : JSON.stringify(jtoken)
+		,'Accept':'application/json'
+	}
+	, body: JSON.stringify(data)
+}).then(function(response)
+</pre></code>
+            </div>
+          </div>
+        </div>
+        <div class="section2 section">
+          <div class="mui-container-fluid">
+            <div class="mui-panel">
+              <H3>Example Flow:</H3>
+              <ol>
+                <li>User goes to 'secured page''</li>
+                <li>'Secured page' reads localy stored cookies</li>
+                <li>Cookies sent to server/service. </li>
+                <li>If OK, proceed with 'update', etc.</li>
+                <li>If not: Go to login page</li>
+                <li>After login submit, locally store cookie of username/password</li>
+                <li>Load 'Secured page' / Go to top</li>
+              </ol>
+            </div>
+          </div>
+        </div>
+        <div class="section1 section">
+          <div class="mui-container-fluid">
+            <div class="mui-panel">
+              <H3>Example app</H3>
+              <ul>
+                <li>Show list of links</li>
+                <li>If user goes to 'add links' page: redirect to Auth/Login</li>
+                <li>If user is IE, not Edge, SSR of list</li>
+                <li>If admin user is IE, not Edge: show list of modern browsers</li>
+                <li>Use data binding and web components</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="section1 section">
+          <div class="mui-container-fluid">
+            <div class="mui-panel">
+              <H3>THE END. Review:</H3>
+              <p>SPA, SEO, AMP, App shell, Mobile, Web Components, Sass, Express, Services, etc.</p>
+              <p>Optional Lab: deploy link blog app to your site and release a mobile app. Customize UI.</p>
             </div>
           </div>
         </div>
@@ -106,7 +173,6 @@
         		css3:false
         	})//config
         }
-        
         
       </script>
     </div>
