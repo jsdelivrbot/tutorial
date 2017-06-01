@@ -91,7 +91,7 @@ block main
 								}
 							}//()
 
-		.section4.section
+		.section3.section
 			.mui-container-fluid
 				.mui-panel
 					p Example page using a component:
@@ -112,6 +112,56 @@ block main
 									m.tst() // talk to it
 								}
 							&lt/script&gt
+
+
+		.section2.section
+			.mui-container-fluid
+				.mui-panel
+					H3 Best practices
+					ul
+						li No Data Services in Web Components
+						li Trivial, like a button is not a component. BEM or a 'Card' is
+						
+
+		.section1.section
+			.mui-container-fluid
+				.mui-panel
+					H3 Sometimes there are 2 or more components on page
+					H4 So... they may need to talk to each other.
+					H3 Good idea is to have an Observer pattern. 
+					H4 
+
+		.section3.section
+			.mui-container-fluid
+				.mui-panel
+					p Example page using 2 components:
+					code
+						pre.
+							.mui-container-fluid
+								c-1
+								c-2
+							script.
+								TS.onAppReady(UIinit)
+								let _blx // a dictionay map of observers
+								function UIinit() {
+									_blx = new BLX(null) // can / should have folder local class
+									TS.loadComp($('#comps'),'/_webComp/C1.html', UIComp1Init)
+									TS.loadComp($('#comps'),'/_webComp/C2.html', UIComp2Init)
+								}
+								function UIComp1Init() {
+									var el = customElements.get('c-1')
+									if(!el) // if it is not defined, define:
+										customElements.define('c-1', C1El)// loaded w/ template
+									let m = document.querySelector('c-1')
+									m.init(_blx) // talk to it
+								}
+								function UIComp2Init() {
+									var el = customElements.get('c-2')
+									if(!el) // if it is not defined, define:
+										customElements.define('c-2', C2El)// loaded w/ template
+									let m = document.querySelector('c-2')
+									m.init(_blx) // talk to it
+								}
 
 
 
