@@ -1,6 +1,6 @@
 
 // class:
-const ROOT = 'http://jsonplaceholder.typicode.com/'
+let ROOT = 'http://jsonplaceholder.typicode.com/'
 class Page1BDS extends BDS {
 	doFetch() {
 		return BDS.fetch(window.fetch, ROOT, 'comments')
