@@ -29,22 +29,83 @@ block main
 		.section1.section
 			.mui-container-fluid
 				.mui-panel
-					H3 Section 1. Scroll down for more
+					H3 Data Binding
+					p There are many ways we use, some are:
+					ul
+						li Mustache type
+						li SSR
+						li jQuery type
+					p Also, Web Components could hide some of the DOM soup and do data binding.
+					p note: A jr. developer may want to skip ahead. Mastering data binding is a step for sr. engineers, before making any web component.  
 
 		.section2.section
 			.mui-container-fluid
 				.mui-panel
-					H3 Welcome to Section 2
+					p One Mustache style is 'doT', ex:
+					code
+						pre.
+							.mui-container-fluid
+								#bind1
+							script#exp1Tpl(type='text/x-dot-template').
+								{{~it.array :value:index}}
+									&ltdiv&gt{{=value}}&lt/div&gt
+								{{~}}
+							script.
+								TS.onAppReady(UIinit)
+								function UIinit() {
+									var tpl1 = document.getElementById('exp1Tpl').text
+									var tpl1Foo = doT.template(tpl1)
+									var data = {'array':['banana','apple','orange']}
+									var res = tpl1Foo(data)
+									document.getElementById('bind1').innerHTML = res
+								}
 
 		.section3.section
 			.mui-container-fluid
 				.mui-panel
-					H3 Hi, I'm Section 3. We're friends now.
+					p SSR ex: (note: this is also front end code)
+					code
+						pre.
+							const cheerio = require('cheerio')
+							const tpl = 
+							`{{~it.array :value:index}}
+								&ltdiv&gt{{=value}}&lt/div&gt
+							{{~}}`
+							class MyBLX {
+								_renderComps(html, res) {
+									const tplFoo = doT.template(tpl) //compile
+									const data = this._fetchData() 
+									const bound = tplFoo(data)
+									var $ = cheerio.load(html) // load in the HTML into cheerio
+									$('#list1').replaceWith(bound)
+									return $.html()
+								}
+								_getPage() {// should be file
+									const p =`html
+								head
+								body
+									p hi
+									#list1
+								`
+									return pug.render(p) 
+								}//pg
+								renderPage(res) {
+									const html = this._getPage()
+									return this._renderComps(html, res)	 
+								}//()
+							}//class
+							module.exports = MyBLX //node
 
 		.section4.section
 			.mui-container-fluid
 				.mui-panel
-					H3 This is the last Section. Good Bye!
+					H3 One example of jQuery data binding is dataTables.net
+
+		.section4.section
+			.mui-container-fluid
+				.mui-panel
+					H3 LAB
+					p Make a browser side data binding for a list of links.
 
 
 	script.

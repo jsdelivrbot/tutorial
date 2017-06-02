@@ -58,6 +58,7 @@ block main
 			.mui-container-fluid
 				.mui-panel
 					p Once you know that the service/API works on a page, then you can start implementing. A base class that we can extend, note that you need the free service key from FireBase.
+					p NOTE: Services should run in a different NODE instance from your front end. Ex: Scaling and security issues. 
 					code
 						pre.
 							const fb = firebase.initializeApp({
