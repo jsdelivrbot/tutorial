@@ -9,5 +9,11 @@ block main
 		include 1-helloWorld.html
 		include _buttons 
 
+	script.
+		TS.onAppReady(UIinit)
+		function UIinit() {
+			console.log('x')
+		}
+
 block footer
 	include ../_part/_footer

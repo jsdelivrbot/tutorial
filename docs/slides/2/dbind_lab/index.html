@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="/_sass/main.css">
     <script src="//code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://cdn.rawgit.com/topseed/topseed-turbo/master/vendor/loadjs.min.js"></script>
-    <script src="https://cdn.rawgit.com/topseed/topseed-turbo/master/setup/setup-2.4.js"></script>
+    <script src="https://cdn.rawgit.com/topseed/topseed-turbo/master/setup/setup-latest.js"></script>
     <script src="/_js/main.js" async=""></script>
   </head>
   <body>
@@ -65,28 +65,90 @@
         <div class="section1 section">
           <div class="mui-container-fluid">
             <div class="mui-panel">
-              <H3>Section 1. Scroll down for more</H3>
+              <H3>Data Binding</H3>
+              <p>There are many ways we use, some are:</p>
+              <ul>
+                <li>Mustache type</li>
+                <li>SSR</li>
+                <li>jQuery type</li>
+              </ul>
+              <p>Also, Web Components could hide some of the DOM soup and do data binding.</p>
+              <p>note: A jr. developer may want to skip ahead. Mastering data binding is a step for sr. engineers, before making any web component.  </p>
             </div>
           </div>
         </div>
         <div class="section2 section">
           <div class="mui-container-fluid">
             <div class="mui-panel">
-              <H3>Welcome to Section 2</H3>
+              <p>One Mustache style is 'doT', ex:</p><code>
+                <pre>.mui-container-fluid
+	#bind1
+script#exp1Tpl(type='text/x-dot-template').
+	{{~it.array :value:index}}
+		&ltdiv&gt{{=value}}&lt/div&gt
+	{{~}}
+script.
+	TS.onAppReady(UIinit)
+	function UIinit() {
+		var tpl1 = document.getElementById('exp1Tpl').text
+		var tpl1Foo = doT.template(tpl1)
+		var data = {'array':['banana','apple','orange']}
+		var res = tpl1Foo(data)
+		document.getElementById('bind1').innerHTML = res
+	}
+</pre></code>
             </div>
           </div>
         </div>
         <div class="section3 section">
           <div class="mui-container-fluid">
             <div class="mui-panel">
-              <H3>Hi, I'm Section 3. We're friends now.</H3>
+              <p>SSR ex: (note: this is also front end code)</p><code>
+                <pre>const cheerio = require('cheerio')
+const tpl = 
+`{{~it.array :value:index}}
+	&ltdiv&gt{{=value}}&lt/div&gt
+{{~}}`
+class MyBLX {
+	_renderComps(html, res) {
+		const tplFoo = doT.template(tpl) //compile
+		const data = this._fetchData() 
+		const bound = tplFoo(data)
+		var $ = cheerio.load(html) // load in the HTML into cheerio
+		$('#list1').replaceWith(bound)
+		return $.html()
+	}
+	_getPage() {// should be file
+		const p =`html
+	head
+	body
+		p hi
+		#list1
+	`
+		return pug.render(p) 
+	}//pg
+	renderPage(res) {
+		const html = this._getPage()
+		return this._renderComps(html, res)	 
+	}//()
+}//class
+module.exports = MyBLX //node
+</pre></code>
             </div>
           </div>
         </div>
         <div class="section4 section">
           <div class="mui-container-fluid">
             <div class="mui-panel">
-              <H3>This is the last Section. Good Bye!</H3>
+              <H3>One example of jQuery data binding is dataTables.net</H3>
+            </div>
+          </div>
+        </div>
+        <div class="section4 section">
+          <div class="mui-container-fluid">
+            <div class="mui-panel">
+              <H3>LAB</H3>
+              <p>Make a browser side data binding for a list of links.</p>
             </div>
           </div>
         </div>

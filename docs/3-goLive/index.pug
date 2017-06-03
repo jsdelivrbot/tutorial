@@ -9,5 +9,12 @@ block main
 		include 3-goLive.html 
 		include _buttons
 
+	script.
+		TS.onAppReady(UIinit)
+		function UIinit() {
+			console.log('x')
+		}
+
+
 block footer
 	include ../_part/_footer

@@ -8,5 +8,11 @@ block main
 	.mui-container-fluid
 		include 0-agenda.html
 
+	script.
+		TS.onAppReady(UIinit)
+		function UIinit() {
+			console.log('x')
+		}
+
 block footer
 	include ../_part/_footer

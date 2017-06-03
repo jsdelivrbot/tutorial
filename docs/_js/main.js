@@ -27,6 +27,7 @@ function libsLoaded(){
 			//$('#content-wrapper').fadeTo(100,.2)
 		}
 		if(TT.PAGE==evt.typ)  {//new pg loaded
+			console.log('TT')
 			$(TT.ScontentID).html(evt.$new)
 			//$('#content-wrapper').fadeTo(100,1)
 
