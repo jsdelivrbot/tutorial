@@ -3,22 +3,34 @@
 		span.mui--hidden-xs Topseed&trade; Tutorial
 	ul#appbar--menu
 		li
-			a(href='/0-agenda/') Agenda
+			a(href='./0-agenda/') Agenda
+		li
+			a(href='./1-helloWorld/') One
+		li
+			a(href='./2-theBasics/') Two
+		li
+			a(href='./3-goLive/') Three
+		li
+			a(href='./4-appShell/') Four
+		li
+			a(href='./5-amp/') Five
 
 #sidedrawer(onclick='closeDrawer()')
 	#sidedrawer--brand &nbsp; ☰ Topseed&trade; Tutorials
 	.mui-divider
 	ul#sidedrawer--menu
 		li
-			a(href='/0-agenda/') Agenda
+			a(href='./0-agenda/') Agenda
 		li
-			a(href='/2-theBasics/') Two: The Basics
+			a(href='./1-helloWorld/') One: Hello World
 		li
-			a(href='/3-goLive/') Three: Golive
+			a(href='./2-theBasics/') Two: The Basics
 		li
-			a(href='/4-appShell/') Four: AppShell
+			a(href='./3-goLive/') Three: Golive
 		li
-			a(href='/5-amp/') Five: AMP and Node.js
+			a(href='./4-appShell/') Four: AppShell
+		li
+			a(href='./5-amp/') Five: AMP and Node.js
 script.
 	function openDrawer(px, e) {
 		$('#sidedrawer').css('transform', 'translateX(201px)')

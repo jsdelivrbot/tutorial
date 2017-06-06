@@ -1,34 +1,41 @@
 <!DOCTYPE html>
 <html lang="en-us">
   <head>
+    <base href="/tutorial/">
     <title>AppShell</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="">
-    <link rel="icon" href="../favicon.ico">
-    <link rel="stylesheet" href="/_sass/main.css">
-    <script src="//code.jquery.com/jquery-3.2.1.min.js"></script>
+    <link rel="icon" href="./favicon.ico">
+    <script src="//code.jquery.com/jquery-3.2.1.slim.min.js"></script>
     <script src="https://cdn.rawgit.com/topseed/topseed-turbo/master/vendor/loadjs.min.js"></script>
-    <script src="https://cdn.rawgit.com/topseed/topseed-turbo/master/setup/setup-2.7.js"></script>
-    <script src="/_js/main.js" async=""></script>
+    <script src="https://cdn.rawgit.com/topseed/topseed-turbo/master/setup/setup-2.7.1.js"></script>
+    <script src="./_js/main.js" async=""></script>
   </head>
   <body>
+    <link rel="stylesheet" href="./_sass/main.css" lazyload="1">
     <div id="appbar">
       <div id="appbar--brand" onclick="openDrawer()">&nbsp; ☰ &nbsp;<span class="mui--hidden-xs">Topseed&trade; Tutorial</span></div>
       <ul id="appbar--menu">
-        <li><a href="/0-agenda/">Agenda</a></li>
+        <li><a href="./0-agenda/">Agenda</a></li>
+        <li><a href="./1-helloWorld/">One</a></li>
+        <li><a href="./2-theBasics/">Two</a></li>
+        <li><a href="./3-goLive/">Three</a></li>
+        <li><a href="./4-appShell/">Four</a></li>
+        <li><a href="./5-amp/">Five</a></li>
       </ul>
     </div>
     <div id="sidedrawer" onclick="closeDrawer()">
       <div id="sidedrawer--brand">&nbsp; ☰ Topseed&trade; Tutorials</div>
       <div class="mui-divider"></div>
       <ul id="sidedrawer--menu">
-        <li><a href="/0-agenda/">Agenda</a></li>
-        <li><a href="/2-theBasics/">Two: The Basics</a></li>
-        <li><a href="/3-goLive/">Three: Golive</a></li>
-        <li><a href="/4-appShell/">Four: AppShell</a></li>
-        <li><a href="/5-amp/">Five: AMP and Node.js</a></li>
+        <li><a href="./0-agenda/">Agenda</a></li>
+        <li><a href="./1-helloWorld/">One: Hello World</a></li>
+        <li><a href="./2-theBasics/">Two: The Basics</a></li>
+        <li><a href="./3-goLive/">Three: Golive</a></li>
+        <li><a href="./4-appShell/">Four: AppShell</a></li>
+        <li><a href="./5-amp/">Five: AMP and Node.js</a></li>
       </ul>
     </div>
     <script>
@@ -58,7 +65,7 @@
 </li>
 </ol>
 
-        <div class="mui--text-left"><a class="mui-btn mui-btn--raised" href="../5-amp/">Next Tutorial</a><a class="mui-btn" href="../0-agenda/">Return to Agenda</a></div>
+        <div class="mui--text-left"><a class="mui-btn mui-btn--raised" href="./5-amp/">Next Tutorial</a><a class="mui-btn" href="./0-agenda/">Return to Agenda</a></div>
       </div>
       <script>
         TS.onAppReady(UIinit)

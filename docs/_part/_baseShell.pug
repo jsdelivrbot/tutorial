@@ -1,9 +1,11 @@
 doctype html
 html(lang='en-us')
 	head
+		base(href='/tutorial/')
 		block head
 
 	body
+		link(rel='stylesheet', href='./_sass/main.css', lazyload="1")
 		include _top
 
 		#content-wrapper

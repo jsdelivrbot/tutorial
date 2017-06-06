@@ -4,9 +4,9 @@ loadjs.ready(['polyfills', 'keyLibs'], {// loaded setup libs
 
 		loadjs([
 
-			'/_js/vendor/jquery.jsForm.min.js'
-			,'/_js/vendor/jquery.fullpage.min.js'
-			,'/_js/vendor/jquery.fullpage.min.css'
+			'./_js/vendor/jquery.jsForm.min.js'
+			,'./_js/vendor/jquery.fullpage.min.js'
+			,'./_js/vendor/jquery.fullpage.min.css'
 
 			], { success: function(){
 				libsLoaded()

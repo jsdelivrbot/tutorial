@@ -1,30 +1,28 @@
 ## Agenda:
 
 
-The Basics
+Cool Stuff for Designers
 
-- [1: Material Design, SASS, MD and Pug](../2-theBasics/) *
+- [1: Hello World](./1-helloWorld/)
 
-- [2: AppShell, Turbo and Caching for Performance](../4-appShell/)
+- [1: Material Design, SASS, and Pug](./2-theBasics/)
 
-- [3: Go-Live - Deploy to Cloud and use a CDN](../3-goLive/) *
+- [3: Go-Live - Deploy to Cloud and use a CDN](./3-goLive/)
 
-- 3a: Creating a mobile app (Phonegap), SEO
+- [4: AppShell, Turbo and Caching for Performance](./4-appShell/)
 
-The Bricks and Mortar
+- [5: Accelerated Mobile Pages (AMP) and Node.js](./5-amp/)
 
-- [4: Accelerated Mobile Pages (AMP) and Node.js](../5-amp/)
+Cool Stuff for Developers
 
-- 7: Services (example Firebase)
+- 6: Data round trip: Create (form) and List (doT) from an API (Example Firebase) via BLX
 
-- Data Binding
+- 7: Authentication and Testing (DS/CI-CD)
 
-The Perspectives 
-- Testing
+- 8: Web Components (Standard + Polymer) and their Communication
 
-- 8: Web Components 
+- 9: Server-side rendering (SSR) of Web Components and Server-side BLX
 
-- 9: Security
-
+- 10: Optional: Mobile App (Phonegap)
 
 
