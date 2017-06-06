@@ -19,7 +19,7 @@ The Bricks and Mortar
 
 The Perspectives
 
-- 7: Authentication and Testing (DS/CI-CD)
+- 7: Login Security and Testing (DS/CI-CD)
 
 - 8: Web Components (Standard + Polymer) and their Communication
 
