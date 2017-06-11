@@ -3,9 +3,9 @@
 
 The Basics
 
-- [1: Hello World](./1-helloWorld/)
+- [1: Hello World and Markdown](./1-helloWorld/)
 
-- [1: Material Design, SASS, Markdown and Pug](./2-theBasics/)
+- [1: Material Design, SASS and Pug](./2-theBasics/)
 
 - [3: Go-Live - Deploy to Cloud and use a CDN](./3-goLive/)
 
