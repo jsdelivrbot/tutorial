@@ -1,0 +1,42 @@
+
+    - serverside "BLX" (not action)
+
+https://github.com/topseed/topseed-example/tree/master/wsrv/webroot/linkBlog
+
+
+    - decider using .pug
+
+https://github.com/topseed/topseed-webcomps/blob/master/demo-srv/utils/Decider.js
+
+    - doT server-side ?
+
+https://github.com/topseed/topseed-example/blob/master/wsrv/wcode/route/ssrBLXD0.js
+
+    - standard component ?
+
+https://github.com/topseed/topseed-helloworld/blob/master/topseed-srv/helloworld-webroot/comp/index.pug
+
+    - standard component (SSR) ?
+
+https://github.com/topseed/topseed-example/blob/master/wsrv/wcode/route/ssrBLX.js
+
+    - polymer component
+
+We never talked about that till recent. I recommend stnadard not polymer.
+https://github.com/topseed/topseed-webcomps/blob/master/demo-srv/poly0/page/one/index.pug
+
+    - polymer component (SSR)
+
+In a thread, they recommend nightmare.js
+https://github.com/topseed/topseed-webcomps/blob/master/ex-srv/index.js
+
+Important is comp com (we had w/ riot) as it shows loosly coupled wat to talk to DS.
+
+It would be good idea for you to better organize the 3 projects we have:
+1 Browser side snipets: helloW
+2 SSR snipets: topseed
+3 App example w/ services: example.
+
+So even a student stuck on an old lab gets to load the next one that that works to catch up.
+
+I am focusing on getting ie11 to work w/ webcomps

@@ -15,7 +15,9 @@ The Bricks and Mortar
 
 - [5: Accelerated Mobile Pages (AMP) and Node.js](./5-amp/)
 
-- 6: Data round trip: Create (form) and List (doT) from an API (Example Firebase) via BLX
+- [6: UI Reading from an API](./6-read/) 
+
+- [7: UI Writing to an API (Example: Firebase)](./6-write/) 
 
 The Perspectives
 
