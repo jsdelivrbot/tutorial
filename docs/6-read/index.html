@@ -75,7 +75,7 @@
 </li>
 <li><p>The LinkblogDao Data Access Object is responsible for obtaining the raw list data. See &#39;urlSpec&#39; at the top of LinkblogBusiness.js and how LinkblogDao extends BDS (which contains common data access functionality). Also see at the bottom of LinkblogBusiness.js how urlSpec is passed to LinkblogDao with &#39;sb.linkblogDao = new LinkblogDao(urlSpec)&#39;. In this case, unlike SimpleBusiness, LinkblogDao has no added functionality, so we could write &#39;sb.linkblogDao = new BDS(urlSpec) instead.</p>
 </li>
-<li><p>Inspect &#39;_/js/BDS.js and its &#39;selectList&#39; function. It calls a shared static <em>get function which uses fetch</em> to call the urlSpec URL and returns a promise of the response content. &#39;Fetch&#39; is a modern replacement for Ajax/XMLHttpRequest. Fetch uses Promises! Read more about Fetch <a href='https://davidwalsh.name/fetch' target='_blank'>here</a>. In the next Lab we will find how an API server can handle this fetch request. In this Lab, the content of <a href='http://localhost:8091/linkblog/dummy.json' target='_blank'>/topseed-webroot/linkblog/dummy.json</a> is returned.</p>
+<li><p>Inspect &#39;_/js/BDS.js and its &#39;selectList&#39; function. It calls a shared static _get function which uses fetch_ to call the urlSpec URL and returns a promise of the response content. &#39;Fetch&#39; is a modern replacement for Ajax/XMLHttpRequest. Fetch uses Promises! Read more about Fetch <a href='https://davidwalsh.name/fetch' target='_blank'>here</a>. At the end of the Lab we learn how an API server can handle this fetch request. In this Lab, the content of <a href='http://localhost:8091/linkblog/dummy.json' target='_blank'>/topseed-webroot/linkblog/dummy.json</a> is returned.</p>
 </li>
 </ol>
 
