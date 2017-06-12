@@ -5,7 +5,7 @@ The Basics
 
 - [1: Hello World and Markdown](./1-helloWorld/)
 
-- [1: Material Design, SASS and Pug](./2-theBasics/)
+- [2: Material Design, SASS and Pug](./2-theBasics/)
 
 - [3: Go-Live - Deploy to Cloud and use a CDN](./3-goLive/)
 
@@ -17,7 +17,7 @@ The Bricks and Mortar
 
 - [6: UI Reading from an API](./6-read/) 
 
-- 7: UI Writing to an API (Example: Firebase)
+- [7: UI Writing to an API (Example: Firebase)](./7-write/) 
 
 - 8: Login Security and Testing (DS/CI-CD)
 
