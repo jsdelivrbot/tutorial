@@ -19,13 +19,13 @@ The Bricks and Mortar
 
 - [7: UI Writing to an API (Example: Firebase)](./7-write/) 
 
-- 8: Login Security and Testing (DS/CI-CD)
+- [8: Login Security](./8-security/)
 
 The Perspectives
 
-- 9: Web Components (Standard + Polymer) and their Communication
+- 9: Standard Web Components and their Communication
 
-- 10: Server-side rendering (SSR) of Web Components and Server-side BLX
+- 10: Extreme SEO with server-side rendering (SSR) of Web Components and server-side BLX
 
 - 11: Mobile App (Phonegap)
 
