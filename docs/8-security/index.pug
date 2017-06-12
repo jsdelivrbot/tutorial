@@ -1,0 +1,19 @@
+extends  ../_part/_baseShell
+
+block head
+	title Login Security
+	include ../_part/_header
+
+block main
+	.mui-container-fluid
+		include 8-security.html
+		include _buttons
+
+	script.
+		TS.onAppReady(UIinit)
+		function UIinit() {
+			console.log('8-security')
+		}
+
+block footer
+	include ../_part/_footer
