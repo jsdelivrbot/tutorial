@@ -1,0 +1,22 @@
+<h2 id="lab-7-ui-writing-to-an-api-example-firebase-">Lab 7: UI Writing to an API (Example: Firebase)</h2>
+<ol>
+<li><p>In a browser, return to the <a href='http://localhost:8091/admin/linkblog/' target='_blank'>Linkblog list</a>, and click the &#39;Add Item&#39; button to see <a href='http://localhost:8091/admin/linkblog/detail.html' target='_blank'>/admin/linkblog/detail.html</a>. Note that the Date field is prepopulated with today&#39;s date. In VS Code, inspect /topseed-webroot/admin/linkblog/detail.pug. This file defines the composition of the Linkblog Add Item screen. In the &#39;HTML&#39; part of this file, the data entry form represented by the pug statement &#39;form#form1&#39; (&lt;form id=&quot;form1&quot;&gt;). Note that it has &#39;onsubmit=&#39;return false&#39;, because we do not want the browser default behavior of posting to a form action URL.</p>
+</li>
+<li><p>Similar to the  list page, in &#39;script.&#39; we load /admin/linkblog/LinkblogBusiness.js, and then call the UIinit function in the page. UIinit triggers the &#39;detail()&#39; function of LinkblogBusiness, which loads today&#39;s date into the form. UIinit also specifies to call the LinkblogBusiness save() function when the form is submitted (when the &#39;Save&#39; button is clicked) instead of the default behavior, and pass any authentication cookie along. Since we are working with similar data as in the list page, and the two pages belong together, we have chosen to augment LinkblogBusiness.js with the detail() and save() functions rather than creating separate LinkblogListBusiness and LinkblogAddBusiness. For a different module we would create a separate XxxBusinness.</p>
+</li>
+<li><p>Reopen /topseed-webroot/admin/linkblog/LinkblogBusiness.js and locate the &#39;detail: function(&#39;. We use <a href='https://momentjs.com/' target='_blank'>moment.js</a> for date handling and <a href='https://github.com/corinis/jsForm' target='_blank'>jquery.jsForm</a> to populate the form with the date. The necessary libraries are loaded in /_js/admin.js. You see the result of the call to detail() when rendering of the page has completed.</p>
+</li>
+<li><p>Fill some data in the form and click &#39;Save&#39;. You should see an alert that saving is not enabled: we are not yet configured to use a database that allows saving.
+In LinkblogBusiness.js, locate the &#39;save: function(&#39;. Once we enable &#39;update&#39; in the urlSpec, processing will continue. We obtain the &#39;formData&#39; with jquery.jsForm(&#39;get&#39;), and pass it to the linkblogDao.update function. Once this has returned successfully (&#39;promise.then(&#39;), we redirects to the list page. BLX/sb has base functionality using turbo for the new page load.</p>
+</li>
+<li><p>Reopen BDS and look for the &#39;update: function(&#39;. It calls a shared static _<em>post function which uses fetch</em> to call the urlSpec update URL. </p>
+</li>
+<li><p>It is high time to connect LinkblogDao/BDS to a live database. Go to the top of LinkblogBusiness.js, comment out the first urlSpec and comment in the urlSpec that goes to localhost:8081, does not use dummy.json and also has an update route, unlike the first urlSpec. We included a small API server implementation in the topseed project at topseed/bsrv that we will run at localhost:8081. The API server in turn will call a Google Firebase service that you will configure in the next step. Why do we not call the Firebase API directly from the browser? We do not want the browser to hold the authentication credentials for the database connection (more about user authentication later).</p>
+</li>
+<li><p>[Firebase setup: TBD]</p>
+</li>
+<li><p>[Run connected:TBD]</p>
+</li>
+<li><p>[Optional: Look at API server TBD] </p>
+</li>
+</ol>

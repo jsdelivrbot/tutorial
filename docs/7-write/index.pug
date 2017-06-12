@@ -1,12 +1,19 @@
 extends  ../_part/_baseShell
 
 block head
-	title AMP
+	title Read from API
 	include ../_part/_header
 
 block main
 	.mui-container-fluid
-		include 5-amp.html
+		include 7-write.html
 		include _buttons
+
+	script.
+		TS.onAppReady(UIinit)
+		function UIinit() {
+			console.log('7-write')
+		}
+
 block footer
 	include ../_part/_footer
