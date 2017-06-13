@@ -19,7 +19,7 @@ The Bricks and Mortar
 
 - [7: UI Writing to an API (Example: Firebase)](./7-write/) 
 
-- [8: Login Security](./8-security/)
+- [8: Login Security and Tokens](./8-security/)
 
 The Perspectives
 
