@@ -1852,7 +1852,8 @@ body {
   overflow-x: hidden;
   overflow-y: auto;
   -webkit-animation: none;
-  animation: none; }
+  animation: none;
+  opacity: 1 !important; }
 
 #appbar, #sidedrawer {
   position: fixed;
@@ -2031,6 +2032,3 @@ body {
     height: 48px; }
   #footer_div {
     height: 48px; } }
-
-body {
-  opacity: 1 !important; }
