@@ -1,64 +1,6 @@
-<!DOCTYPE html>
-<html lang="en-us">
-  <head>
-    <base href="/tutorial/">
-    <title>AMP</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="">
-    <link rel="icon" href="./favicon.ico">
-    <script src="//code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-    <script src="https://cdn.rawgit.com/topseed/topseed-turbo/master/vendor/loadjs.min.js"></script>
-    <script src="https://cdn.rawgit.com/topseed/topseed-turbo/master/setup/setup-3.2.1.js"></script>
-    <script src="./_js/main.js" async=""></script>
-    <style>body {opacity: 0.1}</style>
-  </head>
-  <body>
-    <link rel="stylesheet" href="./_sass/main.css" lazyload="1">
-    <div id="appbar">
-      <div id="appbar--brand" onclick="openDrawer()">&nbsp; ☰ &nbsp;<span class="mui--hidden-xs">Topseed&trade; Tutorial</span></div>
-      <ul id="appbar--menu">
-        <li><a href="./0-agenda/">Agenda</a></li>
-        <li><a href="./1-helloWorld/">One</a></li>
-        <li><a href="./2-theBasics/">Two</a></li>
-        <li><a href="./3-goLive/">Three</a></li>
-        <li><a href="./4-appShell/">Four</a></li>
-        <li><a href="./5-amp/">Five</a></li>
-        <li><a href="./6-read/">Six</a></li>
-        <li><a href="./7-write/">Seven</a></li>
-        <li><a href="./8-security/">Eight</a></li>
-        <li><a href="./9-comps/">Nine			</a></li>
-      </ul>
-    </div>
-    <div id="sidedrawer" onclick="closeDrawer()">
-      <div id="sidedrawer--brand">&nbsp; ☰ Topseed&trade; Tutorials</div>
-      <div class="mui-divider"></div>
-      <ul id="sidedrawer--menu">
-        <li><a href="./0-agenda/">Agenda</a></li>
-        <li><a href="./1-helloWorld/">1: Hello World</a></li>
-        <li><a href="./2-theBasics/">2: The Basics</a></li>
-        <li><a href="./3-goLive/">3: Golive</a></li>
-        <li><a href="./4-appShell/">4: AppShell</a></li>
-        <li><a href="./5-amp/">5: AMP and Node.js</a></li>
-        <li><a href="./6-read/">6: UI Reading from API	</a></li>
-        <li><a href="./7-write/">7: UI Writing to API</a></li>
-        <li><a href="./8-security/">8: Login Security</a></li>
-        <li><a href="./9-comps/">9: Web Components				</a></li>
-      </ul>
-    </div>
-    <script>
-      function openDrawer(px, e) {
-      	$('#sidedrawer').css('transform', 'translateX(201px)')
-      }
-      function closeDrawer(e) {
-      	$('#sidedrawer').css('transform', 'translateX(0px)')
-      }			
-    </script>
-    <div id="content-wrapper">
-      <div class="mui-container-fluid"><h2 id="lab-5-accelerated-mobile-pages-amp-and-node-js">Lab 5: Accelerated Mobile Pages (AMP) and Node.js</h2>
+<h2 id="lab-9-standard-web-components-and-their-communication">Lab 9: Standard Web Components and their Communication</h2>
 <ol>
-<li><p>AMP is a way to ensure that web pages render fast on mobile devices, for a better user experience (UX). Visit and browse <a href='https://www.ampproject.org/learn/overview/' target='_blank'>ampproject.org</a> to learn more about AMP. Other than fast rendering, one advantage of AMP pages is that Google will cache AMP pages for you for free. There are some restrictions as to what a valid AMP page can include (such as no JavaScript), but it allows you to use the full power of CSS. Download and unzip topseed-master.zip from <a href='https://github.com/topseed/topseed' target='_blank'>here</a> to your location of choice on your developer machine. We use the &#39;dynamic&#39;, server-side features of Node.js to help with serving AMP pages where appropriate. It is, however, possible to create a completely static site that serves AMP. In this tutorial, we show how both AMP and non-AMP versions can share common resources to limit content duplication.</p>
+<li><p>TBD: AMP is a way to ensure that web pages render fast on mobile devices, for a better user experience (UX). Visit and browse <a href='https://www.ampproject.org/learn/overview/' target='_blank'>ampproject.org</a> to learn more about AMP. Other than fast rendering, one advantage of AMP pages is that Google will cache AMP pages for you for free. There are some restrictions as to what a valid AMP page can include (such as no JavaScript), but it allows you to use the full power of CSS. Download and unzip topseed-webcomps-master.zip from <a href='https://github.com/topseed/topseed-webcomps' target='_blank'>here</a> to your location of choice on your developer machine. We use the &#39;dynamic&#39;, server-side features of Node.js to help with serving AMP pages where appropriate. It is, however, possible to create a completely static site that serves AMP. In this tutorial, we show how both AMP and non-AMP versions can share common resources to limit content duplication.</p>
 </li>
 <li><p>Install Node.js and NPM. If you have a MAC, follow the instructions <a href-'http://blog.teamtreehouse.com/install-node-js-npm-mac' target='_blank'>here</a>. If you have Windows, download and run the Installer from <a href='https://nodejs.org/en/download/' target='_blank'>here</a>, accept the default settings, and RESTART your computer. Open the project you downloaded in step 2 above with VS Code. Select menu View-Integrated Terminal. On the command line that opens, change directories with &#39;cd topseed-srv&#39;. To test Node, type &#39;node -v&#39; and hit Enter. You should see a version number like v8.0.0. To test NPM, type &#39;npm -v&#39; and hit Enter. You should see a version number like 4.0.3. Use Google to troubleshoot the install for your OS if necessary. </p>
 </li>
@@ -83,14 +25,3 @@ indexA.pug also has a required &#39;canonical&#39; link that points to the non-A
 <li><p>You can use an <a href='https://validator.ampproject.org' target='_blank'>AMP validator </a> to ensure your AMP is valid. It has to be valid to be indexed and cached by Google. If your page is online, you can revalidate and submit it <a href='https://search.google.com/search-console/amp' target='_blank'>here</a>.</p>
 </li>
 </ol>
-
-        <div class="mui--text-left"><a class="mui-btn mui-btn--raised" href="./6-read/">Next Tutorial </a><a class="mui-btn" href="./0-agenda/">Return to Agenda</a></div>
-      </div>
-    </div>
-    <div id="footer">
-      <div id="footer_div"><a href="https://gitter.im/topseed/Lobby" target="_blank">Forum </a>
-        <div id="footer_div--right"><a href="https://github.com/topseed/topseed" target="_blank">Kitchen Sink</a></div>
-      </div>
-    </div>
-  </body>
-</html>

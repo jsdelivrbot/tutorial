@@ -23,10 +23,10 @@ The Bricks and Mortar
 
 The Perspectives
 
-- 9: Standard Web Components and their Communication
+- [9: Standard Web Components and their Communication](./9-comps/)
 
-- 10: Extreme SEO with server-side rendering (SSR) of Web Components and server-side BLX
+- 10: Mobile App (Phonegap)
 
-- 11: Mobile App (Phonegap)
+- 11: Extreme SEO with server-side rendering (SSR) of Web Components and server-side BLX
 
 
