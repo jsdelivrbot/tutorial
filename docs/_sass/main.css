@@ -2031,3 +2031,6 @@ body {
     height: 48px; }
   #footer_div {
     height: 48px; } }
+
+body {
+  opacity: 1 !important; }
