@@ -25,7 +25,7 @@ The Perspectives
 
 - [9: Standard Web Components and their Communication](./9-comps/)
 
-- 10: Mobile App (Phonegap)
+- [10: Mobile App (Phonegap)](./10-mobile/)
 
 - 11: Extreme SEO with server-side rendering (SSR) of Web Components and server-side BLX
 

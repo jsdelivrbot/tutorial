@@ -4,24 +4,42 @@
 	ul#appbar--menu
 		li
 			a(href='./0-agenda/') Agenda
-		li
-			a(href='./1-helloWorld/') One
-		li
-			a(href='./2-theBasics/') Two
-		li
-			a(href='./3-goLive/') Three
-		li
-			a(href='./4-appShell/') Four
-		li
-			a(href='./5-amp/') Five
-		li
-			a(href='./6-read/') Six
-		li
-			a(href='./7-write/') Seven
-		li
-			a(href='./8-security/') Eight
-		li
-			a(href='./9-comps/') Nine			
+	.mui-dropdown
+		button.mui-btn.mui-btn--primary(data-mui-toggle='dropdown')
+			| The Basics
+			span.mui-caret
+		ul.mui-dropdown__menu
+			li
+				a(href='./1-helloWorld/') 1: Hello World
+			li
+				a(href='./2-theBasics/') 2: The Basics
+			li
+				a(href='./3-goLive/') 3: Golive
+			li
+				a(href='./4-appShell/') 4: AppShell
+	.mui-dropdown
+		button.mui-btn.mui-btn--primary(data-mui-toggle='dropdown')
+			| The Bricks and Mortar
+			span.mui-caret
+		ul.mui-dropdown__menu
+			li
+				a(href='./5-amp/') 5: AMP and Node.js
+			li
+				a(href='./6-read/') 6: UI Reading from API	
+			li
+				a(href='./7-write/') 7: UI Writing to API
+			li
+				a(href='./8-security/') 8: Login Security
+	.mui-dropdown
+		button.mui-btn.mui-btn--primary(data-mui-toggle='dropdown')
+			| The Perspectives
+			span.mui-caret
+		ul.mui-dropdown__menu.mui-dropdown__menu--right
+			li
+				a(href='./9-comps/') 9: Web Components
+			li
+				a(href='./10-mobile/') 10: Mobile App		
+
 
 #sidedrawer(onclick='closeDrawer()')
 	#sidedrawer--brand &nbsp; ☰ Topseed&trade; Tutorials
@@ -46,7 +64,9 @@
 		li
 			a(href='./8-security/') 8: Login Security
 		li
-			a(href='./9-comps/') 9: Web Components				
+			a(href='./9-comps/') 9: Web Components
+		li
+			a(href='./10-mobile/') 10: Mobile App						
 script.
 	function openDrawer(px, e) {
 		$('#sidedrawer').css('transform', 'translateX(201px)')
