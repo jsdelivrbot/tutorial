@@ -20,17 +20,32 @@
       <div id="appbar--brand" onclick="openDrawer()">&nbsp; ☰ &nbsp;<span class="mui--hidden-xs">Topseed&trade; Tutorial</span></div>
       <ul id="appbar--menu">
         <li><a href="./0-agenda/">Agenda</a></li>
-        <li><a href="./1-helloWorld/">One</a></li>
-        <li><a href="./2-theBasics/">Two</a></li>
-        <li><a href="./3-goLive/">Three</a></li>
-        <li><a href="./4-appShell/">Four</a></li>
-        <li><a href="./5-amp/">Five</a></li>
-        <li><a href="./6-read/">Six</a></li>
-        <li><a href="./7-write/">Seven</a></li>
-        <li><a href="./8-security/">Eight</a></li>
-        <li><a href="./9-comps/">Nine			</a></li>
-        <li><a href="./10-mobile/">Ten	</a></li>
       </ul>
+      <div class="mui-dropdown">
+        <button class="mui-btn mui-btn--primary" data-mui-toggle="dropdown">The Basics<span class="mui-caret"></span></button>
+        <ul class="mui-dropdown__menu">
+          <li><a href="./1-helloWorld/">1: Hello World</a></li>
+          <li><a href="./2-theBasics/">2: The Basics</a></li>
+          <li><a href="./3-goLive/">3: Golive</a></li>
+          <li><a href="./4-appShell/">4: AppShell</a></li>
+        </ul>
+      </div>
+      <div class="mui-dropdown">
+        <button class="mui-btn mui-btn--primary" data-mui-toggle="dropdown">The Bricks and Mortar<span class="mui-caret"></span></button>
+        <ul class="mui-dropdown__menu"> 
+          <li><a href="./5-amp/">5: AMP and Node.js</a></li>
+          <li><a href="./6-read/">6: UI Reading from API	</a></li>
+          <li><a href="./7-write/">7: UI Writing to API</a></li>
+          <li><a href="./8-security/">8: Login Security</a></li>
+        </ul>
+      </div>
+      <div class="mui-dropdown">
+        <button class="mui-btn mui-btn--primary" data-mui-toggle="dropdown">The Perspectives<span class="mui-caret"></span></button>
+        <ul class="mui-dropdown__menu mui-dropdown__menu--right">
+          <li><a href="./9-comps/">9: Web Components</a></li>
+          <li><a href="./10-mobile/">10: Mobile App		</a></li>
+        </ul>
+      </div>
     </div>
     <div id="sidedrawer" onclick="closeDrawer()">
       <div id="sidedrawer--brand">&nbsp; ☰ Topseed&trade; Tutorials</div>
