@@ -27,6 +27,6 @@ The Perspectives
 
 - [10: Mobile App (Phonegap)](./10-mobile/)
 
-- 11: Extreme SEO with server-side rendering (SSR) of Web Components and server-side BLX
+- 11: Next Edition: Extreme SEO with server-side rendering (SSR) of Web Components and server-side BLX
 
 
