@@ -30,7 +30,7 @@ function libsLoaded(){
 			console.log('TT')
 			$(TT.ScontentID).html(evt.$new)
 			//$('#content-wrapper').fadeTo(100,1)
-
+			$('html, body').scrollTop(0)
 		}
 	})
 }
