@@ -1,44 +1,47 @@
 #appbar
 	#appbar--brand(onclick='openDrawer()') &nbsp; ☰ &nbsp;
-		span.mui--hidden-xs Topseed&trade; Tutorial
+		span.mui--hidden-xs.mui--hidden-sm Topseed&trade; Tutorial
 	ul#appbar--menu
 		li
-			a(href='./0-agenda/') Agenda
-	.mui-dropdown
-		button.mui-btn.mui-btn--primary(data-mui-toggle='dropdown')
-			| The Basics
-			span.mui-caret
-		ul.mui-dropdown__menu
-			li
-				a(href='./1-helloWorld/') 1: Hello World
-			li
-				a(href='./2-theBasics/') 2: The Basics
-			li
-				a(href='./3-goLive/') 3: Golive
-			li
-				a(href='./4-appShell/') 4: AppShell
-	.mui-dropdown
-		button.mui-btn.mui-btn--primary(data-mui-toggle='dropdown')
-			| The Bricks and Mortar
-			span.mui-caret
-		ul.mui-dropdown__menu 
-			li
-				a(href='./5-amp/') 5: AMP and Node.js
-			li
-				a(href='./6-read/') 6: UI Reading from API	
-			li
-				a(href='./7-write/') 7: UI Writing to API
-			li
-				a(href='./8-security/') 8: Login Security
-	.mui-dropdown
-		button.mui-btn.mui-btn--primary(data-mui-toggle='dropdown')
-			| The Perspectives
-			span.mui-caret
-		ul.mui-dropdown__menu.mui-dropdown__menu--right
-			li
-				a(href='./9-comps/') 9: Web Components
-			li
-				a(href='./10-mobile/') 10: Mobile App		
+			a.mui--hidden-xs(href='./0-agenda/') Agenda
+		li
+			.mui-dropdown
+				a.submenu(onclick='toggleSub()')
+					| Basics
+					span.mui-caret
+				ul.mui-dropdown__menu
+					li
+						a(href='./1-helloWorld/') 1: Hello World
+					li
+						a(href='./2-theBasics/') 2: The Basics
+					li
+						a(href='./3-goLive/') 3: Golive
+					li
+						a(href='./4-appShell/') 4: AppShell
+		li
+			.mui-dropdown
+				a.submenu(onclick='toggleSub()')
+					| Bricks and Mortar
+					span.mui-caret
+				ul.mui-dropdown__menu 
+					li
+						a(href='./5-amp/') 5: AMP and Node.js
+					li
+						a(href='./6-read/') 6: UI Reading from API	
+					li
+						a(href='./7-write/') 7: UI Writing to API
+					li
+						a(href='./8-security/') 8: Login Security
+		li
+			.mui-dropdown
+				a.submenu(onclick='toggleSub()')
+					| Perspectives
+					span.mui-caret
+				ul.mui-dropdown__menu.mui-dropdown__menu--right
+					li
+						a(href='./9-comps/') 9: Web Components
+					li
+						a(href='./10-mobile/') 10: Mobile App		
 
 
 #sidedrawer(onclick='closeDrawer()')
@@ -73,4 +76,36 @@ script.
 	}
 	function closeDrawer(e) {
 		$('#sidedrawer').css('transform', 'translateX(0px)')
-	}			
+	}
+
+	//$('.submenu').on('click', clicks)
+
+	function toggleSub() {
+		event = event || window.event
+		var toggleEl = event.target || event.srcElement;
+		var wrapperEl = toggleEl.parentNode,
+		menuEl = toggleEl.nextElementSibling,
+		doc = wrapperEl.ownerDocument
+		
+		function openDropdownFn(){
+			var wrapperRect = wrapperEl.getBoundingClientRect(),
+			toggleRect = toggleEl.getBoundingClientRect()
+			var top = toggleRect.top - wrapperRect.top + toggleRect.height
+			var left =  toggleRect.left + toggleRect.width - menuEl.width
+			menuEl.style.top = top + 'px'
+			if (menuEl.classList.contains('mui-dropdown__menu--right'))
+				menuEl.style.left = left + 'px'
+			else
+				menuEl.style.left = wrapperRect.left + 'px'
+			
+			menuEl.classList.add('mui--is-open')
+		}
+
+		function closeDropdownFn() { 
+			menuEl.classList.remove('mui--is-open') 
+		}
+
+		menuEl.classList.contains('mui--is-open') ? closeDropdownFn() : openDropdownFn()
+	}
+
+				

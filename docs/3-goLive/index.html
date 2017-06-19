@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en-us">
   <head>
-    <base href="/tutorial/">
+    <base href="/docs/">
     <title>Golive</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
@@ -17,35 +17,38 @@
   <body>
     <link rel="stylesheet" href="./_sass/main.css" lazyload="1">
     <div id="appbar">
-      <div id="appbar--brand" onclick="openDrawer()">&nbsp; ☰ &nbsp;<span class="mui--hidden-xs">Topseed&trade; Tutorial</span></div>
+      <div id="appbar--brand" onclick="openDrawer()">&nbsp; ☰ &nbsp;<span class="mui--hidden-xs mui--hidden-sm">Topseed&trade; Tutorial</span></div>
       <ul id="appbar--menu">
-        <li><a href="./0-agenda/">Agenda</a></li>
+        <li><a class="mui--hidden-xs" href="./0-agenda/">Agenda</a></li>
+        <li>
+          <div class="mui-dropdown"><a class="submenu" onclick="toggleSub()">Basics<span class="mui-caret"></span></a>
+            <ul class="mui-dropdown__menu">
+              <li><a href="./1-helloWorld/">1: Hello World</a></li>
+              <li><a href="./2-theBasics/">2: The Basics</a></li>
+              <li><a href="./3-goLive/">3: Golive</a></li>
+              <li><a href="./4-appShell/">4: AppShell</a></li>
+            </ul>
+          </div>
+        </li>
+        <li>
+          <div class="mui-dropdown"><a class="submenu" onclick="toggleSub()">Bricks and Mortar<span class="mui-caret"></span></a>
+            <ul class="mui-dropdown__menu"> 
+              <li><a href="./5-amp/">5: AMP and Node.js</a></li>
+              <li><a href="./6-read/">6: UI Reading from API	</a></li>
+              <li><a href="./7-write/">7: UI Writing to API</a></li>
+              <li><a href="./8-security/">8: Login Security</a></li>
+            </ul>
+          </div>
+        </li>
+        <li>
+          <div class="mui-dropdown"><a class="submenu" onclick="toggleSub()">Perspectives<span class="mui-caret"></span></a>
+            <ul class="mui-dropdown__menu mui-dropdown__menu--right">
+              <li><a href="./9-comps/">9: Web Components</a></li>
+              <li><a href="./10-mobile/">10: Mobile App		</a></li>
+            </ul>
+          </div>
+        </li>
       </ul>
-      <div class="mui-dropdown">
-        <button class="mui-btn mui-btn--primary" data-mui-toggle="dropdown">The Basics<span class="mui-caret"></span></button>
-        <ul class="mui-dropdown__menu">
-          <li><a href="./1-helloWorld/">1: Hello World</a></li>
-          <li><a href="./2-theBasics/">2: The Basics</a></li>
-          <li><a href="./3-goLive/">3: Golive</a></li>
-          <li><a href="./4-appShell/">4: AppShell</a></li>
-        </ul>
-      </div>
-      <div class="mui-dropdown">
-        <button class="mui-btn mui-btn--primary" data-mui-toggle="dropdown">The Bricks and Mortar<span class="mui-caret"></span></button>
-        <ul class="mui-dropdown__menu"> 
-          <li><a href="./5-amp/">5: AMP and Node.js</a></li>
-          <li><a href="./6-read/">6: UI Reading from API	</a></li>
-          <li><a href="./7-write/">7: UI Writing to API</a></li>
-          <li><a href="./8-security/">8: Login Security</a></li>
-        </ul>
-      </div>
-      <div class="mui-dropdown">
-        <button class="mui-btn mui-btn--primary" data-mui-toggle="dropdown">The Perspectives<span class="mui-caret"></span></button>
-        <ul class="mui-dropdown__menu mui-dropdown__menu--right">
-          <li><a href="./9-comps/">9: Web Components</a></li>
-          <li><a href="./10-mobile/">10: Mobile App		</a></li>
-        </ul>
-      </div>
     </div>
     <div id="sidedrawer" onclick="closeDrawer()">
       <div id="sidedrawer--brand">&nbsp; ☰ Topseed&trade; Tutorials</div>
@@ -70,7 +73,39 @@
       }
       function closeDrawer(e) {
       	$('#sidedrawer').css('transform', 'translateX(0px)')
-      }			
+      }
+      
+      //$('.submenu').on('click', clicks)
+      
+      function toggleSub() {
+      	event = event || window.event
+      	var toggleEl = event.target || event.srcElement;
+      	var wrapperEl = toggleEl.parentNode,
+      	menuEl = toggleEl.nextElementSibling,
+      	doc = wrapperEl.ownerDocument
+      	
+      	function openDropdownFn(){
+      		var wrapperRect = wrapperEl.getBoundingClientRect(),
+      		toggleRect = toggleEl.getBoundingClientRect()
+      		var top = toggleRect.top - wrapperRect.top + toggleRect.height
+      		var left =  toggleRect.left + toggleRect.width - menuEl.width
+      		menuEl.style.top = top + 'px'
+      		if (menuEl.classList.contains('mui-dropdown__menu--right'))
+      			menuEl.style.left = left + 'px'
+      		else
+      			menuEl.style.left = wrapperRect.left + 'px'
+      		
+      		menuEl.classList.add('mui--is-open')
+      	}
+      
+      	function closeDropdownFn() { 
+      		menuEl.classList.remove('mui--is-open') 
+      	}
+      
+      	menuEl.classList.contains('mui--is-open') ? closeDropdownFn() : openDropdownFn()
+      }
+      
+      			
     </script>
     <div id="content-wrapper">
       <div class="mui-container-fluid"><h2 id="lab-3-go-live-deploy-to-cloud-and-use-a-cdn">Lab 3: Go-Live - Deploy to Cloud and use a CDN</h2>
