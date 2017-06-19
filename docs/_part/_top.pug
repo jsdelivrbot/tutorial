@@ -6,7 +6,7 @@
 			a.mui--hidden-xs(href='./0-agenda/') Agenda
 		li
 			.mui-dropdown
-				a.submenu(onclick='toggleSub()')
+				a.submenu(onclick='toggleSub(this)')
 					| Basics
 					span.mui-caret
 				ul.mui-dropdown__menu
@@ -20,7 +20,7 @@
 						a(href='./4-appShell/') 4: AppShell
 		li
 			.mui-dropdown
-				a.submenu(onclick='toggleSub()')
+				a.submenu(onclick='toggleSub(this)')
 					| Bricks and Mortar
 					span.mui-caret
 				ul.mui-dropdown__menu 
@@ -34,7 +34,7 @@
 						a(href='./8-security/') 8: Login Security
 		li
 			.mui-dropdown
-				a.submenu(onclick='toggleSub()')
+				a.submenu(onclick='toggleSub(this)')
 					| Perspectives
 					span.mui-caret
 				ul.mui-dropdown__menu.mui-dropdown__menu--right
@@ -80,9 +80,9 @@ script.
 
 	//$('.submenu').on('click', clicks)
 
-	function toggleSub() {
-		event = event || window.event
-		var toggleEl = event.target || event.srcElement;
+	function toggleSub(toggleEl) {
+		//-event = event || window.event
+		//-var toggleEl = event.target || event.srcElement;
 		var wrapperEl = toggleEl.parentNode,
 		menuEl = toggleEl.nextElementSibling,
 		doc = wrapperEl.ownerDocument

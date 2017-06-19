@@ -1934,10 +1934,11 @@ body {
   transition: transform .15s ease;
   transition: transform .15s ease, -webkit-transform .15s ease; }
 
-/* AMP version only
-#sidedrawer:target { // makes it appear when anchor link is clicked, AMP version
-	transform: translateX(201px);
-}*/
+#sidedrawer:target {
+  -webkit-transform: translateX(201px);
+  -ms-transform: translateX(201px);
+  transform: translateX(201px); }
+
 #sidedrawer a {
   color: #000000;
   text-decoration: none;
