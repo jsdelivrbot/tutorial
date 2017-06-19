@@ -860,7 +860,7 @@ textarea {
 /**
  * MUI Dropdown module
  */
-.mui-dropdown {
+.mui-dropdown, .submenu {
   display: inline-block;
   position: relative; }
 
@@ -1999,8 +1999,7 @@ body {
 
 #appbar a {
   color: #c5cae9;
-  text-decoration: none;
-  outline: 0; }
+  text-decoration: none; }
 
 #appbar--menu,
 #appbar--brand {
@@ -2096,6 +2095,9 @@ body {
 .mui-dropdown__menu {
   position: fixed;
   background-color: #3f51b5; }
+
+.mui-dropdown__menu > li > a:hover, .mui-dropdown__menu > li > a:focus {
+  background-color: #ff5722; }
 
 .mui-caret {
   margin-left: .4em; }

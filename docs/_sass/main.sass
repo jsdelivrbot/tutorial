@@ -33,10 +33,16 @@
 //#content-wrapper *
 //	font-family: $mui-base-font-family 
 
+//support for dropdown menu
+.submenu
+    @extend .mui-dropdown
+
 .mui-dropdown__menu
     position: fixed
     background-color: $primary-color
 
+.mui-dropdown__menu > li > a:hover, .mui-dropdown__menu > li > a:focus
+    background-color: $accent-color
 
 .mui-caret
     margin-left: .4em

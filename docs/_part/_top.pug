@@ -5,8 +5,8 @@
 		li
 			a.mui--hidden-xs(href='./0-agenda/') Agenda
 		li
-			.mui-dropdown
-				a.submenu(onclick='toggleSub(this)')
+			.submenu
+				a
 					| Basics
 					span.mui-caret
 				ul.mui-dropdown__menu
@@ -19,8 +19,8 @@
 					li
 						a(href='./4-appShell/') 4: AppShell
 		li
-			.mui-dropdown
-				a.submenu(onclick='toggleSub(this)')
+			.submenu
+				a
 					| Bricks and Mortar
 					span.mui-caret
 				ul.mui-dropdown__menu 
@@ -33,8 +33,8 @@
 					li
 						a(href='./8-security/') 8: Login Security
 		li
-			.mui-dropdown
-				a.submenu(onclick='toggleSub(this)')
+			.submenu
+				a
 					| Perspectives
 					span.mui-caret
 				ul.mui-dropdown__menu.mui-dropdown__menu--right
@@ -50,6 +50,7 @@
 	ul#sidedrawer--menu
 		li
 			a(href='./0-agenda/') Agenda
+	ul#sidedrawer--menu
 		li
 			a(href='./1-helloWorld/') 1: Hello World
 		li
@@ -58,6 +59,7 @@
 			a(href='./3-goLive/') 3: Golive
 		li
 			a(href='./4-appShell/') 4: AppShell
+	ul#sidedrawer--menu
 		li
 			a(href='./5-amp/') 5: AMP and Node.js
 		li
@@ -66,27 +68,41 @@
 			a(href='./7-write/') 7: UI Writing to API
 		li
 			a(href='./8-security/') 8: Login Security
+	ul#sidedrawer--menu
 		li
 			a(href='./9-comps/') 9: Web Components
 		li
 			a(href='./10-mobile/') 10: Mobile App						
 script.
-	function openDrawer(px, e) {
+	function openDrawer() {
 		$('#sidedrawer').css('transform', 'translateX(201px)')
 	}
-	function closeDrawer(e) {
+	function closeDrawer() {
 		$('#sidedrawer').css('transform', 'translateX(0px)')
 	}
+	$('.submenu').hover(function() {
+			toggleSub(this.firstChild, true)
+		},
+		function() {
+			toggleSub(this.firstChild, false)
+	});
 
-	//$('.submenu').on('click', clicks)
+	$('.submenu > a').click(function() {
+			toggleSub(this, true)
+	});
 
-	function toggleSub(toggleEl) {
-		//-event = event || window.event
-		//-var toggleEl = event.target || event.srcElement;
+	$('.submenu > ul').click(function() {
+			toggleSub(this.previousElementSibling, false)
+	});
+
+	function toggleSub(toggleEl, show) {
 		var wrapperEl = toggleEl.parentNode,
-		menuEl = toggleEl.nextElementSibling,
-		doc = wrapperEl.ownerDocument
+		menuEl = toggleEl.nextElementSibling
 		
+		function closeDropdownFn() { 
+			menuEl.classList.remove('mui--is-open') 
+		}
+
 		function openDropdownFn(){
 			var wrapperRect = wrapperEl.getBoundingClientRect(),
 			toggleRect = toggleEl.getBoundingClientRect()
@@ -100,12 +116,7 @@ script.
 			
 			menuEl.classList.add('mui--is-open')
 		}
-
-		function closeDropdownFn() { 
-			menuEl.classList.remove('mui--is-open') 
-		}
-
-		menuEl.classList.contains('mui--is-open') ? closeDropdownFn() : openDropdownFn()
+		show ? openDropdownFn() : closeDropdownFn()
 	}
 
 				

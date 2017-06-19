@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en-us">
   <head>
-    <base href="/tutorial/">
+    <base href="/docs/">
     <title>The Basics</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
@@ -21,7 +21,7 @@
       <ul id="appbar--menu">
         <li><a class="mui--hidden-xs" href="./0-agenda/">Agenda</a></li>
         <li>
-          <div class="mui-dropdown"><a class="submenu" onclick="toggleSub(this)">Basics<span class="mui-caret"></span></a>
+          <div class="submenu"><a>Basics<span class="mui-caret"></span></a>
             <ul class="mui-dropdown__menu">
               <li><a href="./1-helloWorld/">1: Hello World</a></li>
               <li><a href="./2-theBasics/">2: The Basics</a></li>
@@ -31,7 +31,7 @@
           </div>
         </li>
         <li>
-          <div class="mui-dropdown"><a class="submenu" onclick="toggleSub(this)">Bricks and Mortar<span class="mui-caret"></span></a>
+          <div class="submenu"><a>Bricks and Mortar<span class="mui-caret"></span></a>
             <ul class="mui-dropdown__menu"> 
               <li><a href="./5-amp/">5: AMP and Node.js</a></li>
               <li><a href="./6-read/">6: UI Reading from API	</a></li>
@@ -41,7 +41,7 @@
           </div>
         </li>
         <li>
-          <div class="mui-dropdown"><a class="submenu" onclick="toggleSub(this)">Perspectives<span class="mui-caret"></span></a>
+          <div class="submenu"><a>Perspectives<span class="mui-caret"></span></a>
             <ul class="mui-dropdown__menu mui-dropdown__menu--right">
               <li><a href="./9-comps/">9: Web Components</a></li>
               <li><a href="./10-mobile/">10: Mobile App		</a></li>
@@ -55,35 +55,54 @@
       <div class="mui-divider"></div>
       <ul id="sidedrawer--menu">
         <li><a href="./0-agenda/">Agenda</a></li>
+      </ul>
+      <ul id="sidedrawer--menu">
         <li><a href="./1-helloWorld/">1: Hello World</a></li>
         <li><a href="./2-theBasics/">2: The Basics</a></li>
         <li><a href="./3-goLive/">3: Golive</a></li>
         <li><a href="./4-appShell/">4: AppShell</a></li>
+      </ul>
+      <ul id="sidedrawer--menu">
         <li><a href="./5-amp/">5: AMP and Node.js</a></li>
         <li><a href="./6-read/">6: UI Reading from API	</a></li>
         <li><a href="./7-write/">7: UI Writing to API</a></li>
         <li><a href="./8-security/">8: Login Security</a></li>
+      </ul>
+      <ul id="sidedrawer--menu">
         <li><a href="./9-comps/">9: Web Components</a></li>
         <li><a href="./10-mobile/">10: Mobile App						</a></li>
       </ul>
     </div>
     <script>
-      function openDrawer(px, e) {
+      function openDrawer() {
       	$('#sidedrawer').css('transform', 'translateX(201px)')
       }
-      function closeDrawer(e) {
+      function closeDrawer() {
       	$('#sidedrawer').css('transform', 'translateX(0px)')
       }
+      $('.submenu').hover(function() {
+      		toggleSub(this.firstChild, true)
+      	},
+      	function() {
+      		toggleSub(this.firstChild, false)
+      });
       
-      //$('.submenu').on('click', clicks)
+      $('.submenu > a').click(function() {
+      		toggleSub(this, true)
+      });
       
-      function toggleSub(toggleEl) {
-      	//-event = event || window.event
-      	//-var toggleEl = event.target || event.srcElement;
+      $('.submenu > ul').click(function() {
+      		toggleSub(this.previousElementSibling, false)
+      });
+      
+      function toggleSub(toggleEl, show) {
       	var wrapperEl = toggleEl.parentNode,
-      	menuEl = toggleEl.nextElementSibling,
-      	doc = wrapperEl.ownerDocument
+      	menuEl = toggleEl.nextElementSibling
       	
+      	function closeDropdownFn() { 
+      		menuEl.classList.remove('mui--is-open') 
+      	}
+      
       	function openDropdownFn(){
       		var wrapperRect = wrapperEl.getBoundingClientRect(),
       		toggleRect = toggleEl.getBoundingClientRect()
@@ -97,12 +116,7 @@
       		
       		menuEl.classList.add('mui--is-open')
       	}
-      
-      	function closeDropdownFn() { 
-      		menuEl.classList.remove('mui--is-open') 
-      	}
-      
-      	menuEl.classList.contains('mui--is-open') ? closeDropdownFn() : openDropdownFn()
+      	show ? openDropdownFn() : closeDropdownFn()
       }
       
       			
