@@ -5,9 +5,10 @@
 	transition: transform .15s ease;
 }
 
+/* AMP version only
 #sidedrawer:target { // makes it appear when anchor link is clicked, AMP version
 	transform: translateX(201px);
-}
+} */
 
 #sidedrawer a {
 	color: $primary-text-color;
