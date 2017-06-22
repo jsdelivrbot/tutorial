@@ -2,8 +2,8 @@
 
 1. Ensure you have the sample project topseed-helloworld open in VS Code and Prepros running on the /topseed-webroot folder. Per Lab 1, make sure the home page is running in a browser.
 
-2. Visit and browse these sites: <a href='http://materialpalette.com' target='_blank'>materialpalette.com</a>, <a href='https://design.google.com' target='_blank'>design.google.com</a>, <a href='https://material.io' target='_blank'>material.io</a> and
-<a href='https://material.io/guidelines/#' target='_blank'>material.io/guidelines/#</a>. We follow Material design guidelines, put forward by Google, to make our sites and mobile apps look better. 
+2. Visit and browse these sites: <a href='http://materialpalette.com' target='_blank'>http://materialpalette.com</a>, <a href='https://design.google' target='_blank'>https://design.google</a>, <a href='https://material.io' target='_blank'>https://material.io</a> and
+<a href='https://material.io/guidelines/#' target='_blank'>https://material.io/guidelines/#</a>. We follow Material design guidelines, put forward by Google, to make our sites and mobile apps look better. 
 
 3. Find /_sass/main.css in the home page source, and inspect it. Other than fonts, all CSS used on the site is in this one CSS.
 
