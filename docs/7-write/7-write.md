@@ -6,7 +6,7 @@
 
 3. Reopen /topseed-webroot/admin/linkblog/LinkblogBusiness.js and locate the 'detail: function('. We use <a href='https://momentjs.com/' target='_blank'>https://momentjs.com/</a> for date handling and jquery.jsForm <a href='https://github.com/corinis/jsForm' target='_blank'>https://github.com/corinis/jsForm</a> to populate the form with the date. The necessary libraries are loaded in /\_js/admin.js. You see the result of the call to detail() when rendering of the page has completed.
 
-4. Fill some data in the form and click 'Save'. You should see an alert that saving is not enabled: we are not yet configured to use a database that allows saving. In LinkblogBusiness.js, locate the 'save: function('. Once we enable 'update' in the urlSpec, processing will continue. We obtain the 'formData' with jquery.jsForm('get'), and pass it to the linkblogDao.update function. Once this has returned successfully ('promise.then('), we redirects to the list page. BLX/sb has base functionality using turbo for the new page load.
+4. Fill some data in the form and click 'Save'. You should see an alert that saving is not enabled: we are not yet configured to use a database that allows saving. In LinkblogBusiness.js, locate the 'save: function('. Once we enable 'update' in the urlSpec, processing will continue. We obtain the 'formData' with jquery.jsForm('get'), and pass it to the linkblogDao.update function. Once this has returned successfully ('promise.then('), we redirect to the list page. BLX/sb has base functionality using turbo for the new page load.
 
 5. Reopen BDS and look for the 'update: function('. It calls a shared static \_post function which uses fetch\_ to call the urlSpec update URL. 
 
