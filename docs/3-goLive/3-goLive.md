@@ -1,6 +1,6 @@
 ## Lab 3: Go-Live - Deploy to Cloud and use a CDN
 
-1. Go to <a href='https://zeit.co'target='_blank'>zeit.co</a> and create a free account. We use their NOW product to deploy our apps for testing in the cloud. Install the NOW client.
+1. Go to <a href='https://zeit.co'target='_blank'>https://zeit.co</a> and create a free account. We use their NOW product to deploy our apps for testing in the cloud. Install the NOW client.
 Instead, you could zip up the /helloworld-webroot folder and deploy to any
 static web hosting service via FTP. However, we will need some "dynamic", server-side features later, so we wrap our static webroot content with some code that works on a Node.js server, such as used by NOW.
 Rename /helloworld-webroot/cache.mfx to cache.mf.
@@ -8,10 +8,10 @@ Rename /helloworld-webroot/cache.mfx to cache.mf.
 2. To deploy, drag the /topseed-srv folder into the ZEIT.co NOW client. For advanced users: this folder includes index.js and package.json needed by Node.js.
 Once the deployment is completed, your clipboard will have a URL unique to the version you deployed. Test the URL in the browser. Bookmark the URL. You are in the Cloud and live on the Web!
 
-3. The remainder of this lab is optional for development (but mandatory for QA/Staging/Production): To give your site a "proper" domain, you will need a domain name and DNS. If you do not have a domain yet, we recommend to register a cheap domain at <a href='https://www.namecheap.com/' target='_blank'>namecheap.com</a> now and have it use the namecheap DNS.
+3. The remainder of this lab is optional for development (but mandatory for QA/Staging/Production): To give your site a "proper" domain, you will need a domain name and DNS. If you do not have a domain yet, we recommend to register a cheap domain at <a href='https://www.namecheap.com/' target='_blank'>https://www.namecheap.com</a> now and have it use the namecheap DNS.
 If you already own a domain and host a site, e.g. at www.mydomain.com, you may want to configure a CNAME to map a 'staging' subdomain, such as staging.mydomain.com, so you can keep using www for your public site. See below for more detailed instructions. 
 
-4. For scalability and caching, you will also want to use a Content Delivery Network (CDN). With a CDN, you also get SSL/HTTPS for free. No need to buy an expensive SSL certificate. SSL is important when using advanced Javascript functions in the browser, such as cross-domain data requests. We recommend <a href='https://www.cdn77.com' target='_blank'>CDN77</a>. For this tutorial, register for the CDN77 14-day free trial now.
+4. For scalability and caching, you will also want to use a Content Delivery Network (CDN). With a CDN, you also get SSL/HTTPS for free. No need to buy an expensive SSL certificate. SSL is important when using advanced Javascript functions in the browser, such as cross-domain data requests. We recommend <a href='https://www.cdn77.com' target='_blank'>https://www.cdn77.com</a>. For this tutorial, register for the CDN77 14-day free trial now.
 
 5. In the CDN77 web app, go to menu item CDN and click "ADD NEW CDN RESOURCE". Give it a label, such as 'staging.mydomain.com' and select "My Origin". As domain, specify HTTPS and the ZEIT.co DOMAIN from the URL you bookmarked under 2. (e.g. demos-oosnsyzlphl.now.sh). Click "CREATE CDN RESOURCE".
 
