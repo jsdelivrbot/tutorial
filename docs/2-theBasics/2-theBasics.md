@@ -16,6 +16,6 @@
 7. Inspect /page/two/_buttons.html Copy the entire HTML. Go to <a href='http://html2jade.org' target='_blank'>http://html2jade.org</a> (Pug used to be called Jade) and paste this html. In the right pane you see Pug markup, a way to write html without having to
 worry about closing tags. We write Pug. 
 
-8. Inspect the code snippet at /page/two/_buttons.pug. It should match the output of html2jade. Every .pug file in the project has a corresponding .html used by the browser, with the exception of include's within another pug file. Inspect /page/two/index.pug to find the 'include _buttons'. Inspect /page/two/index.html to find the generated buttons html.
+8. Inspect the code snippet at /page/two/_buttons.pug. It should match the output of html2jade. Every .pug file in the project has a corresponding .html used by the browser, with the exception of include's within another pug file. Inspect /page/two/index.pug to find the 'include _buttons'. Inspect /page/two/index.html to find the generated buttons HTML.
 
-9. Watch the video 'Do you Even JADE bro' at <a href-"https://www.youtube.com/watch?v=wzAWI9h3q18" target="_blank">https://www.youtube.com/watch?v=wzAWI9h3q18</a>. Once you know how to write Pug, you can generate beautiful html quickly.
+9. Watch the video 'Do you Even JADE bro' at <a href-"https://www.youtube.com/watch?v=wzAWI9h3q18" target="_blank">https://www.youtube.com/watch?v=wzAWI9h3q18</a>. Once you know how to write Pug, you can generate beautiful HTML quickly.

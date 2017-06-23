@@ -13,7 +13,7 @@ On the 'Apps' tab at <a href='https://build.phonegap.com/apps' target='_blank'>h
 
 5. See <a href='http://docs.phonegap.com/' target='_blank'>http://docs.phonegap.com/</a> for further information about phonegap, for instruction how to deploy to Apple iOS,and how your app can access phone-specific APIs, such as address book, location information etc if necessary. We would use a 'service worker' to support offline-browsing as needed.
 
-6. In this Lab, we have used the Cordova In-App Browser to render app content from a CDN. As shown in Lab 6, the app can also obtain data securely from separate API servers. Thanks to appshell, Turbo and caching introduced in Lab 4, the app has a smooth 'single page application' feel. As a result, we were able to develop a rich mobile app without requiring special Android SDK/iOS development skills. 
+6. In this Lab, we have used the Cordova In-App Browser to render app content from a CDN. As shown in Lab 6, the app can also obtain data securely from separate API servers. Thanks to appshell, Turbo and caching introduced in Lab 4, the app has a smooth 'single page application' feel. As a result, we were able to develop a rich mobile app without requiring any special Android SDK/iOS development skills. 
 
 
 
