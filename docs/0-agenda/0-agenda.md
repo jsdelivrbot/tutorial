@@ -19,7 +19,7 @@ The Bricks and Mortar
 
 - [7: UI Writing to an API (Example: Firebase)](./7-write/) 
 
-- [8: Login Security and Tokens](./8-security/)
+- [8: Log-in Security and Tokens](./8-security/)
 
 The Perspectives
 
@@ -27,6 +27,6 @@ The Perspectives
 
 - [10: Mobile App (Phonegap)](./10-mobile/)
 
-- 11: Next Edition: Extreme SEO with server-side rendering (SSR) of Web Components and server-side BLX
+- 11: Next Edition: Extreme SEO with server-side rendering (SSR) of Web Components
 
 
