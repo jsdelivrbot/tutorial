@@ -2092,6 +2092,9 @@ body {
   #footer_div {
     height: 48px; } }
 
+#content-wrapper code {
+  font-family: 'Roboto Condensed', monospace; }
+
 .mui-dropdown__menu {
   position: fixed;
   background-color: #3f51b5; }

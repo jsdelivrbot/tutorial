@@ -45,11 +45,11 @@
 <h3>Part III: The Perspectives</h3><h2 id="agenda-">Agenda:</h2>
 <p>The Basics</p>
 <ul>
-<li><p><a href="./1-helloWorld/">1: Hello World and Markdown</a></p>
+<li><p><a href="./1-helloWorld/">1: Hello World using Markdown< with Prepocessor/a></p>
 </li>
 <li><p><a href="./2-theBasics/">2: Material Design, SASS and Pug</a></p>
 </li>
-<li><p><a href="./3-goLive/">3: Go-Live - Deploy to Cloud and use a CDN</a></p>
+<li><p><a href="./3-goLive/">3: Go-Live - Deploy to Cloud and Use a CDN</a></p>
 </li>
 <li><p><a href="./4-appShell/">4: AppShell, Turbo and Caching for Performance</a></p>
 </li>
@@ -71,7 +71,7 @@
 </li>
 <li><p><a href="./10-mobile/">10: Mobile App (Phonegap)</a></p>
 </li>
-<li><p>11: Next Edition: Extreme SEO with server-side rendering (SSR) of Web Components and server-side BLX</p>
+<li><p>11: Next Edition: Extreme SEO with Server-side Rendering (SSR) of Web Components</p>
 </li>
 </ul>
 
@@ -79,17 +79,17 @@
 <h2>Part I: The Basics</h2>
 <p>new-page</p><h2 id="lab-1-hello-world-using-markdown-with-preprocessor">Lab 1: Hello World - Using Markdown with Preprocessor</h2>
 <ol>
-<li><p>Downloand and unzip topseed-helloworld-master.zip from <a href='https://github.com/topseed/topseed-helloworld' target='_blank'>https://github.com/topseed/topseed-helloworld</a> to your location of choice on your developer machine.</p>
+<li><p>Downloand and unzip <code>topseed-helloworld-master.zip</code> from <a href='https://github.com/topseed/topseed-helloworld' target='_blank'>https://github.com/topseed/topseed-helloworld</a> to your location of choice on your developer machine.</p>
 </li>
-<li><p>Open your Google Chrome web browser and install the &#39;Web Server for Chrome&#39; app from <a href='https://chrome.google.com/webstore/search/Web%20Server?_category=apps' target-'_blank'>https://chrome.google.com/webstore/search/Web%20Server?_category=apps</a>. Launch the app, click the &#39;Choose Folder&#39; button and select the /helloworld-webroot folder under /topseed-helloworld/topseed-srv. Also ensure Options has &#39;Automatically show index.html&#39; checked. Ensure the Web Server is STARTED, then navigate to the proposed URL (eg. <a href='http://127.0.0.1:8887' target='_blank'>http://127.0.0.1:8887</a>. You should see a demo website. Explore the site. It uses &#39;responsive design&#39;. Resize the browser from fullscreen to narrow to see the layout adapt. </p>
+<li><p>Open your Google Chrome web browser and install the &#39;Web Server for Chrome&#39; app from <a href='https://chrome.google.com/webstore/search/Web%20Server?_category=apps' target-'_blank'>https://chrome.google.com/webstore/search/Web%20Server?_category=apps</a>. Launch the app, click the &#39;Choose Folder&#39; button and select the <code>/helloworld-webroot</code> folder under <code>/topseed-helloworld/topseed-srv</code>. Also ensure &#39;Options&#39; has &#39;Automatically show index.html&#39; checked. Ensure the Web Server is <em>STARTED</em>, then navigate to the proposed URL (e.g. <a href='http://127.0.0.1:8887' target='_blank'>http://127.0.0.1:8887</a>). You should see a demo website. Explore the site. It uses <em>responsive design</em>; resize the browser from fullscreen to narrow to see the layout adapt. </p>
 </li>
-<li><p>Download, install and run &#39;Visual Studio Code&#39; (VS Code) from <a href='https://code.visualstudio.com/download' target='_blank'>https://code.visualstudio.com/download</a>. From &#39;File&#39; menu, choose &#39;Open Folder...&#39; and select folder /topseed-helloworld. When the project is loaded, inspect the default entry page at /topsseed-srv/helloworld-webroot/index.html We like VS Code, but you can use any other editor of your choice.</p>
+<li><p>Download, install and run &#39;Visual Studio Code&#39; (VS Code) from <a href='https://code.visualstudio.com/download' target='_blank'>https://code.visualstudio.com/download</a>. From &#39;File&#39; menu, choose &#39;Open Folder...&#39; and select folder <code>/topseed-helloworld</code>. When the project is loaded, inspect the default entry page at <code>/topsseed-srv/helloworld-webroot/index.html</code>. We like VS Code, but you can use any other editor of your choice.</p>
 </li>
-<li><p>Download, install and run Prepros (Unlimited Trial) from <a href='https://prepros.io/downloads' target='_blank'>https://prepros.io/downloads</a>. Use the + button on the bottom left to add the folder /helloworld-webroot (under /topseed-srv) as a new project. In Project/Settings/Compiler Settings/Markdown, uncheck &#39;Wrap with Html&#39;. </p>
+<li><p>Download, install and run Prepros (Unlimited Trial) from <a href='https://prepros.io/downloads' target='_blank'>https://prepros.io/downloads</a>. Use the &#39;+&#39; button on the bottom left to add the folder <code>/helloworld-webroot</code> (under <code>/topseed-srv</code>) as a new project. In Project/Settings/Compiler Settings/Markdown, uncheck &#39;Wrap with HTML&#39;.</p>
 </li>
-<li><p>In the browser, return to the home page (e.g. <a href='http://127.0.0.1:8887' target='_blank'>http://127.0.0.1:8887</a>). In VS Code, open /helloworld-webroot/page/one/_hello.md and prefix the text with &#39;Hello World!&#39; Save the file. In the same folder, inspect _hello.html. Prepros will have &#39;preprocessed&#39; your edited &#39;Markdown&#39; file to HTML. Refresh the browser and see the edits. Search Google for &#39;Markdown syntax&#39;.</p>
+<li><p>In the browser, return to the home page (e.g. <a href='http://127.0.0.1:8887' target='_blank'>http://127.0.0.1:8887</a>). In VS Code, open <code>/helloworld-webroot/page/one/_hello.md</code> and prefix the text with &#39;Hello World!&#39; Save the file. In the same folder, inspect _hello.html. Prepros will have <em>preprocessed</em> your edited <em>markdown</em> file to HTML. Refresh the browser and see the edits. Search Google for &#39;Markdown syntax&#39;.</p>
 </li>
-<li><p>Optional: Use Prepros to auto-refresh on edits. In Prepros, click on the arrows on the right side of the prepros project name &#39;helloworld-webroot&#39;, check Sync Browsers and click Preview. (Or rightclick on &#39;helloworld-webroot&#39; and select &#39;Open Live Preview.&#39;) A browser should open and display the Home page. In VS Code, edit and save index.md again. The opened browser should refresh and include your changes.</p>
+<li><p>Optional: Use Prepros to auto-refresh on edits. In Prepros, click on the arrows on the right side of the prepros project name &#39;helloworld-webroot&#39;, check &#39;Sync Browsers&#39; and click &#39;Preview&#39;. (Or rightclick on &#39;helloworld-webroot&#39; and select &#39;Open Live Preview.&#39;) A browser should open and display the Home page. In VS Code, edit and save <code>_hello.md</code> again. The opened browser should refresh and include your changes.</p>
 </li>
 </ol>
 
@@ -102,16 +102,16 @@
 </li>
 <li><p>Find /_sass/main.css in the home page source, and inspect it. Other than fonts, all CSS used on the site is in this one CSS.</p>
 </li>
-<li><p>Visit <a href='https://www.muicss.com' target='_blank'>https://www.muicss.com</a>. Read &#39;Getting Started/Introduction&#39;, then browse the section &#39;CSS/JS&#39;. We use the MUI CSS libraries in our project. Inspect /_sass/_base.scss in /helloworld-webroot. SCSS is CSS with some added features, such as $variables and @import. You can turn any CSS file into SCSS by just changing the ending to .scss.</p>
+<li><p>Visit <a href='https://www.muicss.com' target='_blank'>https://www.muicss.com</a>. Read &#39;Getting Started/Introduction&#39;, then browse the section &#39;CSS/JS&#39;. We use the MUI CSS libraries in our project. Inspect /_sass/_base.scss in /helloworld-webroot. SCSS is CSS with some added features, such as $variables and @import. You can turn any CSS file into SCSS just by changing the ending to .scss.</p>
 </li>
-<li><p>Inspect /_sass/_colors.scss in /helloworld-webroot.See a color scheme we generated with materialpalette.com. Use /* */ to comment it out. Go back to <a href='http://materialpalette.com' target='_blank'>http://materialpalette.com</a>, pick two colors, download your own palette in CSS format and paste it after the section you commented out. Save and refresh the browser, and you should see your new color scheme applied to the site. Revert to the palette you had commented out.</p>
+<li><p>Inspect _sass/_colors.scss in /helloworld-webroot. See a color scheme we generated with materialpalette.com. Use /* */ to comment it out. Go back to <a href='http://materialpalette.com' target='_blank'>http://materialpalette.com</a>, pick two colors, download your own palette in CSS format and paste it after the section you commented out. Save, refresh the browser; you should see your new color scheme applied to the site. Revert to the palette you had commented out.</p>
 </li>
-<li><p>Inspect /_sass/main.sass. SASS uses a special syntax without the curly braces or &#39;;&#39; at the end of a line that are used in CSS (and SCSS). SASS can also use SCSS imports such as @import &#39;_base&#39;. Prepros compiles the .sass and its dependent .scss imports into the single &#39;main.css&#39; used in the browser. In Prepros Files select _main.sass, check &#39;Minify Css&#39;, and click Process File. Open /_sass/main.css and see that it is now minified.</p>
+<li><p>Inspect _sass/main.sass. SASS uses a special syntax without the curly braces or &#39;;&#39; at the end of a line that are used in CSS (and SCSS). SASS can also use SCSS imports such as <code>@import &#39;_base&#39;</code>. Prepros compiles the <code>.sass</code> and its dependent <code>.scss</code> imports into the single <code>main.css</code> used in the browser. In Prepros Files select _main.sass, check &#39;Minify Css&#39;, and click Process File. Open <code>\_sass/main.css</code> and see that it is now minified.</p>
 </li>
-<li><p>Inspect /page/two/_buttons.html Copy the entire HTML. Go to <a href='http://html2jade.org' target='_blank'>http://html2jade.org</a> (Pug used to be called Jade) and paste this html. In the right pane you see Pug markup, a way to write html without having to
+<li><p>Inspect <code>/page/two/_buttons.html</code>. Copy the entire HTML. Go to <a href='http://html2jade.org' target='_blank'>http://html2jade.org</a> (Pug used to be called Jade) and paste this html. In the right pane you see Pug markup, a way to write html without having to
 worry about closing tags. We write Pug. </p>
 </li>
-<li><p>Inspect the code snippet at /page/two/_buttons.pug. It should match the output of html2jade. Every .pug file in the project has a corresponding .html used by the browser, with the exception of include&#39;s within another pug file. Inspect /page/two/index.pug to find the &#39;include _buttons&#39;. Inspect /page/two/index.html to find the generated buttons HTML.</p>
+<li><p>Inspect the code snippet at <code>/page/two/_buttons.pug</code>. It should match the output of html2jade. Every <code>.pug</code> file in the project has a corresponding <code>.html</code> used by the browser, with the exception of include&#39;s within another pug file. Inspect <code>/page/two/index.pug</code> to find the <code>&#39;include _buttons&#39;</code>. Inspect <code>/page/two/index.html</code> to find the generated buttons HTML.</p>
 </li>
 <li><p>Watch the video &#39;Do you Even JADE bro&#39; at <a href-"https://www.youtube.com/watch?v=wzAWI9h3q18" target="_blank">https://www.youtube.com/watch?v=wzAWI9h3q18</a>. Once you know how to write Pug, you can generate beautiful HTML quickly.</p>
 </li>
