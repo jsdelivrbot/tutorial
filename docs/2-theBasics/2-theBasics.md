@@ -11,7 +11,7 @@
 
 5. Inspect _sass/_colors.scss in /helloworld-webroot. See a color scheme we generated with materialpalette.com. Use /\* \*/ to comment it out. Go back to <a href='http://materialpalette.com' target='_blank'>http://materialpalette.com</a>, pick two colors, download your own palette in CSS format and paste it after the section you commented out. Save, refresh the browser; you should see your new color scheme applied to the site. Revert to the palette you had commented out.
 
-6. Inspect \_sass/main.sass. SASS uses a special syntax without the curly braces or ';' at the end of a line that are used in CSS (and SCSS). SASS can also use SCSS imports such as `@import '_base'`. Prepros compiles the `.sass` and its dependent `.scss` imports into the single `main.css` used in the browser. In Prepros Files select _main.sass, check 'Minify Css', and click Process File. Open `\_sass/main.css` and see that it is now minified.
+6. Inspect `/_sass/main.sass`. SASS uses a special syntax without the curly braces or ';' at the end of a line that are used in CSS (and SCSS). SASS can also use SCSS imports such as `@import '_base'`. Prepros compiles the `.sass` and its dependent `.scss` imports into the single `main.css` used in the browser. In Prepros Files select _main.sass, check 'Minify Css', and click Process File. Open `/_sass/main.css` and see that it is now minified.
 
 7. Inspect `/page/two/_buttons.html`. Copy the entire HTML. Go to <a href='http://html2jade.org' target='_blank'>http://html2jade.org</a> (Pug used to be called Jade) and paste this html. In the right pane you see Pug markup, a way to write html without having to
 worry about closing tags. We write Pug. 

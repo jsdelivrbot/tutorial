@@ -2093,7 +2093,9 @@ body {
     height: 48px; } }
 
 #content-wrapper code {
-  font-family: 'Roboto Condensed', monospace; }
+  font-family: 'Mono', monospace;
+  font-size: 14.88px;
+  color: #757575; }
 
 .mui-dropdown__menu {
   position: fixed;

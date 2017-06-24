@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="en-us">
   <head>
-    <base href="/docs/">
+    <base href="/tutorial/">
     <title>Golive</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="">
     <link rel="icon" href="./favicon.ico">
-    <link rel="stylesheet" href="href=&quot;https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400">
+    <link rel="stylesheet" href="href=&quot;https://fonts.googleapis.com/css?family=Oswald">
     <script src="//code.jquery.com/jquery-3.2.1.slim.min.js"></script>
     <script src="https://cdn.rawgit.com/topseed/topseed-turbo/master/vendor/loadjs.min.js"></script>
     <script src="https://cdn.rawgit.com/topseed/topseed-turbo/master/setup/setup-3.2.1.js"></script>
@@ -125,30 +125,29 @@
     <div id="content-wrapper">
       <div class="mui-container-fluid"><h2 id="lab-3-go-live-deploy-to-cloud-and-use-a-cdn">Lab 3: Go-Live - Deploy to Cloud and use a CDN</h2>
 <ol>
-<li><p>Go to <a href='https://zeit.co'target='_blank'>https://zeit.co</a> and create a free account. We use their NOW product to deploy our apps for testing in the cloud. Install the NOW client.
-Instead, you could zip up the /helloworld-webroot folder and deploy to any
-static web hosting service via FTP. However, we will need some &#39;dynamic&#39;, server-side features later, so we wrap our static webroot content with some code that works on a Node.js server, such as used by NOW.
-Rename /helloworld-webroot/cache.mfx to cache.mf.</p>
+<li><p>Go to <a href='https://zeit.co'target='_blank'>https://zeit.co</a> and create a free account. We use their &#39;NOW&#39; product to deploy our apps for testing in the cloud. Install the &#39;NOW&#39; client.
+Instead, you could zip up the <code>/helloworld-webroot</code> folder and deploy to any
+static web hosting service via FTP. However, we will need some &#39;dynamic&#39;, server-side features later, so we wrap our static webroot content with some code that works on a Node.js server, such as used by &#39;NOW&#39;.
+Rename <code>/helloworld-webroot/cache.mfx</code> to <code>cache.mf</code>.</p>
 </li>
-<li><p>To deploy, drag the /topseed-srv folder into the ZEIT.co NOW client. For advanced users: this folder includes index.js and package.json needed by Node.js.
+<li><p>To deploy, drag the <code>/topseed-srv</code> folder into the <code>zeit.co</code> &#39;NOW&#39; client. For advanced users: this folder includes <code>index.js</code> and <code>package.json</code> needed by Node.js.
 Once the deployment is completed, your clipboard will have a URL unique to the version you deployed. Test the URL in the browser. Bookmark the URL. You are in the Cloud and live on the Web!</p>
 </li>
-<li><p>The remainder of this lab is optional for development (but mandatory for QA/Staging/Production): To give your site a &#39;proper&#39; domain, you will need a domain name and DNS. If you do not have a domain yet, we recommend to register a cheap domain at <a href='https://www.namecheap.com/' target='_blank'>https://www.namecheap.com</a> now and have it use the namecheap DNS.
-If you already own a domain and host a site, e.g. at www.mydomain.com, you may want to configure a CNAME to map a &#39;staging&#39; subdomain, such as staging.mydomain.com, so you can keep using www for your public site. See below for more detailed instructions. </p>
+<li><p>Read the remainder of this tutorial. Execute the steps if you are preparing for QA/Staging/Production. To give your site a &#39;proper&#39; domain, you will need a domain name and DNS. If you do not have a domain yet, we recommend to register a cheap domain at <a href='https://www.namecheap.com/' target='_blank'>https://www.namecheap.com</a> now and have it use the namecheap DNS.
+If you already own a domain and host a site, e.g. at <code>www.mydomain.com</code>, you may want to configure a CNAME to map a <code>&#39;staging&#39;</code> subdomain, such as <code>staging.mydomain.com</code>, so you can keep using www for your public site. See below for more detailed instructions. </p>
 </li>
 <li><p>For scalability and caching, you will also want to use a Content Delivery Network (CDN). With a CDN, you also get SSL/HTTPS for free. No need to buy an expensive SSL certificate. SSL is important when using advanced Javascript functions in the browser, such as cross-domain data requests. We recommend <a href='https://www.cdn77.com' target='_blank'>https://www.cdn77.com</a>. For this tutorial, register for the CDN77 14-day free trial now.</p>
 </li>
-<li><p>In the CDN77 web app, go to menu item CDN and click &#39;ADD NEW CDN RESOURCE&#39;. Give it a label, such as &#39;staging.mydomain.com&#39; and select &#39;My Origin&#39;. As domain, specify HTTPS and the ZEIT.co DOMAIN from the URL you bookmarked under 2. (e.g. demos-oosnsyzlphl.now.sh). Click &#39;CREATE CDN RESOURCE&#39;.</p>
+<li><p>In the CDN77 web app, go to menu item CDN and click &#39;ADD NEW CDN RESOURCE&#39;. Give it a label, such as &#39;staging.mydomain.com&#39; and select &#39;My Origin&#39;. As domain, specify HTTPS and the <code>zeit.co</code> DOMAIN from the URL you bookmarked under 2. (e.g. demos-oosnsyzlphl.now.sh). Click &#39;CREATE CDN RESOURCE&#39;.</p>
 </li>
 <li><p>Choose 4-step setup with CNAME. Click &#39;Add new CNAME&#39;, and &#39;+ ADD CNAMES&#39;. Enter &#39;staging.mydomain.com&#39; and Click &#39;ADD CNAME&#39;. Click &#39;Go back to Integration&#39;. In Step 2, copy the DOMAIN NAME (AKA HOST), e.g 1234567890.rsc.cdn77.org, then follow instructions for your hosting provider. If your domain is with namecheap.com, do the following:
-On the namecheap dashbord, click &#39;Manage&#39; for your domain, and &#39;Advanced DNS&#39;. Click &#39;ADD NEW RECORD&#39;, select &#39;CNAME&#39; and enter the following: Host: staging Value: [DOMAIN NAME from clipboard, e.g. 1234567890.rsc.cdn77.org], TTL: Automatic. Click checkmark to save.
-No need to do CDN77 Step 3. One final step is to go to the &#39;Other Settings&#39; tab, check &#39;HTTPS redirect&#39; and click &#39;SAVE CHANGES&#39;.</p>
+On the Namecheap dashbord, click &#39;Manage&#39; for your domain, and &#39;Advanced DNS&#39;. Click &#39;ADD NEW RECORD&#39;, select &#39;CNAME&#39; and enter the following: Host: staging Value: [DOMAIN NAME from clipboard, e.g. 1234567890.rsc.cdn77.org], TTL: Automatic. Click the checkmark to save. No need to do CDN77 Step 3. One final step is to go to the &#39;Other Settings&#39; tab, check &#39;HTTPS redirect&#39; and click &#39;SAVE CHANGES&#39;.</p>
 </li>
-<li><p>After an hour after the initial setup, you should be able to reach the deployed site in your browser under e.g. <a href='https://staging.mydomain.com' target='_blank'>https://staging.mydomain.com</a>. Note the use of &#39;https&#39;. If you visit too quickly, the browser will complain that the site certificate is invalid. If this happens, try again after a while. The CDN caches static files for greater performance in multiple distributed datacenters. For advanced users: Cache-Control response headers are set in /topseed-srv/util/Decider.js.</p>
+<li><p>After an hour after the initial setup, you should be able to reach the deployed site in your browser under e.g. <a href='https://staging.mydomain.com' target='_blank'>https://staging.mydomain.com</a>. Note the use of <code>&#39;https&#39;</code>. If you visit too quickly, the browser will complain that the site certificate is invalid. If this happens, try again after a while. The CDN caches static files for greater performance in multiple distributed datacenters. For advanced users: Review <code>/topseed-srv/util/Decider.js</code>. Find uses of <code>&#39;U.cache&#39;</code>; this sets <em>Cache-Control</em> response headers which tell th CDN how long to keep content before refreshing it from the source. The utils library &#39;U&#39; is included in the project https://github.com/topseed/topseed-npm, deployed to <em>npmjs</em>, and imported to the project through a &#39;package.json&#39; dependency. </p>
 </li>
-<li><p>Edit /helloworld-webroot/page/one/_hello.md again (see Lab 1: 5.). To deploy the change, follow step 2 above. In CDN77 Overview, change &#39;What is your domain?&#39; to the new URL, and click &#39;SAVE CHANGES&#39;. To make the changes appear on the CDN edge servers immediately, use CDN77 &#39;CDN/Purge&#39; on /page/one/.</p>
+<li><p>Edit <code>/helloworld-webroot/page/one/_hello.md</code> again (see Lab 1: 5.). To deploy the change, follow step 2 above. In CDN77 Overview, change &#39;What is your domain?&#39; to the new URL, and click &#39;SAVE CHANGES&#39;. To make the changes appear on the CDN edge servers immediately, use CDN77 &#39;CDN/Purge&#39; on /page/one/.</p>
 </li>
-<li><p>Optional: Once you are ready to move from staging to production, you would either edit the CNAME for www to point to the same CDN domain (e.g. 1234567890.rsc.cdn77.org) or add a new CDN resource such as &#39;www.mydomain.com&#39; that may also use a new ZEIT.co domain created when redeploying the app to ZEIT.co NOW (see 2.)</p>
+<li><p>Optional: Once you are ready to move from staging to production, you would either edit the CNAME for www to point to the same CDN domain (e.g. <code>1234567890.rsc.cdn77.org</code>) or add a new CDN resource such as <code>www.mydomain.com</code> that may also use a new <code>zeit.co</code> domain created when redeploying the app to <code>zeit.co</code> &#39;NOW&#39; (see step 2. above).</p>
 </li>
 </ol>
 
