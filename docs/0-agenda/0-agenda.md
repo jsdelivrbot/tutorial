@@ -3,11 +3,11 @@
 
 The Basics
 
-- [1: Hello World and Markdown](./1-helloWorld/)
+- [1: Hello World - Using Markdown with Preprocessor](./1-helloWorld/)
 
 - [2: Material Design, SASS and Pug](./2-theBasics/)
 
-- [3: Go-Live - Deploy to Cloud and use a CDN](./3-goLive/)
+- [3: Go-Live - Deploy to Cloud and Use a CDN](./3-goLive/)
 
 - [4: AppShell, Turbo and Caching for Performance](./4-appShell/)
 

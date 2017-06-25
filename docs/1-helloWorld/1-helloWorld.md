@@ -1,6 +1,6 @@
 ## Lab 1: Hello World - Using Markdown with Preprocessor
 
-1. Downloand and unzip `topseed-helloworld-master.zip` from <a href='https://github.com/topseed/topseed-helloworld' target='_blank'>https://github.com/topseed/topseed-helloworld</a> to your location of choice on your developer machine.
+1. Download and unzip `topseed-helloworld-master.zip` from <a href='https://github.com/topseed/topseed-helloworld' target='_blank'>https://github.com/topseed/topseed-helloworld</a> to your location of choice on your developer machine.
 
 2. Open your Google Chrome web browser and install the 'Web Server for Chrome' app from <a href='https://chrome.google.com/webstore/search/Web%20Server?_category=apps' target-'_blank'>https://chrome.google.com/webstore/search/Web%20Server?\_category=apps</a>. Launch the app, click the 'Choose Folder' button and select the `/helloworld-webroot` folder under `/topseed-helloworld/topseed-srv`. Also ensure 'Options' has 'Automatically show index.html' checked. Ensure the Web Server is _STARTED_, then navigate to the proposed URL (e.g. <a href='http://127.0.0.1:8887' target='_blank'>http://127.0.0.1:8887</a>). You should see a demo website. Explore the site. It uses _responsive design_; resize the browser from fullscreen to narrow to see the layout adapt. 
 
@@ -10,4 +10,4 @@
 
 5. In the browser, return to the home page (e.g. <a href='http://127.0.0.1:8887' target='_blank'>http://127.0.0.1:8887</a>). In VS Code, open `/helloworld-webroot/page/one/_hello.md` and prefix the text with 'Hello World!' Save the file. In the same folder, inspect _hello.html. Prepros will have _preprocessed_ your edited _markdown_ file to HTML. Refresh the browser and see the edits. Search Google for 'Markdown syntax'.
 
-6. Optional: Use Prepros to auto-refresh on edits. In Prepros, click on the arrows on the right side of the prepros project name 'helloworld-webroot', check 'Sync Browsers' and click 'Preview'. (Or rightclick on 'helloworld-webroot' and select 'Open Live Preview.') A browser should open and display the Home page. In VS Code, edit and save `_hello.md` again. The opened browser should refresh and include your changes.
+6. Optional: Use Prepros to auto-refresh on edits. In Prepros, click on the arrows on the right side of the Prepros project name 'helloworld-webroot', check 'Sync Browsers' and click 'Preview'. (Or rightclick on 'helloworld-webroot' and select 'Open Live Preview.') A browser should open and display the home page. In VS Code, edit and save `_hello.md` again. The opened browser should refresh and include your changes.
