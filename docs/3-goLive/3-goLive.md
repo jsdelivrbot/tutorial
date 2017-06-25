@@ -9,7 +9,7 @@ Rename `/helloworld-webroot/cache.mfx` to `cache.mf`.
 Once the deployment is completed, your clipboard will have a URL unique to the version you deployed. Test the URL in the browser. Bookmark the URL. You are in the Cloud and live on the Web!
 
 3. Read the remainder of this tutorial. Execute the steps if you are preparing for QA/Staging/Production. To give your site a 'proper' domain, you will need a domain name and DNS. If you do not have a domain yet, we recommend to register a cheap domain at <a href='https://www.namecheap.com/' target='_blank'>https://www.namecheap.com</a> now and have it use the namecheap DNS.
-If you already own a domain and host a site, e.g. at `www.mydomain.com`, you may want to configure a CNAME to map a `'staging'` subdomain, such as `staging.mydomain.com`, so you can keep using www for your public site. See below for more detailed instructions. 
+If you already own a domain and host a site, e.g. at `www.mydomain.com`, you may want to configure a CNAME to map a `'staging.'` subdomain, such as `staging.mydomain.com`, so you can keep using `'www.'` for your public site. See below for more detailed instructions. 
 
 4. For scalability and caching, you will also want to use a Content Delivery Network (CDN). With a CDN, you also get SSL/HTTPS for free. No need to buy an expensive SSL certificate. SSL is important when using advanced Javascript functions in the browser, such as cross-domain data requests. We recommend <a href='https://www.cdn77.com' target='_blank'>https://www.cdn77.com</a>. For this tutorial, register for the CDN77 14-day free trial now.
 
