@@ -8,10 +8,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="">
     <link rel="icon" href="./favicon.ico">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mono">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Mono">
     <script src="//code.jquery.com/jquery-3.2.1.slim.min.js"></script>
     <script src="https://cdn.rawgit.com/topseed/topseed-turbo/master/vendor/loadjs.min.js"></script>
-    <script src="https://cdn.rawgit.com/topseed/topseed-turbo/master/setup/setup-3.2.1.js"></script>
+    <script src="https://cdn.rawgit.com/topseed/topseed-turbo/master/setup/setup-4.2.js"></script>
     <script src="./_js/main.js" async=""></script>
     <style>body {opacity: 0.1}</style>
   </head>
@@ -81,44 +81,9 @@
       function closeDrawer() {
       	$('#sidedrawer').css('transform', 'translateX(0px)')
       }
-      $('.submenu').hover(function() {
-      		toggleSub(this.firstChild, true)
-      	},
-      	function() {
-      		toggleSub(this.firstChild, false)
-      });
       
-      $('.submenu > a').click(function() {
-      		toggleSub(this, true)
-      });
-      
-      $('.submenu > ul').click(function() {
-      		toggleSub(this.previousElementSibling, false)
-      });
-      
-      function toggleSub(toggleEl, show) {
-      	var wrapperEl = toggleEl.parentNode,
-      	menuEl = toggleEl.nextElementSibling
-      	
-      	function closeDropdownFn() { 
-      		menuEl.classList.remove('mui--is-open') 
-      	}
-      
-      	function openDropdownFn(){
-      		var wrapperRect = wrapperEl.getBoundingClientRect(),
-      		toggleRect = toggleEl.getBoundingClientRect()
-      		var top = toggleRect.top - wrapperRect.top + toggleRect.height
-      		var left =  toggleRect.left + toggleRect.width - menuEl.width
-      		menuEl.style.top = top + 'px'
-      		if (menuEl.classList.contains('mui-dropdown__menu--right'))
-      			menuEl.style.left = left + 'px'
-      		else
-      			menuEl.style.left = wrapperRect.left + 'px'
-      		
-      		menuEl.classList.add('mui--is-open')
-      	}
-      	show ? openDropdownFn() : closeDropdownFn()
-      }
+      initSubmenu() //in main.js
+      console.log('initSubmenu')
       
       			
     </script>

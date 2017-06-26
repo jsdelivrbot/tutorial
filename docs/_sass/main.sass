@@ -34,8 +34,8 @@
 //	font-family: $mui-base-font-family 
 
 #content-wrapper code
-    font-family: 'Mono', monospace
-    font-size: $base-line-height * .62
+    font-family: 'Fira Mono', monospace
+    font-size: $base-line-height * .57
     color: $secondary-text-color
 
 //support for dropdown menu
@@ -46,7 +46,11 @@
     position: fixed
     background-color: $primary-color
 
-.mui-dropdown__menu > li > a:hover, .mui-dropdown__menu > li > a:focus
+.mui-dropdown__menu > li > a:focus   
+    background-color: $primary-color
+    outline: 0
+
+.mui-dropdown__menu > li > a:hover
     background-color: $accent-color
 
 .mui-caret
