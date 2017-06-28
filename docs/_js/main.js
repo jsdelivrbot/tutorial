@@ -41,7 +41,14 @@ function toggleSub(toggleEl, show) {
 	show ? openDropdownFn() : closeDropdownFn()
 }
 
+var submenuInitialized = false
+
 function initSubmenu(){
+
+	console.log('initSubmenu')
+
+	//if (submenuInitialized) return
+	submenuInitialized = true
 
 	$('.submenu').hover(function() {
 			toggleSub(this.firstChild, true)
@@ -66,6 +73,7 @@ function initSubmenu(){
 function libsLoaded(){
 	
 	TS.signalAppReady()
+	initSubmenu() 
 
 	TT.ScontentID ='#content-wrapper'
 	TT.handle(function(evt) {
@@ -76,6 +84,7 @@ function libsLoaded(){
 		}
 		if(TT.PAGE==evt.typ)  {//new pg loaded
 			console.log('TT')
+
 			$(TT.ScontentID).html(evt.$new)
 			//$('#content-wrapper').fadeTo(100,1)
 			
