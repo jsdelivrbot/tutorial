@@ -57,7 +57,7 @@ var TR = {
 
 	, _uncover: function(cont, evt, duration, direction, resolve){
 		var key = cont+'_uncover'
-		if (TR.processing[key]) resolve()
+		if (TR.processing[key]) {resolve(); return}
 		TR.processing[key] = true
 
 		var $cont = $(cont)
@@ -65,7 +65,7 @@ var TR = {
 		if (evt.fromHref == evt.toHref) {
 			$cont.html(evt.$new) //just refresh content, optional
 			TR.processing[key] = false
-			resolve()
+			resolve(); return
 		}
 
 		var $contb = TR._insertPeer(cont, 'unc')
@@ -91,7 +91,7 @@ var TR = {
 			$contb.remove()
 			$cont.css('z-index', '0') 
 			TR.processing[key] = false
-			return resolve()
+			resolve()
 		})
 	}
 
@@ -121,7 +121,7 @@ var TR = {
 
 	, _cover: function(cont, evt, duration, direction, endPos, resolve){
 		var key = cont+'_cover'
-		if (TR.processing[key]) resolve()
+		if (TR.processing[key]) {resolve(); return}
 		TR.processing[key] = true
 
 		var $cont = $(cont)
@@ -130,7 +130,7 @@ var TR = {
 		if (evt.fromHref == evt.toHref) {	
 			$cont.html(evt.$new) //just refresh content, optional
 			TR.processing[key] = false
-			resolve()
+			resolve(); return
 		}
 		
 		TR._clone($cont, $contb, 'cover__cl')
@@ -165,33 +165,47 @@ var TR = {
 			$contb.remove()
 			$cont.css('z-index', '0') 
 			TR.processing[key] = false
-			return resolve()
+			resolve()
 		})
 	}
 
-	, fadeIn: function(cont, evt, duration){
-		var $cont = $(cont)
-		$cont.css('opacity', '0')
-		$cont.html(evt.$new)
-		$cont.transition({opacity: 1}, duration, 'easeOutCubic')
+	, fadeIn: function(cont, evt, duration, startOpacity, replaceContent){
+		return new Promise(function (resolve) {
+			var $cont = $(cont)
+			$cont.css('opacity', startOpacity||'0')
+			if (replaceContent||true)
+				$cont.html(evt.$new)
+			$cont.transition({opacity: 1}, duration, 'easeOutCubic', resolve)
+		})
 	}
 
 	, fadeOut: function(cont, evt, duration, opacity){
-		var $cont = $(cont)
-		$cont.transition({opacity: opacity||.3}, duration, 'linear')
+		return new Promise(function (resolve) {
+			var $cont = $(cont)
+			$cont.transition({opacity: opacity||.3}, duration, 'linear', resolve)
+		})
 	}
 
-	, boxOut: function(cont, evt, duration, _scale, topmargin, background_color){
-		if (TR.preprocessing) return
-		TR.preprocessing = true
+	, boxOutCleanup: function (cont){
+		return new Promise(function (resolve) {
+			$(cont+'-bo').remove()
+			resolve()
+		})
+	}
 
-		setTimeout(function(){
-		
+	, boxOut: function(cont, evt, duration, _scale, topmargin, background_color, cleanup){
+
+		return new Promise(function (resolve) {
+
+			var key = cont+'_boxOut'
+			if (TR.processing[key]) {resolve(); return}
+			TR.processing[key] = true
+
 			var $cont = $(cont)
 
 			if (evt.fromHref == evt.toHref) {	
-				TR.preprocessing = false
-				return
+				TR.processing[key] = false
+				resolve(); return
 			}
 			var $contb = TR._insertPeer(cont, 'bo')
 
@@ -204,26 +218,30 @@ var TR = {
 
 			var top = topmargin||0
 
-			var $clip = TR._clip($cont, 'bo__cl', nwi+'px', (nche-top)+'px', top+'px')
+			var $clip = TR._clip($cont, 'bo__cl', nwi+'px', (nche-top)+'px', '0px') //top+'px')
 			$clip.css('background-color','white')
 			$clip.css('z-index','-1')
 			//ff shadow background
-			var $bgclip = TR._clip($cont, 'bo__bg', nwi+'px', (nhe-top)+'px', top+'px')
+			var $bgclip = TR._clip($cont, 'bo__bg', nwi+'px', (nhe-top)+'px', '0px') //top+'px')
 			$bgclip.css('background-color', background_color||'black')
 			$bgclip.css('z-index','-2')
 			$bgclip.empty()
 
 			$cont.empty()
 
-			//if (!topmargin) topmargin = '0px'
+			console.log('scaletop'+Math.round(nhe/2+top))
 
-			$clip.css('transformOrigin', 'top center')
-			$clip.transition({scale: _scale, opacity: .9}, duration, 'easeOutCubic')
-			setTimeout(function(){ 
-				$contb.remove()
-				TR.preprocessing = false
-			}, duration) //cleanup
-		}, 0)
+			return new Promise(function (tresolve) {
+				$clip.css('transformOrigin', (nhe/2+top)+'px '+(nwi/2)+'px')//'top center')
+				$clip.transition({backgroundColor: 'gray'}, duration, 'easeIn')
+				$clip.transition({scale: _scale, opacity: .9}, duration, 'easeIn', tresolve)
+			}).then(function(){
+				if (cleanup)
+					$contb.remove()
+				TR.processing[key] = false
+				resolve()
+			})
+		})
 	}
 
 	, _insertPeer: function(cont, uniqueSuffix) {
@@ -240,63 +258,67 @@ var TR = {
 
 	, splitVerticalOut: function(cont, evt, duration) {
 
-		if (TR.processing) return
-		TR.processing = true
+		return new Promise(function (resolve) {
 
-		var $cont = $(cont)
+			var key = cont+'_boxOut'
+			if (TR.processing[key]) {resolve(); return}
+			TR.processing[key] = true
 
-		if (evt.fromHref == evt.toHref) {	
-			$cont.html(evt.$new) //just refresh content, optional
-			TR.processing = false
-			return
-		}
+			var $cont = $(cont)
 
-		var $contb = TR._insertPeer(cont, 'svo')
-		
-		// compute endpoints math to split screen
-		var nwi = $(window).width()
-		var wi = nwi+'px'
-		var hwi = (nwi / 2) + 'px'
-		var he  = $(window).height() + 'px'
+			if (evt.fromHref == evt.toHref) {	
+				$cont.html(evt.$new) //just refresh content, optional
+				TR.processing[key] = false
+				resolve(); return
+			}
 
-		var leftRect = 'rect(0px '+hwi+' '+he+' 0px)'
-		var rightRect = 'rect(0px '+wi+' '+he+' '+hwi + ')'
-		
-		TR._clone($cont, $contb, 'svo__left')
-		TR._clone($cont, $contb, 'svo__right')
+			var $contb = TR._insertPeer(cont, 'svo')
+			
+			// compute endpoints math to split screen
+			var nwi = $(window).width()
+			var wi = nwi+'px'
+			var hwi = (nwi / 2) + 'px'
+			var he  = $(window).height() + 'px'
 
-		$cont.html(evt.$new)
+			var leftRect = 'rect(0px '+hwi+' '+he+' 0px)'
+			var rightRect = 'rect(0px '+wi+' '+he+' '+hwi + ')'
+			
+			TR._clone($cont, $contb, 'svo__left')
+			TR._clone($cont, $contb, 'svo__right')
 
-		// =============================================================
-		//css clip computed
-		var leftClip = $(cont+'-svo__left')
-		leftClip.css('clip', leftRect) // clip it
-		leftClip.css('position','absolute')
-		leftClip.css('z-index', 8)
-		leftClip.css('top', '0px')
-		leftClip.css('left', '0px')
-		leftClip.css('width', wi)
-		leftClip.css('min-height', he)
-		leftClip.css('background-color','white')
-		leftClip.css('transform', '')
-		
-		var rightClip = $(cont+'-svo__right')
-		rightClip.css('clip', rightRect)
-		rightClip.css('position','absolute')
-		rightClip.css('z-index', 10)
-		rightClip.css('top', '0px')
-		rightClip.css('left', '0px')
-		rightClip.css('width', wi)
-		rightClip.css('min-height', he)
-		rightClip.css('background-color','white')
-		rightClip.css('transform', '')
+			$cont.html(evt.$new)
 
-		leftClip.transition({x: '-'+hwi, easing: 'easeOutCubic', duration: duration})
-		rightClip.transition({x: hwi, easing: 'easeOutCubic', duration: duration})
+			// =============================================================
+			//css clip computed
+			var leftClip = $(cont+'-svo__left')
+			leftClip.css('clip', leftRect) // clip it
+			leftClip.css('position','absolute')
+			leftClip.css('z-index', 8)
+			leftClip.css('top', '0px')
+			leftClip.css('left', '0px')
+			leftClip.css('width', wi)
+			leftClip.css('min-height', he)
+			leftClip.css('background-color','white')
+			leftClip.css('transform', '')
+			
+			var rightClip = $(cont+'-svo__right')
+			rightClip.css('clip', rightRect)
+			rightClip.css('position','absolute')
+			rightClip.css('z-index', 10)
+			rightClip.css('top', '0px')
+			rightClip.css('left', '0px')
+			rightClip.css('width', wi)
+			rightClip.css('min-height', he)
+			rightClip.css('background-color','white')
+			rightClip.css('transform', '')
 
-		setTimeout(function(){ 
-			$contb.remove()
-			TR.processing = false
-		}, duration)
+			leftClip.transition({x: '-'+hwi, easing: 'easeOutCubic', duration: duration})
+			rightClip.transition({x: hwi, easing: 'easeOutCubic', duration: duration})
+
+			setTimeout(function(){ 
+				$contb.remove()
+				TR.processing[key] = false
+			}, duration)
+		})
 	}
 }
