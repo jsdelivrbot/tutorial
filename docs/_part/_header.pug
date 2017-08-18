@@ -6,9 +6,10 @@ meta(name='description', content='')
 link(rel='icon', href='./favicon.ico')
 link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Fira+Mono') 
 
-script(src='//code.jquery.com/jquery-3.2.1.slim.min.js', async='') 
-script(src='https://cdn.rawgit.com/topseed/topseed-turbo/master/vendor/loadjs.min.js')
-script(src='https://cdn.rawgit.com/topseed/topseed-turbo/master/setup/setup-4.2.js')
-script(src='./_js/main.js', async='')
+script.
+	var main_js = '/docs/_js/main.js'
+script(src='//code.jquery.com/jquery-3.2.1.slim.min.js', async) 
+script(src='//rawgit.com/topseed/topseed-turbo/master/setup/setup-6.3.js')
+
 style.
-    body {opacity: 0.1}
+	body {opacity: 0.1} 

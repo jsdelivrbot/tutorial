@@ -8,5 +8,12 @@ block main
 	.mui-container-fluid
 		include 5-amp.html
 		include _buttons
+
+	script.
+		TS.onAppReady(UIinit)
+		function UIinit() {
+			initSubmenu()
+		}
+
 block footer
 	include ../_part/_footer 

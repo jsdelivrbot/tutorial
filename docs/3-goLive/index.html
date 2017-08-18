@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en-us">
   <head>
-    <base href="/tutorial/">
+    <!--base(href='/tutorial/')  -->
+    <base href="/docs/">
     <title>Golive</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
@@ -9,14 +10,13 @@
     <meta name="description" content="">
     <link rel="icon" href="./favicon.ico">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Mono">
-    <script src="//code.jquery.com/jquery-3.2.1.slim.min.js" async=""> </script>
-    <script src="https://cdn.rawgit.com/topseed/topseed-turbo/master/vendor/loadjs.min.js"></script>
-    <script src="https://cdn.rawgit.com/topseed/topseed-turbo/master/setup/setup-4.2.js"></script>
-    <script src="./_js/main.js" async=""></script>
-    <style>body {opacity: 0.1}</style>
+    <script>var main_js = '/docs/_js/main.js'</script>
+    <script src="//code.jquery.com/jquery-3.2.1.slim.min.js" async> </script>
+    <script src="//rawgit.com/topseed/topseed-turbo/master/setup/setup-6.3.js"></script>
+    <style>body {opacity: 0.1} </style>
   </head>
   <body>
-    <link rel="stylesheet" href="./_sass/main.css" lazyload>
+    <link rel="stylesheet" href="./_sass/main.css">
     <div id="appbar"> 
       <div id="appbar--brand" onclick="openDrawer()">&nbsp; ☰ &nbsp;<span class="mui--hidden-xs mui--hidden-sm">Topseed&trade; Tutorial</span></div>
       <ul id="appbar--menu">
@@ -81,9 +81,6 @@
       function closeDrawer() {
       	$('#sidedrawer').css('transform', 'translateX(0px)')
       }
-      
-      
-      			
     </script>
     <div id="content-wrapper">
       <div class="mui-container-fluid"><h2 id="lab-3-go-live-deploy-to-cloud-and-use-a-cdn">Lab 3: Go-Live - Deploy to Cloud and use a CDN</h2>
@@ -119,16 +116,11 @@ On the Namecheap dashbord, click &#39;Manage&#39; for your domain, and &#39;Adva
       <script>
         TS.onAppReady(UIinit)
         function UIinit() {
-        	console.log('x')
+        	initSubmenu()
         }
         
         
       </script>
-    </div>
-    <div id="footer">
-      <div id="footer_div"><a href="https://gitter.im/topseed/Lobby" target="_blank">Forum </a>
-        <div id="footer_div--right"><a href="https://github.com/topseed/topseed" target="_blank">Kitchen Sink</a></div>
-      </div>
     </div>
   </body>
 </html>
