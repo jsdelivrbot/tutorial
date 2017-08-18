@@ -2,7 +2,7 @@
 
 var TR = {
 
-	processing: false
+	processing: []
 	, preprocessing: false
 
 	, show: function (cont, evt){
@@ -32,36 +32,40 @@ var TR = {
 	}
 
 	, uncoverDown: function(cont, evt, duration){
-
-		TR._uncover(cont, evt, duration, 'down')
+		return new Promise(function (resolve) {
+			TR._uncover(cont, evt, duration, 'down', resolve)
+		})
 	}
 
 	, uncoverUp: function(cont, evt, duration){
-		TR._uncover(cont, evt, duration, 'up')
+		return new Promise(function (resolve) {
+			TR._uncover(cont, evt, duration, 'up', resolve)
+		})
 	}
 
 	, uncoverLeft: function(cont, evt, duration){
-		TR._uncover(cont, evt, duration, 'left')
+		return new Promise(function (resolve) {
+			TR._uncover(cont, evt, duration, 'left', resolve)
+		})
 	}
 
 	, uncoverRight: function(cont, evt, duration){
-		TR._uncover(cont, evt, duration, 'right')
+		return new Promise(function (resolve) {
+			TR._uncover(cont, evt, duration, 'right', resolve)
+		})
 	}
 
-	, _uncover: function(cont, evt, duration, direction){
-
-		console.log('uncover.processing'+TR.processing)
-
-		if (TR.processing) return
-		TR.processing = true
+	, _uncover: function(cont, evt, duration, direction, resolve){
+		var key = cont+'_uncover'
+		if (TR.processing[key]) resolve()
+		TR.processing[key] = true
 
 		var $cont = $(cont)
 
 		if (evt.fromHref == evt.toHref) {
 			$cont.html(evt.$new) //just refresh content, optional
-			TR.processing = false
-			console.log('to is same as from'+evt.fromHref)
-			return
+			TR.processing[key] = false
+			resolve()
 		}
 
 		var $contb = TR._insertPeer(cont, 'unc')
@@ -76,46 +80,57 @@ var TR = {
 
 		$cont.html(evt.$new)
 
-		switch (direction){
-			case 'down': $clip.transition({y: he, easing: 'easeOutCubic', duration: duration}); break
-			case 'up': $clip.transition({y: '-'+he, easing: 'easeOutCubic', duration: duration}); break
-			case 'right': $clip.transition({x: wi, easing: 'easeOutCubic', duration: duration}); break
-			case 'left': $clip.transition({x: '-'+wi, easing: 'easeOutCubic', duration: duration}); break
-		}
-
-		setTimeout(function(){ 
-			TR.processing = false
-			$contb.remove() 
-		}, duration) //cleanup
+		return new Promise(function (tresolve) {
+			switch (direction){
+			case 'down': $clip.transition({y: he, easing: 'easeOutCubic', duration: duration, complete: tresolve}); break
+			case 'up': $clip.transition({y: '-'+he, easing: 'easeOutCubic', duration: duration, complete: tresolve}); break
+			case 'right': $clip.transition({x: wi, easing: 'easeOutCubic', duration: duration, complete: tresolve}); break
+			case 'left': $clip.transition({x: '-'+wi, easing: 'easeOutCubic', duration: duration, complete: tresolve}); break
+			}
+		}).then(function(){
+			$contb.remove()
+			$cont.css('z-index', '0') 
+			TR.processing[key] = false
+			return resolve()
+		})
 	}
 
-	, coverDown: function(cont, evt, duration){
-		TR._cover(cont, evt, duration, 'down')
+	, coverDown: function(cont, evt, duration, endPos){
+		return new Promise(function (resolve) {
+			TR._cover(cont, evt, duration, 'down', endPos, resolve)
+		})
 	}
 
 	, coverUp: function(cont, evt, duration, endPos){
-		TR._cover(cont, evt, duration, 'up', endPos)
+		return new Promise(function (resolve) {
+			TR._cover(cont, evt, duration, 'up', endPos, resolve)
+		})
 	}
 
-	, coverLeft: function(cont, evt, duration){
-		TR._cover(cont, evt, duration, 'left')
+	, coverLeft: function(cont, evt, duration, endPos){
+		return new Promise(function (resolve) {
+			TR._cover(cont, evt, duration, 'left', endPos, resolve)
+		})
 	}
 
-	, coverRight: function(cont, evt, duration){
-		TR._cover(cont, evt, duration, 'right')
+	, coverRight: function(cont, evt, duratio, endPos){
+		return new Promise(function (resolve) {
+			TR._cover(cont, evt, duration, 'right', endPos, resolve)
+		})
 	}
 
-	, _cover: function(cont, evt, duration, direction, endPos){
-		if (TR.processing) return
-		TR.processing = true
+	, _cover: function(cont, evt, duration, direction, endPos, resolve){
+		var key = cont+'_cover'
+		if (TR.processing[key]) resolve()
+		TR.processing[key] = true
 
 		var $cont = $(cont)
 		var $contb = TR._insertPeer(cont, 'cover')
 
 		if (evt.fromHref == evt.toHref) {	
 			$cont.html(evt.$new) //just refresh content, optional
-			TR.processing = false
-			return
+			TR.processing[key] = false
+			resolve()
 		}
 		
 		TR._clone($cont, $contb, 'cover__cl')
@@ -139,22 +154,19 @@ var TR = {
 
 		$cont.html(evt.$new)
 
-		var cb = function(){
-			//alert('cb; done')
-		}
-
-		switch (direction){
-			case 'down': $cont.transition({y: he, easing: 'easeOutCubic', duration: duration}); break
-			case 'up': $cont.transition({y: '-'+he, easing: 'easeOutCubic', duration: duration, complete: cb}); break
-			case 'right': $cont.transition({x: wi, easing: 'easeOutCubic', duration: duration}); break
-			case 'left': $cont.transition({x: '-'+wi, easing: 'easeOutCubic', duration: duration}); break
-		}
-
-		setTimeout(function(){ 
-			TR.processing = false
+		return new Promise(function (tresolve) {
+			switch (direction){
+				case 'down': $cont.transition({y: he, easing: 'easeOutCubic', duration: duration, complete: tresolve }); break
+				case 'up': $cont.transition({y: '-'+he, easing: 'easeOutCubic', duration: duration, complete: tresolve }); break
+				case 'right': $cont.transition({x: wi, easing: 'easeOutCubic', duration: duration, complete: tresolve }); break
+				case 'left': $cont.transition({x: '-'+wi, easing: 'easeOutCubic', duration: duration, complete: tresolve }); break
+			}
+		}).then(function(){
 			$contb.remove()
 			$cont.css('z-index', '0') 
-		}, duration) //cleanup
+			TR.processing[key] = false
+			return resolve()
+		})
 	}
 
 	, fadeIn: function(cont, evt, duration){

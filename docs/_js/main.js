@@ -55,11 +55,15 @@ var TM = {
 				if (newInd < oldInd) { 
 
 					console.log('newInd'+newInd+'<oldInd'+oldInd)
-
-					TR.uncoverDown('#content-wrapper', evt, 350)
-					//TR.uncoverUp('#content-wrapper', evt, 350)
-					//TR.uncoverRight('#content-wrapper', evt, 350)
-					//TR.uncoverLeft('#content-wrapper', evt, 350)
+					console.log('main: before TR.uncoverDown')
+					Promise.all([
+						TR.uncoverDown('#content-wrapper', evt, 350)
+						//TR.uncoverUp('#content-wrapper', evt, 350)
+						//TR.uncoverRight('#content-wrapper', evt, 350)
+						//TR.uncoverLeft('#content-wrapper', evt, 350)
+					]).then(function(){
+						console.log('main: after TR.uncoverDown')
+					})
 				}
 				else {
 
@@ -67,10 +71,15 @@ var TM = {
 						TR.splitVerticalOut('#content-wrapper', evt, 350)
 					}
 					else { //default
-						TR.coverUp('#content-wrapper', evt, 350, 35)
-						//TR.coverUp('#content-wrapper', evt, 350)
-						//TR.coverRight('#content-wrapper', evt, 350)
-						//TR.coverLeft('#content-wrapper', evt, 350)
+						console.log('main: before TR.coverUp')
+						Promise.all([
+							TR.coverUp('#content-wrapper', evt, 350, 35)
+							//TR.coverUp('#content-wrapper', evt, 350)
+							//TR.coverRight('#content-wrapper', evt, 350)
+							//TR.coverLeft('#content-wrapper', evt, 350)
+						]).then(function(){
+							console.log('main: after TR.coverUp')
+						})
 					}
 				}
 				$('html, body').scrollTop(0)
