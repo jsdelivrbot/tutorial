@@ -26,8 +26,6 @@ var submenuInitialized = false
 
 function initSubmenu(){
 
-	console.log('initSubmenu')
-
 	//if (submenuInitialized) return
 	submenuInitialized = true
 

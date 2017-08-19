@@ -2024,13 +2024,13 @@ body {
   color: #ffffff; }
 
 #content-wrapper {
-  -webkit-box-flex: 1;
-  -webkit-flex-grow: 1;
-  -ms-flex-positive: 1;
-  flex-grow: 1;
   background-color: #ffffff;
   margin-top: 36px;
-  width: 100vw; }
+  width: 100vw;
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-height: calc(100% - 36px); }
 
 #content-wrapper * {
   font-family: -apple-system, BlinkMacSystemFont, Roboto, "Segoe UI", Helvetica, Arial, sans-serif; }
@@ -2113,3 +2113,22 @@ body {
 
 #content-wrapper {
   background-color: #ffffff; }
+
+.full, #page1 {
+  height: 100%;
+  position: absolute; }
+
+#page1 {
+  background-color: rgba(197, 202, 233, 0.3); }
+
+#page3 {
+  background-color: rgba(255, 87, 34, 0.04); }
+
+#page5 {
+  background-color: rgba(197, 202, 233, 0.2); }
+
+#page7 {
+  background-color: rgba(255, 87, 34, 0.05); }
+
+#page9 {
+  background-color: rgba(197, 202, 233, 0.3); }

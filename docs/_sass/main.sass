@@ -11,7 +11,7 @@
 
 //Override _base.scss examples ====================================================
 //$base-line-height: 22px
-//$headerH:  $base-line-height * 1.8
+//$headerH:  $base-line-height * 1.8 
 //$mui-base-font-family: 'Roboto', sans-serif
 
 // Override _ieFooter examples ====================================================
@@ -34,30 +34,55 @@
 //	font-family: $mui-base-font-family 
 
 #content-wrapper code
-    font-family: 'Fira Mono', monospace
-    font-size: $base-line-height * .57
-    color: $secondary-text-color
+	font-family: 'Fira Mono', monospace
+	font-size: $base-line-height * .57
+	color: $secondary-text-color
 
 //support for dropdown menu
 .submenu
-    @extend .mui-dropdown
+	@extend .mui-dropdown
 
 .mui-dropdown__menu
-    position: fixed
-    background-color: $primary-color
+	position: fixed
+	background-color: $primary-color 
 
 .mui-dropdown__menu > li > a:focus   
-    background-color: $primary-color
-    outline: 0
+	background-color: $primary-color 
+	outline: 0
 
 .mui-dropdown__menu > li > a:hover
-    background-color: $accent-color
+	background-color: $accent-color
 
 .mui-caret
-    margin-left: .4em
+	margin-left: .4em
 
 #content-wrapper
-    background-color: $primary-color-text
+	background-color: $primary-color-text
 
 
 //Page specific styles ff =========================================================
+
+.full 
+	height: 100%
+	position: absolute
+
+#page1
+	background-color: rgba(197,202,233,.3)
+	@extend .full
+
+#page3
+	background-color:  rgba(255,87,34,.04)
+	//@extend .full
+
+#page5
+	background-color: rgba(197,202,233,.2)
+	//@extend .full
+
+#page7
+	background-color: rgba(255,87,34,.05) 
+	//@extend .full
+
+#page9
+	background-color: rgba(197,202,233,.3)
+	//@extend .full
+

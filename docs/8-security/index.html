@@ -90,7 +90,8 @@
       }
     </script>
     <div id="content-wrapper">
-      <div class="mui-container-fluid"><h2 id="lab-8-log-in-security-and-tokens">Lab 8: Log-in Security and Tokens</h2>
+      <div id="page8">
+        <div class="mui-container-fluid"><h2 id="lab-8-log-in-security-and-tokens">Lab 8: Log-in Security and Tokens</h2>
 <ol>
 <li><p>Until now we had log-in security for the Admin module disabled. Inspect <code>/admin/login/index.pug</code>, and look for <code>&#39;//sb.redirect(&#39;/admin/home/&#39;)</code>. Uncomment it by removing <code>&#39;//&#39;</code>. Ensure the API service is running. Return to the home page at <a href='http://localhost:8091' target='_blank'>http://localhost:8091</a>, and click the &#39;Admin&#39; menu item to see the login prompt. Use <code>&#39;demo&#39;:&#39;demo&#39;</code> as username:password and click &#39;Login&#39;. In VS Code, return to <code>/admin/login/index.pug</code>. See how we open the modal dialog, bind the form and register the form submit. Modal dialogs are natively supported by the Chrome browser. We use a <em>polyfill</em> (loaded in <code>/\_js/admin.js</code>) for compatibility with other browsers (Edge and IE need a little bit of CSS love). <code>LoginBusiness</code> <code>&#39;login()&#39;</code> contacts the API server (it could be a separate server dedicated to authentication). If the credentials match, LoginBusiness receives an &#39;OK&#39; response, and we redirect to <code>/admin/home/</code>. If an authentication error is received, we display it in a <code>&#39;div&#39;</code> with <code>id &#39;error&#39;</code> on the page.</p>
 </li>
@@ -111,7 +112,8 @@ Inspect this function. The returned promise throws an &#39;invalid token&#39; er
 </li>
 </ol>
 
-        <div class="mui--text-left"><a class="mui-btn mui-btn--raised" href="./9-comps/">Next Tutorial  </a><a class="mui-btn" href="./7-write/">Previous Tutorial  </a><a class="mui-btn" href="./0-agenda/">Return to Agenda</a></div>
+          <div class="mui--text-left"><a class="mui-btn mui-btn--raised" href="./9-comps/">Next Tutorial  </a><a class="mui-btn" href="./7-write/">Previous Tutorial  </a><a class="mui-btn" href="./0-agenda/">Return to Agenda</a></div>
+        </div>
       </div>
       <script>
         TS.onAppReady(UIinit)

@@ -106,20 +106,21 @@ body {
 	line-height: $headerH;
 }
 
-#appbar--menu a:hover {
+#appbar--menu a:hover { 
 	color: $primary-color-text;
 }
 
 // Shell Content ======================================================================
 #content-wrapper {
-	flex-grow: 1;
+	//flex-grow: 1;
 	background-color: $primary-color-text;
 	margin-top: $headerH;
 	width: 100vw;
 	//because of transitions:
 	position: absolute;
-	top: $headerH1;
+	top: 0;
 	left: 0;
+	min-height: calc(100% - #{$headerH});
 }
 
 #content-wrapper * {

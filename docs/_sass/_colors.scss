@@ -2,11 +2,12 @@
 // Copy to main.sass and mainA.sass (remove the ; at the end of the lines).
 // We keep this copy for display without importing it.
 
-$primary-color-dark: #303f9f;
-$primary-color: #3f51b5;
-$primary-color-light: #c5cae9;
+$primary-color-dark: #303f9f; //rgba(48,63,159,1)
+$primary-color: #3f51b5; //rgba(63,81,181,1)
+$primary-color-light: #c5cae9; //rgba(197,202,233,1)
 $primary-color-text: #ffffff;
-$accent-color: #ff5722;
-$primary-text-color: #000000;
-$secondary-text-color: #757575;
-$divider-color: #bdbdbd;
+$accent-color: #ff5722; //rgba(255,87,34,1)
+$primary-text-color: #000000; //rgba(0,0,0,1)
+$secondary-text-color: #757575; //rgba(117,117,117,1)
+$divider-color: #bdbdbd; //rgba(189,189,189,1)
+
