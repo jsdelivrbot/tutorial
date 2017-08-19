@@ -30,7 +30,7 @@ var TM = {
 
 			if (TT.PRE == evt.typ) {
 				if (newInd > oldInd) { //on page forward transitions show immediate feedback by beginning a fade-out
-					TR.fadeOut(TT.ScontentID, evt, 200, .8)
+					//TR.fadeOut(TT.ScontentID, evt, 200, .5)
 				}
 			}
 			if (TT.PAGE === evt.typ) {
@@ -39,7 +39,7 @@ var TM = {
 
 				if (newInd > oldInd) { //forward transitions
 					//no need for Promise.all here because there's no 'then'
-					TR.fadeIn(TT.ScontentID, evt, 0, null, false) //set opacity to 1 with 0 delay and no content replace
+					//TR.fadeIn(TT.ScontentID, evt, 0, null, false) //set opacity to 1 with 0 delay and no content replace
 					TR.uncoverDown(TT.ScontentID, evt, 1500)
 				}
 				else { //backward transitions

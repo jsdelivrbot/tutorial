@@ -2118,6 +2118,9 @@ body {
   height: 100%;
   position: absolute; }
 
+.mui-container-fluid {
+  margin-right: 25px; }
+
 #page1 {
   background-color: rgba(197, 202, 233, 0.3); }
 
