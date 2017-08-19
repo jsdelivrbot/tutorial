@@ -1,7 +1,7 @@
 ## Agenda:
 
 
-The Basics
+The Foundation
 
 - [1: Hello World - Using Markdown with Preprocessor](./1-helloWorld/)
 

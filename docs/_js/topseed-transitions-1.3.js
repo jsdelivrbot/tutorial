@@ -102,6 +102,7 @@ var TR = {
 	}
 
 	, coverUp: function(cont, evt, duration, endPos){
+		console.log('coverUp started'+new Date())
 		return new Promise(function (resolve) {
 			TR._cover(cont, evt, duration, 'up', endPos, resolve)
 		})
@@ -173,7 +174,9 @@ var TR = {
 		return new Promise(function (resolve) {
 			var $cont = $(cont)
 			$cont.css('opacity', startOpacity||'0')
-			if (replaceContent||true)
+			if (replaceContent === false)
+				; //console.log('do not replace')
+			else
 				$cont.html(evt.$new)
 			$cont.transition({opacity: 1}, duration, 'easeOutCubic', resolve)
 		})
@@ -221,22 +224,24 @@ var TR = {
 			var $clip = TR._clip($cont, 'bo__cl', nwi+'px', (nche-top)+'px', '0px') //top+'px')
 			$clip.css('background-color','white')
 			$clip.css('z-index','-1')
+			$clip.css('top', top)
+			
 			//ff shadow background
 			var $bgclip = TR._clip($cont, 'bo__bg', nwi+'px', (nhe-top)+'px', '0px') //top+'px')
 			$bgclip.css('background-color', background_color||'black')
 			$bgclip.css('z-index','-2')
 			$bgclip.empty()
+			$bgclip.css('top', top)
 
 			$cont.empty()
 
-			console.log('scaletop'+Math.round(nhe/2+top))
-
-			return new Promise(function (tresolve) {
-				$clip.css('transformOrigin', (nhe/2+top)+'px '+(nwi/2)+'px')//'top center')
-				$clip.transition({backgroundColor: 'gray'}, duration, 'easeIn')
-				$clip.transition({scale: _scale, opacity: .9}, duration, 'easeIn', tresolve)
+			new Promise(function (tresolve) {
+				$clip.css('transformOrigin', 'center 5%')
+				$clip.transition({scale: _scale, opacity: .9, backgroundColor: 'gray'}, duration, 'easeOutCubic', tresolve)
 			}).then(function(){
-				if (cleanup)
+				if (cleanup === false)
+					; //console.log('do not replace')
+				else
 					$contb.remove()
 				TR.processing[key] = false
 				resolve()

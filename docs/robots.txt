@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 Host: docs.topseed.io
-Sitemap: https://docs.topseed.io/tutorial-basic/sitemap.xml
+Sitemap: https://docs.topseed.io/tutorial/sitemap.xml

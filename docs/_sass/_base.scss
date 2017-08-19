@@ -116,6 +116,10 @@ body {
 	background-color: $primary-color-text;
 	margin-top: $headerH;
 	width: 100vw;
+	//because of transitions:
+	position: absolute;
+	top: $headerH1;
+	left: 0;
 }
 
 #content-wrapper * {

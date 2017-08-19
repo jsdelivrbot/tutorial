@@ -1,8 +1,10 @@
+block vars
+	- var base='tutorial' //'docs' or 'tutorial'
 doctype html
 html(lang='en-us')
 	head
-		base(href='/tutorial/')  
-		//base(href='/docs/')
+		//-base(href='/tutorial/')  
+		base(href='/'+base+'/') 
 		block head
 
 	body
