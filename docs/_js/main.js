@@ -7,7 +7,7 @@ var TM = {
 			TS.load('./_js/submenu.js')
 			, TS.load('//cdn.jsdelivr.net/jquery.transit/0.9.12/jquery.transit.min.js')
 			, TS.load('//cdn.rawgit.com/topseed/topseed-turbo/master/transit/topseed-transitions-1.3.js') //page transitions
-			, TS.load('//cdn.rawgit.com/topseed/topseed-turbo/master/release/topseed-turbo-4.3.js')
+			, TS.load('//cdn.rawgit.com/topseed/topseed-turbo/master/release/topseed-turbo-4.4.js')
 		])
 		.then(TM.libsLoaded)
 	}
