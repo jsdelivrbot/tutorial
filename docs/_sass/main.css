@@ -2114,7 +2114,7 @@ body {
 #content-wrapper {
   background-color: #ffffff; }
 
-.full, #page1 {
+.full {
   height: 100%;
   position: absolute; }
 
