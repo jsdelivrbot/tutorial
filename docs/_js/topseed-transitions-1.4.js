@@ -303,6 +303,7 @@ var TR = {
 			leftClip.css('left', '0px')
 			leftClip.css('width', wi)
 			leftClip.css('min-height', he)
+			leftClip.css('height', he)
 			leftClip.css('background-color','white')
 			leftClip.css('transform', '')
 			
@@ -314,6 +315,7 @@ var TR = {
 			rightClip.css('left', '0px')
 			rightClip.css('width', wi)
 			rightClip.css('min-height', he)
+			rightClip.css('height', he)
 			rightClip.css('background-color','white')
 			rightClip.css('transform', '')
 
