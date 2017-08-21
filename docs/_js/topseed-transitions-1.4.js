@@ -280,10 +280,10 @@ var TR = {
 			var $contb = TR._insertPeer(cont, 'svo')
 			
 			// compute endpoints math to split screen
-			var nwi = $(window).width()
+			var nwi = $(window).innerWidth()
 			var wi = nwi+'px'
 			var hwi = (nwi / 2) + 'px'
-			var he  = $(window).height() + 'px'
+			var he  = $(window).innerHeight() + 'px'
 
 			var leftRect = 'rect(0px '+hwi+' '+he+' 0px)'
 			var rightRect = 'rect(0px '+wi+' '+he+' '+hwi + ')'
