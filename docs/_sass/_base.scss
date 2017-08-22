@@ -57,10 +57,6 @@ body {
 	color: $primary-color-light;
 }
 
-#appbar--brand:hover {
-	cursor: pointer;
-}
-
 #appbar {
 	@extend .mui--z1;
 	display: flex;
@@ -100,15 +96,22 @@ body {
 	margin-right: 0;
 }
 
-#appbar--menu li:hover {
-	background-color: $accent-color;
-	color: $primary-color-light;
-	cursor: pointer;
-	line-height: $headerH;
-}
+@media (hover:hover) {
 
-#appbar--menu a:hover { 
-	color: $primary-color-text;
+	#appbar--brand:hover {
+		cursor: pointer;
+	}
+
+	#appbar--menu li:hover {
+		background-color: $accent-color;
+		color: $primary-color-light;
+		cursor: pointer;
+		line-height: $headerH;
+	}
+
+	#appbar--menu a:hover { 
+		color: $primary-color-text;
+	}
 }
 
 // Shell Content ======================================================================

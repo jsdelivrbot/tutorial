@@ -1970,9 +1970,6 @@ body {
   text-decoration: none;
   color: #c5cae9; }
 
-#appbar--brand:hover {
-  cursor: pointer; }
-
 #appbar {
   display: -webkit-box;
   display: -webkit-flex;
@@ -2014,14 +2011,16 @@ body {
   color: #ffffff;
   margin-right: 0; }
 
-#appbar--menu li:hover {
-  background-color: #ff5722;
-  color: #c5cae9;
-  cursor: pointer;
-  line-height: 36px; }
-
-#appbar--menu a:hover {
-  color: #ffffff; }
+@media (hover: hover) {
+  #appbar--brand:hover {
+    cursor: pointer; }
+  #appbar--menu li:hover {
+    background-color: #ff5722;
+    color: #c5cae9;
+    cursor: pointer;
+    line-height: 36px; }
+  #appbar--menu a:hover {
+    color: #ffffff; } }
 
 #content-wrapper {
   -webkit-box-flex: 1;
@@ -2110,6 +2109,9 @@ body {
 
 .mui-caret {
   margin-left: .4em; }
+
+#content-wrapper {
+  padding-bottom: 12px; }
 
 .full {
   height: 100%;
