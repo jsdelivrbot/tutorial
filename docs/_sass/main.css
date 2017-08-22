@@ -2113,6 +2113,10 @@ body {
 #content-wrapper {
   padding-bottom: 12px; }
 
+@media screen and (max-width: 500px) {
+  ol {
+    padding-left: 18px; } }
+
 .full {
   height: 100%;
   position: absolute; }
