@@ -299,7 +299,7 @@ var TR = {
 			leftClip.css('clip', leftRect) // clip it
 			leftClip.css('position','absolute')
 			leftClip.css('z-index', 8)
-			leftClip.css('top', '0px')
+			leftClip.css('top', '39px')
 			leftClip.css('left', '0px')
 			leftClip.css('width', wi)
 			leftClip.css('min-height', he)
@@ -311,7 +311,7 @@ var TR = {
 			rightClip.css('clip', rightRect)
 			rightClip.css('position','absolute')
 			rightClip.css('z-index', 10)
-			rightClip.css('top', '0px')
+			rightClip.css('top', '39px')
 			rightClip.css('left', '0px')
 			rightClip.css('width', wi)
 			rightClip.css('min-height', he)
