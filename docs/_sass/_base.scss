@@ -114,8 +114,8 @@ body {
 // Shell Content ======================================================================
 #content-wrapper {
 	flex-grow: 1;
-	background-color: $primary-color-text;
-	margin-top: $headerH;
+	//background-color: $primary-color-text; 
+	margin-top: $headerH; 
 	width: 100vw;
 	//because of transitions:
 	//position: absolute;

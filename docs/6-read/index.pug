@@ -1,14 +1,16 @@
 extends  ../_part/_baseShell
 
+block append vars
+	- var bgClass = 'page6'
+
 block head
 	title Read from API
 	include ../_part/_header
 
 block main
-	#page6
-		.mui-container-fluid
-			include 6-read.html
-			include _buttons
+	.mui-container-fluid
+		include 6-read.html
+		include _buttons
 
 	script.
 		TS.onAppReady(UIinit)

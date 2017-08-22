@@ -1,5 +1,6 @@
 block vars
 	- var base='tutorial' //'docs' or 'tutorial'
+	- var bgClass
 doctype html
 html(lang='en-us')
 	head
@@ -11,7 +12,7 @@ html(lang='en-us')
 		link(rel='stylesheet', href='./_sass/main.css')
 		include _top
 
-		#content-wrapper
+		#content-wrapper(class=bgClass)
 			block main
 
 		block footer

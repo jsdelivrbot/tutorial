@@ -1,13 +1,15 @@
 extends  ../_part/_baseShell
 
+block append vars
+	- var bgClass = 'page0'
+
 block head
 	title Agenda
 	include ../_part/_header
 
 block main
-	#page0
-		.mui-container-fluid
-			include 0-agenda.html
+	.mui-container-fluid
+		include 0-agenda.html
 
 	script.
 		TS.onAppReady(UIinit)

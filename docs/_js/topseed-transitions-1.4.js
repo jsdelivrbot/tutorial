@@ -1,13 +1,24 @@
 'use strict'
 
+$.fn.removeClassPrefix = function(prefix) {
+	this.each(function(i, el) {
+		var classes = el.className.split(" ").filter(function(c) {
+			return c.lastIndexOf(prefix, 0) !== 0
+		})
+		el.className = $.trim(classes.join(" "))
+	});
+	return this
+}
+
 var TR = {
 
 	processing: []
-	, preprocessing: false
 
 	, show: function (cont, evt){
 		$(cont).html(evt.$new)
 	}
+
+	
 
 	, _clone: function($parent, $newParent, wrapperIdSuffix){
 		var $clone = $parent.children().clone()
@@ -31,36 +42,41 @@ var TR = {
 		return clip
 	}
 
-	, uncoverDown: function(cont, evt, duration){
+	, uncoverDown: function(cont, evt, duration, bgClass){
 		return new Promise(function (resolve) {
-			TR._uncover(cont, evt, duration, 'down', resolve)
+			TR._uncover(cont, evt, duration, 'down', bgClass, resolve)
 		})
 	}
 
-	, uncoverUp: function(cont, evt, duration){
+	, uncoverUp: function(cont, evt, duration, bgClass){
 		return new Promise(function (resolve) {
-			TR._uncover(cont, evt, duration, 'up', resolve)
+			TR._uncover(cont, evt, duration, 'up', bgClass, resolve)
 		})
 	}
 
-	, uncoverLeft: function(cont, evt, duration){
+	, uncoverLeft: function(cont, evt, duration, bgClass){
 		return new Promise(function (resolve) {
-			TR._uncover(cont, evt, duration, 'left', resolve)
+			TR._uncover(cont, evt, duration, 'left', bgClass, resolve)
 		})
 	}
 
-	, uncoverRight: function(cont, evt, duration){
+	, uncoverRight: function(cont, evt, duration, bgClass){
 		return new Promise(function (resolve) {
-			TR._uncover(cont, evt, duration, 'right', resolve)
+			TR._uncover(cont, evt, duration, 'right', bgClass, resolve)
 		})
 	}
 
-	, _uncover: function(cont, evt, duration, direction, resolve){
+	, _uncover: function(cont, evt, duration, direction, bgClass, resolve){
 		var key = cont+'_uncover'
 		if (TR.processing[key]) {resolve(); return}
 		TR.processing[key] = true
 
 		var $cont = $(cont)
+
+		if (bgClass) {
+			$cont.removeClassPrefix('page')
+			$cont.addClass(bgClass)
+		}
 
 		if (evt.fromHref == evt.toHref) {
 			$cont.html(evt.$new) //just refresh content, optional
@@ -95,32 +111,32 @@ var TR = {
 		})
 	}
 
-	, coverDown: function(cont, evt, duration, endPos){
+	, coverDown: function(cont, evt, duration, endPos, bgClass){
 		return new Promise(function (resolve) {
-			TR._cover(cont, evt, duration, 'down', endPos, resolve)
+			TR._cover(cont, evt, duration, 'down', endPos, bgClass, resolve)
 		})
 	}
 
-	, coverUp: function(cont, evt, duration, endPos){
+	, coverUp: function(cont, evt, duration, endPos, bgClass){
 		console.log('coverUp started'+new Date())
 		return new Promise(function (resolve) {
-			TR._cover(cont, evt, duration, 'up', endPos, resolve)
+			TR._cover(cont, evt, duration, 'up', endPos, bgClass, resolve)
 		})
 	}
 
-	, coverLeft: function(cont, evt, duration, endPos){
+	, coverLeft: function(cont, evt, duration, endPos, bgClass){
 		return new Promise(function (resolve) {
-			TR._cover(cont, evt, duration, 'left', endPos, resolve)
+			TR._cover(cont, evt, duration, 'left', endPos, bgClass, resolve)
 		})
 	}
 
-	, coverRight: function(cont, evt, duratio, endPos){
+	, coverRight: function(cont, evt, duratio, endPos, bgClass){
 		return new Promise(function (resolve) {
-			TR._cover(cont, evt, duration, 'right', endPos, resolve)
+			TR._cover(cont, evt, duration, 'right', endPos, bgClass, resolve)
 		})
 	}
 
-	, _cover: function(cont, evt, duration, direction, endPos, resolve){
+	, _cover: function(cont, evt, duration, direction, endPos, bgClass, resolve){
 		var key = cont+'_cover'
 		if (TR.processing[key]) {resolve(); return}
 		TR.processing[key] = true
@@ -152,8 +168,13 @@ var TR = {
 		$cont.css('z-index', '10')
 		$cont.css('transform', '') //clear old transforms
 		$cont.css('opacity', '1')
+		if (bgClass) {
+			$cont.removeClassPrefix('page')
+			$cont.addClass(bgClass)
+		}
 
 		$cont.html(evt.$new)
+
 
 		return new Promise(function (tresolve) {
 			switch (direction){
@@ -261,7 +282,7 @@ var TR = {
 		return $contb
 	}
 
-	, splitVerticalOut: function(cont, evt, duration) {
+	, splitVerticalOut: function(cont, evt, duration, bgClass) {
 
 		return new Promise(function (resolve) {
 
@@ -290,6 +311,11 @@ var TR = {
 			
 			TR._clone($cont, $contb, 'svo__left')
 			TR._clone($cont, $contb, 'svo__right')
+
+			if (bgClass) {
+				$cont.removeClassPrefix('page')
+				$cont.addClass(bgClass)
+			}
 
 			$cont.html(evt.$new)
 

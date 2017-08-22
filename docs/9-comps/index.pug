@@ -1,14 +1,16 @@
 extends  ../_part/_baseShell
 
+block append vars
+	- var bgClass = 'page9'
+
 block head
 	title Web Components
 	include ../_part/_header
 
 block main
-	#page9
-		.mui-container-fluid
-			include 9-comps.html
-			include _buttons
+	.mui-container-fluid
+		include 9-comps.html
+		include _buttons
 
 	script.
 		TS.onAppReady(UIinit)

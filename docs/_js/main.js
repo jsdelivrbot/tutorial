@@ -6,8 +6,7 @@ var TM = {
 		return Promise.all([
 			TS.load('./_js/submenu.js')
 			, TS.load('//cdn.jsdelivr.net/jquery.transit/0.9.12/jquery.transit.min.js')
-			//, TS.load('//cdn.rawgit.com/topseed/topseed-turbo/master/transit/topseed-transitions-1.3.js') //page transitions
-			, TS.load('./_js/topseed-transitions-1.4.js') //page transitions
+			, TS.load('//cdn.rawgit.com/topseed/topseed-turbo/master/transit/topseed-transitions-1.4.js') //page transitions
 			, TS.load('//cdn.rawgit.com/topseed/topseed-turbo/master/release/topseed-turbo-4.4.js')
 		])
 		.then(TM.libsLoaded)
@@ -28,6 +27,7 @@ var TM = {
 			var oldInd = Number(oldArr[oldArr.length-1].split('-')[0])
 			if (oldInd == NaN) oldInd = 0
 			//console.log('oldInd'+oldInd+'/newInd'+newInd)
+			var bgClass = 'page'+newInd
 
 			if (TT.PRE == evt.typ) {
 				if (newInd > oldInd) { //on page forward transitions show immediate feedback by beginning a fade-out
@@ -41,16 +41,16 @@ var TM = {
 				if (newInd > oldInd) { //forward transitions
 					//no need for Promise.all here because there's no 'then'
 					//TR.fadeIn(TT.ScontentID, evt, 0, null, false) //set opacity to 1 with 0 delay and no content replace
-					TR.uncoverDown(TT.ScontentID, evt, 1500)
+					TR.uncoverDown(TT.ScontentID, evt, 1500, bgClass)
 				}
 				else { //backward transitions
 					if (evt.toHref.indexOf('agenda')>-1) //going to agenda, custom
-						TR.splitVerticalOut(TT.ScontentID, evt, 750)
+						TR.splitVerticalOut(TT.ScontentID, evt, 750, bgClass)
 					else
 					{
 						Promise.all([
 							TR.boxOut(TT.ScontentID, evt, 300, .87, 36, '#303f9f', false)
-							, TR.coverUp(TT.ScontentID, evt, 1250, 35)
+							, TR.coverUp(TT.ScontentID, evt, 1250, 36, bgClass)
 						]).then(function(){
 							TR.boxOutCleanup(TT.ScontentID)
 						})

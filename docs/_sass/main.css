@@ -2028,7 +2028,6 @@ body {
   -webkit-flex-grow: 1;
   -ms-flex-positive: 1;
   flex-grow: 1;
-  background-color: #ffffff;
   margin-top: 36px;
   width: 100vw;
   min-height: calc(100% - 36px); }
@@ -2112,24 +2111,39 @@ body {
 .mui-caret {
   margin-left: .4em; }
 
-#content-wrapper {
-  background-color: #ffffff; }
-
 .full {
   height: 100%;
   position: absolute; }
 
-#page1 {
-  background-color: rgba(197, 202, 233, 0.3); }
+.page0 {
+  background-color: white; }
 
-#page3 {
-  background-color: rgba(255, 87, 34, 0.04); }
+.page1 {
+  background-color: #edeff8; }
 
-#page5 {
-  background-color: rgba(197, 202, 233, 0.2); }
+.page2 {
+  background-color: white; }
 
-#page7 {
-  background-color: rgba(255, 87, 34, 0.05); }
+.page3 {
+  background-color: #fef8f6; }
 
-#page9 {
-  background-color: rgba(197, 202, 233, 0.3); }
+.page4 {
+  background-color: white; }
+
+.page5 {
+  background-color: #f3f4fa; }
+
+.page6 {
+  background-color: white; }
+
+.page7 {
+  background-color: #fff6f3; }
+
+.page8 {
+  background-color: white; }
+
+.page9 {
+  background-color: #edeff8; }
+
+.page10 {
+  background-color: white; }

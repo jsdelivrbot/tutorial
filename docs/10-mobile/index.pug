@@ -1,14 +1,16 @@
 extends  ../_part/_baseShell
 
+block append vars
+	- var bgClass = 'page10'
+
 block head
 	title Mobile Apps
 	include ../_part/_header
 
 block main
-	#page10
-		.mui-container-fluid
-			include 10-mobile.html
-			include _buttons
+	.mui-container-fluid
+		include 10-mobile.html
+		include _buttons
 
 	script.
 		TS.onAppReady(UIinit)

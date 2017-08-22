@@ -1,14 +1,16 @@
 extends  ../_part/_baseShell
 
+block append vars
+	- var bgClass = 'page3'
+
 block head
 	title Golive
 	include ../_part/_header
 
 block main
-	#page3
-		.mui-container-fluid
-			include 3-goLive.html 
-			include _buttons
+	.mui-container-fluid
+		include 3-goLive.html 
+		include _buttons
 
 	script.
 		TS.onAppReady(UIinit)
