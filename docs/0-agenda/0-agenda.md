@@ -25,8 +25,9 @@ The Perspectives
 
 - [9: Standard Web Components and their Communication](./9-comps/)
 
-- [10: Mobile App (Phonegap)](./10-mobile/)
+- [10: NEW! Server-side rendering (SSR) of Web Components](./10-ssr/)
 
-- [11: HOT: Extreme SEO with server-side rendering (SSR) of Web Components](./11-ssr/)
+- [11: Mobile App (Phonegap)](./11-mobile/)
+
 
 

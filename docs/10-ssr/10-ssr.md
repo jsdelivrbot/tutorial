@@ -1,4 +1,4 @@
-## Lab 11: Extreme SEO with server-side rendering (SSR) of Web Components
+## Lab 10: Server-side rendering (SSR) of Web Components
 
 1. We saw in Lab 9 that Web Components can be great for productivity by promoting reuse, and thanks to encapsulation they can improve maintainability as well. So far you saw components that are rendered client-side, beginning with JavaScript loading. Unfortunately, this dynamic loading still presents challenges for most search engines (only Google uses a virtual Chrome engine that executes JavaScript when crawling). Content rendered by Web Components can not be seen by all search engines. We also see that especially browsers that still require polyfills take a little longer to render Web Components, and we wish to reduce this 'time to glass' to an absolute minimum.
 

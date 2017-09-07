@@ -1,4 +1,4 @@
-## Lab 10: Mobile App (Phonegap)
+## Lab 11: Mobile App (Phonegap) 
 
 1. In this lab we will customize and install an Android app that uses the _Cordova In-App Browser_ to provide a rich UI. Download and unzip `topseed-mobile-master.zip` from <a href='https://github.com/topseed/topseed-mobile' target='_blank'>https://github.com/topseed/topseed-mobile</a> to your location of choice on your developer machine. Open the project in VS Code. Download, install and run the Phonegap Desktop App from <a href='https://github.com/phonegap/phonegap-app-desktop/releases' target='_blank'>https://github.com/phonegap/phonegap-app-desktop/releases</a>. In Phonegap Desktop, add the `/topseed-mobile` folder as a Project, and click the '>' button. A message 'Server is running on...' should come up. Click on the URL to open the app in a browser. Resize the browser to mobile phone format. 
 
