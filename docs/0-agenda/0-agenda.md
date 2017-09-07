@@ -27,6 +27,6 @@ The Perspectives
 
 - [10: Mobile App (Phonegap)](./10-mobile/)
 
-- 11: Next Edition: Extreme SEO with server-side rendering (SSR) of Web Components
+- [11: HOT: Extreme SEO with server-side rendering (SSR) of Web Components](./11-ssr/)
 
 

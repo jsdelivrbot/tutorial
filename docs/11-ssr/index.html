@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <base href="/tutorial/">
+    <title>SSR</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="-1">
+    <link rel="icon" href="./favicon.ico">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Mono">
+    <script>var main_js = '/tutorial/_js/main.js'</script>
+    <script src="//code.jquery.com/jquery-3.2.1.slim.min.js" async> </script>
+    <script src="//rawgit.com/topseed/topseed-turbo/master/setup/setup-6.3.js"></script>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-89411776-5', 'auto');
+      ga('send', 'pageview');
+    </script>
+    <style>body {opacity: 0.1} </style>
+  </head>
+  <body>
+    <link rel="stylesheet" href="./_sass/main.css">
+    <div id="appbar"> 
+      <div id="appbar--brand" onclick="openDrawer()">&nbsp;&nbsp; ☰<span class="mui--hidden-xs mui-hidden-sm">&nbsp;&nbsp;Topseed&trade; Tutorial</span></div>
+      <ul id="appbar--menu">
+        <li><a class="mui--hidden-xs" href="./0-agenda/">Agenda</a></li>
+        <li>
+          <div class="submenu"><a>Basics<span class="mui-caret"></span></a>
+            <ul class="mui-dropdown__menu">
+              <li><a href="./1-helloWorld/">1: Hello World</a></li>
+              <li><a href="./2-theBasics/">2: The Basics</a></li>
+              <li><a href="./3-goLive/">3: Golive</a></li>
+              <li><a href="./4-appShell/">4: AppShell</a></li>
+            </ul>
+          </div>
+        </li>
+        <li>
+          <div class="submenu"><a>Bricks+Mortar<span class="mui-caret"></span></a>
+            <ul class="mui-dropdown__menu"> 
+              <li><a href="./5-amp/">5: AMP and Node.js</a></li>
+              <li><a href="./6-read/">6: UI Reading from API	</a></li>
+              <li><a href="./7-write/">7: UI Writing to API</a></li>
+              <li><a href="./8-security/">8: Login Security</a></li>
+            </ul>
+          </div>
+        </li>
+        <li>
+          <div class="submenu"><a>Perspectives<span class="mui-caret"></span></a>
+            <ul class="mui-dropdown__menu mui-dropdown__menu--right">
+              <li><a href="./9-comps/">9: Web Components</a></li>
+              <li><a href="./10-mobile/">10: Mobile App</a></li>
+              <li><a href="./11-ssr/">11: SSR</a></li>
+            </ul>
+          </div>
+        </li>
+        <li class="mui--hidden-xs mui--hidden-sm">&nbsp;</li>
+      </ul>
+    </div>
+    <div id="sidedrawer" onclick="closeDrawer()">
+      <div id="sidedrawer--brand">&nbsp; ☰ Topseed&trade; Tutorials</div>
+      <div class="mui-divider"></div>
+      <ul id="sidedrawer--menu">
+        <li><a href="./0-agenda/">Agenda</a></li>
+      </ul>
+      <ul id="sidedrawer--menu">
+        <li><a href="./1-helloWorld/">1: Hello World</a></li>
+        <li><a href="./2-theBasics/">2: The Basics</a></li>
+        <li><a href="./3-goLive/">3: Golive</a></li>
+        <li><a href="./4-appShell/">4: AppShell</a></li>
+      </ul>
+      <ul id="sidedrawer--menu">
+        <li><a href="./5-amp/">5: AMP and Node.js</a></li>
+        <li><a href="./6-read/">6: UI Reading from API	</a></li>
+        <li><a href="./7-write/">7: UI Writing to API</a></li>
+        <li><a href="./8-security/">8: Login Security</a></li>
+      </ul>
+      <ul id="sidedrawer--menu">
+        <li><a href="./9-comps/">9: Web Components</a></li>
+        <li><a href="./10-mobile/">10: Mobile App						</a></li>
+        <li><a href="./11-ssr/">11: SSR						</a></li>
+      </ul>
+    </div>
+    <script>
+      function openDrawer() {
+      	$('#sidedrawer').css('transform', 'translateX(201px)')
+      }
+      function closeDrawer() {
+      	$('#sidedrawer').css('transform', 'translateX(0px)')
+      }
+    </script>
+    <div class="page11" id="content-wrapper">
+      <div class="mui-container-fluid"><h2 id="lab-11-extreme-seo-with-server-side-rendering-ssr-of-web-components">Lab 11: Extreme SEO with server-side rendering (SSR) of Web Components</h2>
+<ol>
+<li><p>We saw in Lab 9 that Web Components can be great for productivity by promoting reuse, and thanks to encapsulation they can improve maintainability as well. So far you saw components that are rendered client-side, beginning with JavaScript loading. Unfortunately, this dynamic loading still presents challenges for most search engines (only Google uses a virtual Chrome engine that executes JavaScript when crawling). Content rendered by Web Components can not be seen by all search engines. We also see that especially browsers that still require polyfills take a little longer to render Web Components, and we wish to reduce this &#39;time to glass&#39; to an absolute minimum.</p>
+</li>
+<li><p>Fortunately, in many situations both issues can be overcome with <em>Server-Side Rendering</em> (SSR). The idea of SSR is to make the server render the component and deliver the render result as part of the page HTML that is delivered to the browser. The user sees the content more quickly because the browser does not need to retrieve additional content for display. If the component needs additional browser interactivity (e.g. custom JavaScript on-click), we still load the component JavaScript into the browser to provide that interactivity functionality, and upgrade the (server-side generated) html with these features in the browser. We would call this kind of component a <em>hybrid</em>, as some features are delivered on the server, and some are delivered in the browser. The result of this technique is a greater perceived performance for the user as well as full visibility of the content by search engines. Depending on the frequency of content changes, the complete page may still be cached by a CDN. If not, it may take a little longer to prepare the main page response, but in many cases the server will have higher bandwidth and more resources to process the loading tasks than the user&#39;s device.</p>
+</li>
+<li><p>Download and unzip topseed-ssr-master.zip from <a href='https://github.com/topseed/topseed-ssr' target='_blank'>https://github.com/topseed/topseed-ssr</a> to your location of choice on your developer machine and open the project in VS Code. Open Terminal Shell <code>(Ctrl+Shift+`)</code>, type <code>&#39;cd ssr-topseed-io [Enter]&#39;</code>, do the <code>&#39;npm install [Enter]&#39;</code> and then <code>&#39;node index [Enter]&#39;</code>. You should see console output &#39;Web server listening at http://localhost:9081&#39;. In the browser, navigate to <a href='http://localhost:9081' target='_blank'>http://localhost:9081</a>, and visit Dashboard, List, Circle, Prelist and List menu items. If you use Prepros on this project, ensure that auto-compile for Pug is turned off.</p>
+</li>
+<li><p>Revisit the Dashboard page. It contains two server-side rendered components: &#39;Myssrcomp&#39; and &#39;List&#39;. Especially in Firefox and Edge it should be noticable that these components display more quickly than the others. On the &#39;List&#39; page, the component is rendered server-side as well. If you inspect the raw HTML in the browser (e.g. with &#39;Rightclick-View Page Source&#39;) you can find the component content &#39;Hi this is myssrcomp1&#39; in the markup.</p>
+</li>
+<li><p>SSR components can use Shadow DOM for CSS encapsulation but they don&#39;t have to. We use a process called &#39;rehydration&#39; in the browser to apply Shadow DOM.  On the server, we wrap the content to be subjected to Shadow DOM in a <code>&lt;shadow-root&gt;</code> tag. Inspect <code>/public/page/dashboard/index.pug</code> and find the call to  <code>TW.rehydrate(&#39;my-ssrcomp&#39;)</code>, which converts the tag to an actual Shadow DOM with its scoped CSS. (Efforts are underway with the WC3 to make this standard browser behavior, eventually eliminating the need for this JavaScript). In this example the content is rendered before the Shadow DOM is in place, leading to potential style conflicts, but we could avoid that with CSS of <code>shadow-root * {opacity:0}</code> or similar.</p>
+</li>
+<li><p>Inspect <code>/server/route/dashboard/index.js</code>. The route (installed in <code>/topssed-ssr-io/index.js</code>) renders the HTML of the named components &#39;Myssrcomp&#39; and &#39;List&#39; and embeds it in the otherwise static page HTML retrieved from <code>/public/page/dashboard/index.pug</code>. In our utility library at <code>/server/util/SR.js</code>, we use <em>skatejs/ssr</em> for the actual server-side rendering of each component HTML, and <em>Cheerio</em>, a server-side version of JQuery to embed it in the page. In <code>/server/route/dashboard/index.js</code>, we also specify that the &#39;List&#39; component has to obtain custom data before rendering by setting the <code>initFn</code> for this component (It is our good practice to keep business logic outside of components, i.e. framework-agnostic and thus more future-safe).</p>
+</li>
+<li><p>Inspect the &#39;List&#39; component HTML Template at <code>/public/_webComp/List.pug</code> and see where we use the <code>&lt;shadow-root&gt;</code> tag to mark the Shadow DOM. The component JavaScript is separated out at <code>/public/_webComp/List.js</code> so it can be loaded separately from the client side for the upgraded &#39;hybrid&#39; features (this is done in <code>/public/page/dashboard/index.pug</code> with a  call to  <code>TW.loadComp(&#39;/_webComp/List.js&#39;)</code>)</p>
+</li>
+<li><p>Inspect the &#39;List&#39; component Custom Element JavaScript at  <code>/public/_webComp/List.js</code>. See how we use a test for &#39;module&#39; in <code>connectedCallback</code> to trigger server-side only functionality. In this example, the component&#39;s <code>list</code> function is used on the server, and the <code>nav</code> function is used on the client. To provide compatibility with IE11, we would down-compile these ES6 components to ES5. With a little bit of work (such as a tag attribute <code>ssr=&#39;true&#39;</code>), this component could be made fully <em>Universal</em>, i.e. usable as a hybrid as well as a pure client-side component. </p>
+</li>
+<li><p>In practice, for our own components we decide on a case-by-case basis whether the component really needs a Shadow DOM, and whether it should be rendered server-side or client-side. Perceived performance and the need for SEO would be the main decision criteria.</p>
+</li>
+<li><p>Like tutorial 9, if this tutorial felt a little heavy, we would be happy to help get you started with in-house seminars, workshops and &#39;training the trainer&#39;.  That applies to other labs as well.  Just email us at hi [at] appthings.io.</p>
+</li>
+</ol>
+
+        <div class="mui--text-left"><a class="mui-btn" href="./10-mobile/">Previous <span class="mui--hidden-xs">Tutorial</span></a><a class="mui-btn" href="./0-agenda/"><span class="mui--hidden-xs mui--hidden-sm">Return to&nbsp;</span><span>Agenda </span></a></div>
+      </div>
+      <script>
+        TS.onAppReady(UIinit)
+        function UIinit() {
+        	initSubmenu()
+        }
+        
+      </script>
+    </div>
+  </body>
+</html>
