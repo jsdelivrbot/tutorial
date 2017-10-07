@@ -13,13 +13,13 @@ The Foundation
 
 The Bricks and Mortar
 
-- [5: Accelerated Mobile Pages (AMP) and Node.js](./5-amp/)
+- [5: UI Reading from an API](./5-read/) 
 
-- [6: UI Reading from an API](./6-read/) 
+- [6: UI Writing to an API (Example: Firebase)](./6-write/) 
 
-- [7: UI Writing to an API (Example: Firebase)](./7-write/) 
+- [7: Log-in Security and Tokens](./7-security/)
 
-- [8: Log-in Security and Tokens](./8-security/)
+- [8: Mobile App (Phonegap)](./8-mobile/)
 
 The Perspectives
 
@@ -27,7 +27,9 @@ The Perspectives
 
 - [10: NEW! Server-side rendering (SSR) of Web Components](./10-ssr/)
 
-- [11: Mobile App (Phonegap)](./11-mobile/)
+- [11: Accelerated Mobile Pages (AMP)](./11-amp/)
+
+
 
 
 

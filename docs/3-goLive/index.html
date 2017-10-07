@@ -44,10 +44,10 @@
         <li>
           <div class="submenu"><a>Bricks+Mortar<span class="mui-caret"></span></a>
             <ul class="mui-dropdown__menu"> 
-              <li><a href="./5-amp/">5: AMP and Node.js</a></li>
-              <li><a href="./6-read/">6: UI Reading from API	</a></li>
-              <li><a href="./7-write/">7: UI Writing to API</a></li>
-              <li><a href="./8-security/">8: Login Security</a></li>
+              <li><a href="./5-read/">5: UI Reading from API	</a></li>
+              <li><a href="./6-write/">6: UI Writing to API</a></li>
+              <li><a href="./7-security/">7: Login Security</a></li>
+              <li><a href="./8-mobile/">8: Mobile App</a></li>
             </ul>
           </div>
         </li>
@@ -55,12 +55,12 @@
           <div class="submenu"><a>Perspectives<span class="mui-caret"></span></a>
             <ul class="mui-dropdown__menu mui-dropdown__menu--right">
               <li><a href="./9-comps/">9: Web Components</a></li>
-              <li><a href="./10-ssr/">10: SSR 				</a></li>
-              <li><a href="./11-mobile/">11: Mobile App					</a></li>
+              <li><a href="./10-ssr/">10: SSR</a></li>
+              <li><a href="./11-amp/">11: AMP</a></li>
+              <li class="mui--hidden-xs mui--hidden-sm">&nbsp;</li>
             </ul>
           </div>
         </li>
-        <li class="mui--hidden-xs mui--hidden-sm">&nbsp;</li>
       </ul>
     </div>
     <div id="sidedrawer" onclick="closeDrawer()">
@@ -76,15 +76,15 @@
         <li><a href="./4-appShell/">4: AppShell</a></li>
       </ul>
       <ul id="sidedrawer--menu">
-        <li><a href="./5-amp/">5: AMP and Node.js</a></li>
-        <li><a href="./6-read/">6: UI Reading from API	</a></li>
-        <li><a href="./7-write/">7: UI Writing to API</a></li>
-        <li><a href="./8-security/">8: Login Security</a></li>
+        <li><a href="./5-read/">5: UI Reading from API	</a></li>
+        <li><a href="./6-write/">6: UI Writing to API</a></li>
+        <li><a href="./7-security/">7: Login Security</a></li>
+        <li><a href="./8-mobile/">8: Mobile App</a></li>
       </ul>
       <ul id="sidedrawer--menu">
         <li><a href="./9-comps/">9: Web Components</a></li>
-        <li><a href="./10-ssr/">10: SSR 				</a></li>
-        <li><a href="./11-mobile/">11: Mobile App					</a></li>
+        <li><a href="./10-ssr/">10: SSR</a></li>
+        <li><a href="./11-amp/">11: AMP</a></li>
       </ul>
     </div>
     <script>
@@ -99,26 +99,31 @@
       <div class="mui-container-fluid"><h2 id="lab-3-go-live-deploy-to-cloud-and-use-a-cdn">Lab 3: Go-Live - Deploy to Cloud and use a CDN</h2>
 <ol>
 <li><p>Go to <a href='https://zeit.co'target='_blank'>https://zeit.co</a> and create a free account. We use their &#39;NOW&#39; product to deploy our apps for testing in the cloud. Install the &#39;NOW&#39; client.
-Instead, you could zip up the <code>/helloworld-webroot</code> folder and deploy to any
+Instead, you could zip up the folder <code>/public</code> and deploy to any
 static web hosting service via FTP. However, we will need some &#39;dynamic&#39;, server-side features later, so we wrap our static webroot content with some code that works on a Node.js server, such as used by &#39;NOW&#39;.
-Rename <code>/helloworld-webroot/cache.mfx</code> to <code>cache.mf</code>.</p>
+Rename <code>/public/cache.mfx</code> to <code>cache.mf</code>.</p>
 </li>
-<li><p>To deploy, drag the <code>/topseed-srv</code> folder into the <code>zeit.co</code> &#39;NOW&#39; client. For advanced users: this folder includes <code>index.js</code> and <code>package.json</code> needed by Node.js.
-Once the deployment is completed, your clipboard will have a URL unique to the version you deployed. Test the URL in the browser. Bookmark the URL. You are in the Cloud and live on the Web!</p>
+<li><p>To deploy to zeit.co: With the project &#39;topseed-helloworld&#39; open in VS Code, open a Terminal Shell by selectingg menu View-Integrated Terminal (or pressing <code>`(Ctrl+Shift+</code>)In the console that opens, change directory with <code>&#39;cd helloworld-topseed-io [Enter]&#39;</code> and then trigger the zeit.co deployment by typing <code>&#39;now [Enter]&#39;</code>. Follow the prompts. (For advanced users: this folder includes <code>index.js</code> and <code>package.json</code> needed by Node.js.) When the console shows &#39;Ready!&#39;, click on the URL that follows while holding the <code>&#39;[Ctrl]&#39;</code> key to open a browser. Once deployment is completed, the app will display. Bookmark the URL. You are in the Cloud and live on the Web!</p>
+</li>
+<li><p>To run the project in Node on your machine (you will need this for tutorials that follow): Install Node.js and NPM. If you have a Mac, follow the instructions at <a href-'http://blog.teamtreehouse.com/install-node-js-npm-mac' target='_blank'>http://blog.teamtreehouse.com/install-node-js-npm-mac</a>. If you have Windows, download and run the installer from <a href='https://nodejs.org/en/download/' target='_blank'>https://nodejs.org/en/download/</a>, accept the default settings, and restart your computer. Reopen the project &#39;topseed-helloworld&#39; in VS Code. Select menu View-Integrated Terminal. On the command line that opens, change directories with <code>&#39;cd helloworld-topseed-io&#39;</code>. To test Node, type <code>&#39;node -v&#39;</code> and hit <code>Enter</code>. You should see a version number like <code>v8.0.0</code>. To test NPM, type <code>&#39;npm -v&#39;</code> and hit <code>Enter</code>. You should see a version number like <code>4.0.3</code>. Use Google to troubleshoot the install of Node and NPM for your operating system if necessary. </p>
+</li>
+<li><p>You are almost ready to run the app in Node. First you will use NPM to download the <em>dependencies</em> listed in <code>/package.json</code>. Go back to the Terminal Shell, make sure you are in the <code>/helloworld-topseed-io</code> directory, then type <code>&#39;npm install&#39;</code> and hit <code>Enter</code>. This will install the dependencies in a <code>/node_modules</code> directory. It will take a while, but the console will tell you when done. (Repeat this step when you add a dependency yourself.)</p>
+</li>
+<li><p>Inspect <code>/helloworld-topseed-io/index.js</code>. This is the JavaScript file that starts the app, including an <code>&#39;express&#39;</code> HTTP server. Return to the Terminal Shell (still in the <code>/helloworld-topseed-io</code> directory) and type <code>&#39;node index&#39;</code> (you can omit the <code>.js</code>) and hit <code>Enter</code> to start the app. You should see output like &#39;App listening at <a href="http://localhost:8888">http://localhost:8888</a>&#39;. (To stop it, you would press <code>Ctrl+C</code>). Click on the URL that follows while holding the <code>&#39;[Ctrl]&#39;</code> key to open a browser.</p>
 </li>
 <li><p>Read the remainder of this tutorial. Execute the steps if you are preparing for QA/Staging/Production. To give your site a &#39;proper&#39; domain, you will need a domain name and DNS. If you do not have a domain yet, we recommend to register a cheap domain at <a href='https://www.namecheap.com/' target='_blank'>https://www.namecheap.com</a> now and have it use the namecheap DNS.
 If you already own a domain and host a site, e.g. at <code>www.mydomain.com</code>, you may want to configure a CNAME to map a <code>&#39;staging.&#39;</code> subdomain, such as <code>staging.mydomain.com</code>, so you can keep using <code>&#39;www.&#39;</code> for your public site. See below for more detailed instructions. </p>
 </li>
 <li><p>For scalability and caching, you will also want to use a Content Delivery Network (CDN). With a CDN, you also get SSL/HTTPS for free. No need to buy an expensive SSL certificate. SSL is important when using advanced Javascript functions in the browser, such as cross-domain data requests. We recommend <a href='https://www.cdn77.com' target='_blank'>https://www.cdn77.com</a>. For this tutorial, register for the CDN77 14-day free trial now.</p>
 </li>
-<li><p>In the CDN77 web app, go to menu item CDN and click &#39;ADD NEW CDN RESOURCE&#39;. Give it a label, such as &#39;staging.mydomain.com&#39; and select &#39;My Origin&#39;. As domain, specify HTTPS and the <code>zeit.co</code> DOMAIN from the URL you bookmarked under 2. (e.g. demos-oosnsyzlphl.now.sh). Click &#39;CREATE CDN RESOURCE&#39;.</p>
+<li><p>In the CDN77 web app, go to menu item CDN and click &#39;ADD NEW CDN RESOURCE&#39;. Give it a label, such as &#39;staging.mydomain.com&#39; and select &#39;My Origin&#39;. As domain, specify HTTPS and the <code>zeit.co</code> DOMAIN from the URL you bookmarked under 2. (e.g. topseed-helloworld-oosnsyzlphl.now.sh). Click &#39;CREATE CDN RESOURCE&#39;.</p>
 </li>
 <li><p>Choose 4-step setup with CNAME. Click &#39;Add new CNAME&#39;, and &#39;+ ADD CNAMES&#39;. Enter &#39;staging.mydomain.com&#39; and Click &#39;ADD CNAME&#39;. Click &#39;Go back to Integration&#39;. In Step 2, copy the DOMAIN NAME (AKA HOST), e.g 1234567890.rsc.cdn77.org, then follow instructions for your hosting provider. If your domain is with namecheap.com, do the following:
 On the Namecheap dashbord, click &#39;Manage&#39; for your domain, and &#39;Advanced DNS&#39;. Click &#39;ADD NEW RECORD&#39;, select &#39;CNAME&#39; and enter the following: Host: staging Value: [DOMAIN NAME from clipboard, e.g. 1234567890.rsc.cdn77.org], TTL: Automatic. Click the checkmark to save. No need to do CDN77 Step 3. One final step is to go to the &#39;Other Settings&#39; tab, check &#39;HTTPS redirect&#39; and click &#39;SAVE CHANGES&#39;.</p>
 </li>
-<li><p>After an hour after the initial setup, you should be able to reach the deployed site in your browser under e.g. <a href='https://staging.mydomain.com' target='_blank'>https://staging.mydomain.com</a>. Note the use of <code>&#39;https&#39;</code>. If you visit too quickly, the browser will complain that the site certificate is invalid. If this happens, try again after a while. The CDN caches static files for greater performance in multiple distributed datacenters. For advanced users: Review <code>/topseed-srv/util/Decider.js</code>. Find uses of <code>&#39;U.cache&#39;</code>; this sets <em>Cache-Control</em> response headers which tell th CDN how long to keep content before refreshing it from the source. The utils library &#39;U&#39; is included in the project https://github.com/topseed/topseed-npm, deployed to <em>npmjs</em>, and imported to the project through a &#39;package.json&#39; dependency. </p>
+<li><p>After an hour after the initial setup, you should be able to reach the deployed site in your browser under e.g. <a href='https://staging.mydomain.com' target='_blank'>https://staging.mydomain.com</a>. Note the use of <code>&#39;https&#39;</code>. If you visit too quickly, the browser will complain that the site certificate is invalid. If this happens, try again after a while. The CDN caches static files for greater performance in multiple distributed datacenters. For advanced users: Review <code>/topseed-srv/util/Decider.js</code>. Find uses of <code>&#39;U.cache&#39;</code>; this sets <em>Cache-Control</em> response headers which tell th CDN how long to keep content before refreshing it from the source. The utils library &#39;U&#39; is included in the project <a href="https://github.com/topseed/topseed-npm">https://github.com/topseed/topseed-npm</a>, deployed to <em>npmjs</em>, and imported to the project through a &#39;package.json&#39; dependency. </p>
 </li>
-<li><p>Edit <code>/helloworld-webroot/page/one/_hello.md</code> again (see Lab 1: 5.). To deploy the change, follow step 2 above. In CDN77 Overview, change &#39;What is your domain?&#39; to the new URL, and click &#39;SAVE CHANGES&#39;. To make the changes appear on the CDN edge servers immediately, use CDN77 &#39;CDN/Purge&#39; on /page/one/.</p>
+<li><p>Edit <code>/public/page/one/_hello.md</code> again (see Lab 1: 5.). To deploy the change, follow step 2 above. In CDN77 Overview, change &#39;What is your domain?&#39; to the new URL, and click &#39;SAVE CHANGES&#39;. To make the changes appear on the CDN edge servers immediately, use CDN77 &#39;CDN/Purge&#39; on /page/one/.</p>
 </li>
 <li><p>Optional: Once you are ready to move from staging to production, you would either edit the CNAME for www to point to the same CDN domain (e.g. <code>1234567890.rsc.cdn77.org</code>) or add a new CDN resource such as <code>www.mydomain.com</code> that may also use a new <code>zeit.co</code> domain created when redeploying the app to <code>zeit.co</code> &#39;NOW&#39; (see step 2. above).</p>
 </li>

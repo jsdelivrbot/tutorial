@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <base href="/tutorial/">
+    <title>Mobile Apps</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="-1">
+    <link rel="icon" href="./favicon.ico">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Mono">
+    <script>var main_js = '/tutorial/_js/main.js'</script>
+    <script src="//code.jquery.com/jquery-3.2.1.slim.min.js" async> </script>
+    <script src="//rawgit.com/topseed/topseed-turbo/master/setup/setup-6.3.js"></script>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-89411776-5', 'auto');
+      ga('send', 'pageview');
+    </script>
+    <style>body {opacity: 0.1} </style>
+  </head>
+  <body>
+    <link rel="stylesheet" href="./_sass/main.css">
+    <div id="appbar"> 
+      <div id="appbar--brand" onclick="openDrawer()">&nbsp;&nbsp; ☰<span class="mui--hidden-xs mui-hidden-sm">&nbsp;&nbsp;Topseed&trade; Tutorial</span></div>
+      <ul id="appbar--menu">
+        <li><a class="mui--hidden-xs" href="./0-agenda/">Agenda</a></li>
+        <li>
+          <div class="submenu"><a>Basics<span class="mui-caret"></span></a>
+            <ul class="mui-dropdown__menu">
+              <li><a href="./1-helloWorld/">1: Hello World</a></li>
+              <li><a href="./2-theBasics/">2: The Basics</a></li>
+              <li><a href="./3-goLive/">3: Golive</a></li>
+              <li><a href="./4-appShell/">4: AppShell</a></li>
+            </ul>
+          </div>
+        </li>
+        <li>
+          <div class="submenu"><a>Bricks+Mortar<span class="mui-caret"></span></a>
+            <ul class="mui-dropdown__menu"> 
+              <li><a href="./5-read/">5: UI Reading from API	</a></li>
+              <li><a href="./6-write/">6: UI Writing to API</a></li>
+              <li><a href="./7-security/">7: Login Security</a></li>
+              <li><a href="./8-mobile/">8: Mobile App</a></li>
+            </ul>
+          </div>
+        </li>
+        <li>
+          <div class="submenu"><a>Perspectives<span class="mui-caret"></span></a>
+            <ul class="mui-dropdown__menu mui-dropdown__menu--right">
+              <li><a href="./9-comps/">9: Web Components</a></li>
+              <li><a href="./10-ssr/">10: SSR</a></li>
+              <li><a href="./11-amp/">11: AMP</a></li>
+              <li class="mui--hidden-xs mui--hidden-sm">&nbsp;</li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div id="sidedrawer" onclick="closeDrawer()">
+      <div id="sidedrawer--brand">&nbsp; ☰ Topseed&trade; Tutorials</div>
+      <div class="mui-divider"></div>
+      <ul id="sidedrawer--menu">
+        <li><a href="./0-agenda/">Agenda</a></li>
+      </ul>
+      <ul id="sidedrawer--menu">
+        <li><a href="./1-helloWorld/">1: Hello World</a></li>
+        <li><a href="./2-theBasics/">2: The Basics</a></li>
+        <li><a href="./3-goLive/">3: Golive</a></li>
+        <li><a href="./4-appShell/">4: AppShell</a></li>
+      </ul>
+      <ul id="sidedrawer--menu">
+        <li><a href="./5-read/">5: UI Reading from API	</a></li>
+        <li><a href="./6-write/">6: UI Writing to API</a></li>
+        <li><a href="./7-security/">7: Login Security</a></li>
+        <li><a href="./8-mobile/">8: Mobile App</a></li>
+      </ul>
+      <ul id="sidedrawer--menu">
+        <li><a href="./9-comps/">9: Web Components</a></li>
+        <li><a href="./10-ssr/">10: SSR</a></li>
+        <li><a href="./11-amp/">11: AMP</a></li>
+      </ul>
+    </div>
+    <script>
+      function openDrawer() {
+      	$('#sidedrawer').css('transform', 'translateX(201px)')
+      }
+      function closeDrawer() {
+      	$('#sidedrawer').css('transform', 'translateX(0px)')
+      }
+    </script>
+    <div class="page8" id="content-wrapper">
+      <div class="mui-container-fluid"><h2 id="lab-8-mobile-app-phonegap-">Lab 8: Mobile App (Phonegap)</h2>
+<ol>
+<li><p>A lot of money is being spent creating mobile-native UI. In this lab we will customize and install an Android app that uses the <em>Cordova In-App Browser</em> to provide a rich UI - using the HTML technologies we already know. Download and unzip <code>topseed-mobile-master.zip</code> from <a href='https://github.com/topseed/topseed-mobile' target='_blank'>https://github.com/topseed/topseed-mobile</a> to your location of choice on your developer machine. Open the project in VS Code. Download, install and run the Phonegap Desktop App from <a href='https://github.com/phonegap/phonegap-app-desktop/releases' target='_blank'>https://github.com/phonegap/phonegap-app-desktop/releases</a>. In Phonegap Desktop, add the <code>/topseed-mobile</code> folder as a Project, and click the &#39;&gt;&#39; button. A message &#39;Server is running on...&#39; should come up. Click on the URL to open the app in a browser. Resize the browser to mobile phone format. </p>
+</li>
+<li><p>The app is configured to show a splash screen and then display content obtained from <code>https://m.appthings.io</code>. We will make it display the content you published to the CDN in <a href="./3-goLive/">Lab 3</a> instead. As you edit the project, the Phonegap Desktop App watches for changes in the <code>/www</code> folder of the project and attempts to refresh the browser view on each change. In <code>/www/js/index.js</code>, replace the URL following <code>&#39;window.open</code>&#39; with the homepage URL of the helloworld app you deployed in Lab 3, i.e. your equivalent of <code>https://staging.mydomain.com/page/one/index.html</code>. If you only deployed to the CDN or <code>zeit.co</code>, use your equivalent of <code>https://1234567890.rsc.cdn77.org/page/one/index.html</code>. or <code>https://demos-oosnsyzlphl.now.sh/page/one/index.html</code>. If you never deployed, you can use the published version of this tutorial at <code>https://docs.topseed.io/tutorial/0-agenda/index.html</code>. By including <code>&#39;/index.html&#39;</code> in the path we ensure to deliver the turbo (non-AMP) version of the page with its smoother transitions and rich client app feel.</p>
+</li>
+<li><p>To allow the in-app browser to navigate to the newly configured URL, in <code>/config.xml</code> <code>&lt;allow-navigation href=&quot;https://m.appthings.io/*&quot; &gt;</code>, replace <code>&#39;m.appthings.io&#39;</code> with your equivalent from the previous step. The app should now display your site at the 
+Phonegap Desktop App Server URL. It is a labor of love to replace the splash screen logo (at <code>/www/css/index.css</code>) and the icons used by the phone operating system (see <code>/config.xml</code> <code>&#39;icon&#39;</code> values) with your own; we will skip over it here. Optional: change the values for the app <code>&#39;name&#39;</code> and <code>&#39;version&#39;</code> in <code>/config.xml</code>.</p>
+</li>
+<li><p>To install the customized app on an Android phone, 
+first create a zip file of the contents of the project folder <code>/topseed-mobile</code>. Create an account and login at <a href='https://build.phonegap.com' target='_blank'>https://build.phonegap.com</a>. 
+On the &#39;Apps&#39; tab at <a href='https://build.phonegap.com/apps' target='_blank'>https://build.phonegap.com/apps</a>, click the &#39;+ new app&#39; button and upload the zip file (If your project is in Github, you can use the Github clone URL instead). The site will take a few moments to build the app. Meanwhile, also log into <a href='https://build.phonegap.com' target='_blank'>https://build.phonegap.com</a> on your mobile phone. Once the build has completed, on your phone download, install and run the version for your phone&#39;s operating system (here: Android). Follow the installation prompts. Done! For fun, close the app and reopen it by tapping on the app icon on your phone UI.</p>
+</li>
+<li><p>See <a href='http://docs.phonegap.com/' target='_blank'>http://docs.phonegap.com/</a> for further information about Phonegap, for instruction how to deploy to Apple iOS, and how your app can access phone-specific APIs, such as address book, location information etc. if necessary. We would use a <em>service worker</em> to support offline-browsing as needed.</p>
+</li>
+<li><p>In this lab we used the Cordova In-App Browser to render app content from a CDN. As shown in <a href="./7-write/">Lab 7</a>, the app can also obtain data securely from separate API servers. Thanks to AppShell, Turbo and caching introduced in <a href="./4-appShell/">Lab 4</a>, the app has a smooth single page application feel. As a result, we were able to develop a rich mobile app without requiring any special Android SDK/iOS development skills. </p>
+</li>
+</ol>
+
+        <div class="mui--text-left"><a class="mui-btn mui-btn--raised" href="./9-comps/">
+             Next <span class="mui--hidden-xs">Tutorial</span></a><a class="mui-btn" href="./7-security/">Previous <span class="mui--hidden-xs">Tutorial</span></a><a class="mui-btn" href="./0-agenda/">Return to Agenda</a></div>
+      </div>
+      <script>
+        TS.onAppReady(UIinit)
+        function UIinit() {
+        	initSubmenu()
+        }
+        
+      </script>
+    </div>
+  </body>
+</html>
