@@ -1,146 +1,35 @@
-<!DOCTYPE html>
-<html lang="en-us">
-  <head>
-    <base href="/tutorial/">
-    <title>Web Components</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="">
-    <meta http-equiv="Cache-Control" content="no-cache">
-    <meta http-equiv="Pragma" content="no-cache">
-    <meta http-equiv="Expires" content="-1">
-    <link rel="icon" href="./favicon.ico">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Mono">
-    <script>var main_js = '/tutorial/_js/main.js'</script>
-    <script src="//code.jquery.com/jquery-3.2.1.slim.min.js" async> </script>
-    <script src="//rawgit.com/topseed/topseed-turbo/master/setup/setup-6.3.js"></script>
-    <script>
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-      ga('create', 'UA-89411776-5', 'auto');
-      ga('send', 'pageview');
-    </script>
-    <style>body {opacity: 0.1} </style>
-  </head>
-  <body>
-    <link rel="stylesheet" href="./_sass/main.css">
-    <div id="appbar"> 
-      <div id="appbar--brand" onclick="openDrawer()">&nbsp;&nbsp; ☰<span class="mui--hidden-xs mui-hidden-sm">&nbsp;&nbsp;Topseed&trade; Tutorial</span></div>
-      <ul id="appbar--menu">
-        <li><a class="mui--hidden-xs" href="./0-agenda/">Agenda</a></li>
-        <li>
-          <div class="submenu"><a>Basics<span class="mui-caret"></span></a>
-            <ul class="mui-dropdown__menu">
-              <li><a href="./1-helloWorld/">1: Hello World</a></li>
-              <li><a href="./2-theBasics/">2: The Basics</a></li>
-              <li><a href="./3-goLive/">3: Golive</a></li>
-              <li><a href="./4-appShell/">4: AppShell</a></li>
-            </ul>
-          </div>
-        </li>
-        <li>
-          <div class="submenu"><a>Bricks+Mortar<span class="mui-caret"></span></a>
-            <ul class="mui-dropdown__menu"> 
-              <li><a href="./5-read/">5: UI Reading from API	</a></li>
-              <li><a href="./6-write/">6: UI Writing to API</a></li>
-              <li><a href="./7-security/">7: Login Security</a></li>
-              <li><a href="./8-mobile/">8: Mobile App</a></li>
-            </ul>
-          </div>
-        </li>
-        <li>
-          <div class="submenu"><a>Perspectives<span class="mui-caret"></span></a>
-            <ul class="mui-dropdown__menu mui-dropdown__menu--right">
-              <li><a href="./9-comps/">9: Web Components</a></li>
-              <li><a href="./10-ssr/">10: SSR</a></li>
-              <li><a href="./11-amp/">11: AMP</a></li>
-              <li class="mui--hidden-xs mui--hidden-sm">&nbsp;</li>
-            </ul>
-          </div>
-        </li>
-      </ul>
-    </div>
-    <div id="sidedrawer" onclick="closeDrawer()">
-      <div id="sidedrawer--brand">&nbsp; ☰ Topseed&trade; Tutorials</div>
-      <div class="mui-divider"></div>
-      <ul id="sidedrawer--menu">
-        <li><a href="./0-agenda/">Agenda</a></li>
-      </ul>
-      <ul id="sidedrawer--menu">
-        <li><a href="./1-helloWorld/">1: Hello World</a></li>
-        <li><a href="./2-theBasics/">2: The Basics</a></li>
-        <li><a href="./3-goLive/">3: Golive</a></li>
-        <li><a href="./4-appShell/">4: AppShell</a></li>
-      </ul>
-      <ul id="sidedrawer--menu">
-        <li><a href="./5-read/">5: UI Reading from API	</a></li>
-        <li><a href="./6-write/">6: UI Writing to API</a></li>
-        <li><a href="./7-security/">7: Login Security</a></li>
-        <li><a href="./8-mobile/">8: Mobile App</a></li>
-      </ul>
-      <ul id="sidedrawer--menu">
-        <li><a href="./9-comps/">9: Web Components</a></li>
-        <li><a href="./10-ssr/">10: SSR</a></li>
-        <li><a href="./11-amp/">11: AMP</a></li>
-      </ul>
-    </div>
-    <script>
-      function openDrawer() {
-      	$('#sidedrawer').css('transform', 'translateX(201px)')
-      }
-      function closeDrawer() {
-      	$('#sidedrawer').css('transform', 'translateX(0px)')
-      }
-    </script>
-    <div class="page9" id="content-wrapper">
-      <div class="mui-container-fluid"><h2 id="lab-9-standard-web-components-and-their-communication">Lab 9: Standard Web Components and their Communication</h2>
+<!DOCTYPE html><html lang="en-us"><head><base href="/docs/"><title>Web Components</title><meta charset="utf-8"><meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="description" content=""><meta http-equiv="Cache-Control" content="no-cache"><meta http-equiv="Pragma" content="no-cache"><meta http-equiv="Expires" content="-1"><link rel="icon" href="./favicon.ico"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Mono"><script>var main_js = '/docs/_js/main.js'</script><script src="//code.jquery.com/jquery-3.2.1.slim.min.js" async> </script><script src="//rawgit.com/topseed/topseed-turbo/master/setup/setup-6.3.js"></script><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-89411776-5', 'auto');
+ga('send', 'pageview');</script><style>body {opacity: 0.1} </style></head><body><link rel="stylesheet" href="./_sass/main.css"><div id="appbar"> <div id="appbar--brand" onclick="openDrawer()">&nbsp;&nbsp; ☰<span class="mui--hidden-xs mui-hidden-sm">&nbsp;&nbsp;Topseed&trade; Tutorial</span></div><ul id="appbar--menu"><li><a class="mui--hidden-xs" href="./0-agenda/">Agenda</a></li><li><div class="submenu"><a>Basics<span class="mui-caret"></span></a><ul class="mui-dropdown__menu"><li><a href="./1-helloWorld/">1: Hello World</a></li><li><a href="./2-theBasics/">2: The Basics</a></li><li><a href="./3-goLive/">3: Golive</a></li><li><a href="./4-appShell/">4: AppShell</a></li></ul></div></li><li><div class="submenu"><a>Bricks+Mortar<span class="mui-caret"></span></a><ul class="mui-dropdown__menu"> <li><a href="./5-read/">5: UI Reading from API	</a></li><li><a href="./6-write/">6: UI Writing to API</a></li><li><a href="./7-security/">7: Login Security</a></li><li><a href="./8-mobile/">8: Mobile App</a></li></ul></div></li><li><div class="submenu"><a>Perspectives<span class="mui-caret"></span></a><ul class="mui-dropdown__menu mui-dropdown__menu--right"><li><a href="./9-comps/">9: Web Components</a></li><li><a href="./10-ssr/">10: SSR</a></li><li><a href="./11-amp/">11: AMP</a></li><li class="mui--hidden-xs mui--hidden-sm">&nbsp;</li></ul></div></li></ul></div><div id="sidedrawer" onclick="closeDrawer()"><div id="sidedrawer--brand">&nbsp; ☰ Topseed&trade; Tutorials</div><div class="mui-divider"></div><ul id="sidedrawer--menu"><li><a href="./0-agenda/">Agenda</a></li></ul><ul id="sidedrawer--menu"><li><a href="./1-helloWorld/">1: Hello World</a></li><li><a href="./2-theBasics/">2: The Basics</a></li><li><a href="./3-goLive/">3: Golive</a></li><li><a href="./4-appShell/">4: AppShell</a></li></ul><ul id="sidedrawer--menu"><li><a href="./5-read/">5: UI Reading from API	</a></li><li><a href="./6-write/">6: UI Writing to API</a></li><li><a href="./7-security/">7: Login Security</a></li><li><a href="./8-mobile/">8: Mobile App</a></li></ul><ul id="sidedrawer--menu"><li><a href="./9-comps/">9: Web Components</a></li><li><a href="./10-ssr/">10: SSR</a></li><li><a href="./11-amp/">11: AMP</a></li></ul></div><script>function openDrawer() {
+	$('#sidedrawer').css('transform', 'translateX(201px)')
+}
+function closeDrawer() {
+	$('#sidedrawer').css('transform', 'translateX(0px)')
+}</script><div class="page9" id="content-wrapper"><div class="mui-container-fluid"><h2 id="lab-9-develop-in-the-cloud-for-speed">Lab 9: Develop in the cloud for speed</h2>
 <ol>
-<li><p>The quest for the web equivalent of &#39;Legos&#39; has been going on for a while. Legos are <em>composable</em>: you can connect pieces in different ways. They are <em>reusable</em>: the same kind of piece can be used in multiple places. Legos are also <em>modular</em>: you can connect one assembly to another one. Unlike Legos [<a href='https://www.kickstarter.com/projects/1068475467/brixo-building-blocks-meet-electricity-and-iot' target='_blank'>mostly</a>], however, components for the web also need to be able to <em>communicate</em> with each other and with the outside world. Finally, web components need to be <em>insulated</em> (in Lego terms, the color of one item must not &#39;bleed&#39; into others). CSS bleed has been a particular problem of older web component frameworks. To find an overall solution for great web components is not trivial, and many attempts have been made to achieve the holy grail of component-based development for the web.</p>
+<li><p>You can develop faster if you let a server in the cloud do the heavy lifting of compiling, building and deploying your code. This is why we created a build server infrastructure, named <em>META</em>. This tutorial will show how to set up and use it. Once you go META, you&#39;ll never go back (to development on your desktop).</p>
 </li>
-<li><p>In reality, component frameworks have had a short half-life. The last years have seen a rapid succession of candidates to be considered &#39;the best&#39;: Backbone, Knockout, Ember, Angular, Angular 2, React, Vue, Riot and Polymer. Find a comparison of component frameworks at <a href='http://jeffcarp.github.io/frontend-hyperpolyglot/' target='_blank'>http://jeffcarp.github.io/frontend-hyperpolyglot/</a>. History shows that what you would pick today is likely not what you would pick eighteen months from now. Assuming you don&#39;t want to start from scratch and rewrite everything every eighteen months, that presents you with a great challenge of how to write applications that you can expect to be both maintainable and future-safe.</p>
+<li><p>Go to  [<a href='https://codeanywhere.com' target='_blank'>Code Anywhere</a>] and sign up for free. Validate your account from the email you will receive (important). In the Editor, select &quot;File-New Connection-DigitalOcean&quot; and copy the $10 coupon code. Then go to  [<a href='https://www.digitalocean.com' target='_blank'>Digital Ocean</a>], create an account, and apply the coupon on the &quot;Billing&quot; page. Do not create a droplet at Digital Ocean.</p>
 </li>
-<li><p>Our best practice to deal with the evolving landscape of web components is to write web apps that are structured in a <em>component-framework-agnostic</em> way, where you can potentially keep existing components around, but develop new components using a newer component framework. We achieve this by avoiding the use of the two kinds of common component framework features that create unattractive lock-in: custom navigation mechanisms (routers) and framework-specific component communication implementations. We use the browser&#39;s great native navigation mechanisms (URL and browser history) as shown in <a href="./4-appShell/">Lab 4</a>, and framework-agnostic component communication as implemented in the sample project shown below. </p>
+<li><p>In Codeanywhere, go to File-New Connection-Digital Ocean. Select a 1GB machine at the location nearest to you. From the list of images, choose <code>Docker... on 16.04</code>. As hostname, enter <code>dockermeta1</code> or another hostname of your choice. Ensure that &quot;Codeanywhere SSH Key&quot; is checked, then click &#39;Create&#39;. You will be prompted for your Digital Ocean credentials. </p>
 </li>
-<li><p>There is, however, light at the end of the tunnel: a W3C standard for web components appears to be forming.  Read about <em>Standard Web Components</em> at <a href='https://en.wikipedia.org/wiki/Web_Components' target='_blank'>https://en.wikipedia.org/wiki/Web_Components</a>. The Chrome browser already supports Standard Web Components natively, so there is nothing extra to load, and the polyfills for the other browers are lean and fast. The most recent contender for &#39;the best&#39; component framework, Polymer, is actually developed on top of this emerging standard. We use Standard Web Components as the default component framework for this Lab. However, our architectural concepts can also be applied when using other frameworks. May we tempt you to write a sample integration for your favorite component framework and contribute it to topseed?</p>
+<li><p>When the connection is available in the left pane, rightclick to open an SSH Terminal. On the command line, enter <code>docker pull nbake/nbake:latest</code>. This will download the META docker image. Then enter <code>docker run -d --privileged -p 20-21:20-21 -p 8080-8082:8080-8082 nbake/nbake /sbin/my_init</code> to start the app on ports 8080 and 8081. Type <code>docker ps</code> to get the CONTAINER ID (e.g. b6fbd9d948eb). Finally, enter <code>docker exec -ti xCONTAINER-IDx /bin/bash</code> to get to the docker container console. You can list the files in the docker container with <code>ls -la</code>.</p>
 </li>
-<li><p>Among other things, newer component frameworks solve the problem of CSS bleeding by using the <em>Shadow DOM</em> construct. To work with web components you should understand Shadow DOM; read a good introduction at <a href='https://www.html5rocks.com/en/tutorials/webcomponents/shadowdom/' target='_blank'>https://www.html5rocks.com/en/tutorials/webcomponents/shadowdom/</a>. We prefer it over the more recent introduction at 
-<a href='https://developers.google.com/web/fundamentals/getting-started/primers/shadowdom' target='_blank'>https://developers.google.com/web/fundamentals/getting-started/primers/shadowdom</a>. <em>HTML Templates</em> are another Standard Web Component feature which will become clear with the examples in this lab. Finally, there is a <em>Custom Element API</em> to create new HTML tags. Unfortunately, this API uses &#39;class&#39; which is not supported by Internet Explorer. (It is possible but a little painful to down-compile for IE.) We will use the Custom Element API once IE has lost its remaining popularity, or when we can rule out IE in a corporate app. Lab 10 uses the Custom Element API.</p>
+<li><p>The admin app we are about to install will use FTP to access the site you wish to administer. In previous tutorials, you will have installed the Blog project to CDN77, but you can connect to any hosting environment that supports FTP. In CDN77, get the FTP connection info (host, user and pass) under CDN - CDN-Storages by clicking on the CDN STORAGE LABEL. In the Codeanywhere docker console, enter <code>sshfs -o allow_other xUSERx@xHOSTx:/www/ /home/admin/mnt</code> to mount it. Omit <code>www/</code> if your site is at the root of the FTP. Enter the pass when prompted. [Use <code>umount -f ~/admin/mntA</code> if you need to unmount this.] You can verify your successful mounts with <code>ps aux | grep -i sftp | grep -v grep</code>.</p>
 </li>
-<li><p>Download and unzip topseed-webcomps-master.zip from <a href='https://github.com/topseed/topseed-webcomps' target='_blank'>https://github.com/topseed/topseed-webcomps</a> to your location of choice on your developer machine. Open the project in VS Code. Add the project folder <code>/topseed-webcomps</code> in Prepros, but but ensure that Pug Auto-Compile is deactivated (Settings/Compiler Settings/Pug (Jade). In this project, Node.js compiles pug files on the fly when responding to HTTP requests so we don&#39;t need Prepros to precompile them. See the function &#39;pugComp&#39; in <code>/server/util/Decider.js</code>. Since in production we cache all generated HTML responses in the CDN, there is practically no impact on production performance, but the development project is a lot cleaner.</p>
+<li><p>Create a [<a href='https://github.com' target='_blank'>github account</a>] if you don&#39;t have one. In Codeanywhere File-New Connection-Github, get the contents of [<a href='https://github.com/topseed/meta-admin-ex' target='_blank'>topseed/meta-admin-ex</a>]. Open <code>/exMeta2/admin.yaml</code>, set <code>mount</code> to <code>/home/admin/mnt/</code> and <code>srv_www</code> to <code>/home/admin/www_admin/</code>, and save. [TODO: this should be the default]. If you like, you can change the <code>secret</code> (password); you will use it to access the admin app later.</p>
 </li>
-<li><p>In VS Code, open Terminal Shell <code>(Ctrl+Shift+`)</code>, type <code>&#39;cd demo-srv [Enter]&#39;</code>, do the <code>&#39;npm install [Enter]&#39;</code> and then <code>&#39;node index [Enter]&#39;</code>. You should see console output &#39;Web server listening at <a href="http://localhost:9981">http://localhost:9981</a>&#39;. In the browser, navigate to <a href='http://localhost:9981' target='_blank'>http://localhost:9981</a>, and visit Dashboard, List, Circle, Prelist and List menu items. When writing a component, we always advise to make things work outside of a component first. &#39;Prelist&#39; is a non-component list page. In VS Code, inspect its <code>/public/page/list-0/index.pug</code>. Similar to the admin linkblog in tutorials 5 and 6, this page uses <code>/page/list/ListBusiness.js</code> to load a list from a JSON response promise. For data binding, <code>ListBusiness</code> <code>&#39;list()&#39;</code> uses doT.js, a fast &#39;moustache-style&#39; template library. The doT template is embedded in the page html as a script of type <code>&#39;text/x-dot-template&#39;</code>. Inspect ListBusiness.js, beginning with <code>&#39;var templateText&#39;</code> to see the JavaScript used to render the template with data and attach it to <code>&#39;#myList&#39;</code> in the page. You can read more about doT at <a href='http://www.javascriptoo.com/dot-js' target='_blank'>http://www.javascriptoo.com/dot-js</a>.</p>
+<li><p>[TODO nbake -a] Docker has a user named &#39;admin&#39;. Back in the Codeanywhere docker console, type <code>passwd admin</code> to change it. Start an FTP server in docker with <code>nohup vsftpd&amp;</code>. This FTP server will have the folder <code>/admin</code> as its root. In Codeanywhere File-New Connection-FTP, establish a plain FTP connection to the Droplet IP address on port 21 with username <code>admin</code> and the password you specified. Copy/paste (via rightclick) the contents of the folder <code>/exMeta2</code> including the edited <code>admin.yaml</code> to the FTP root folder (which represents <code>/admin</code> in the docker container). In the docker console, install node modules with <code>npm i</code>. Then start the admin app with <code>node index .</code> (The <code>.</code> dot at the end is important).</p>
 </li>
-<li><p>Inspect the component version of the list page at <code>/public/page/list/index.pug</code>. It has a custom element in the HTML named <code>&#39;list-el&#39;</code>. Custom elements must include a <code>&#39;-&#39;</code> (dash) in the tag name. The doT template has disappeared. The page <code>&#39;script.&#39;</code> loads <code>ListBusiness.js</code> and the List component definition from the HTML Import <code>/_webComp/List.html</code>, registers the <em>component prototype</em> with the browser using <code>&#39;TW.registerComp&#39;</code> and then calls <code>&#39;sb.compList()&#39;</code> to render an <em>instance</em> of the component. In <code>/page/list/ListBusiness.js</code>, compare the function <code>&#39;compList&#39;</code> with the function <code>&#39;list&#39;</code> used by the non-component version. In this example, the <code>&#39;compList&#39;</code> function obtains the component instance with <code>&#39;document.querySelector&#39;</code> and calls its <code>&#39;list(values)&#39;</code> function. We always pass data to a component rather than making the component load data. This keeps the component simpler and more manageable. As a result of using a component, both the page and <code>ListBusiness</code> are somewhat cleaner; any &#39;JavaScript mess&#39; is hidden inside the component.</p>
-</li>
-<li><p>Optional: Inspect the list component implementation at <code>/public/_webComp/List.pug</code>. You will find the Standard Web Component <code>&#39;template&#39;</code> tag that includes the node <code>&#39;#myList&#39;</code> previously seen in the non-component page, as well as the <code>&#39;x-dot-template&#39;</code>. The <code>&#39;script.&#39;</code> section creates a HTMLElement prototype named <code>&#39;ListEl&#39;</code>, specifies to attach the insulated shadow DOM (using <code>&#39;TW.attachShadow&#39;</code>) when an actual component instance is created from the prototype (<code>&#39;createdCallback&#39;</code>). Also see the <code>&#39;ListEl.list&#39;</code> function implementation which places the databinding result into the <code>&#39;#myList&#39;</code> node in the shadow DOM. (You can find a copy of the <code>&#39;TW.&#39;</code> helper library function implementations in <code>/demo-srv/root2/_js/tw-2.0.js</code>.) </p>
-</li>
-<li><p>As of the time of writing, due to less than perfect polyfills, CSS still bleeds in both directions in Firefox and Edge. For us this is not catastrophic because we avoid most CSS namespace collisions by using BEM syntax when naming our own component styles. Remaining potential issues with third party styles used inside components will disappear once all browsers natively support Standard Web Components. Read <a href='https://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/' target='_blank'>https://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/</a> to lean how to use BEM; it is a best practice even when not using components. See <code>/public/_webComp/circle.pug</code> for an example of BEM inside a component. You can also attempt to insulate component CSS by using a scope <code>&#39;div&#39;</code>; see the use of <code>&#39;.bgauge-el&#39;</code> in <code>/_sharedComps/gauge.pug</code>. It is also possible to write components that bleed <em>on purpose</em>, by making components use actual DOM vs. shadow DOM. You may choose to do this if you have a well-managed, globally applicable CSS regime (ideally using BEM throughout), and are not worried about 3rd party style bleeding. Or you can use SASS to bring global CSS styles into the component, analog to using mainA.css inline with AMP as shown in tutorial 5.</p>
-</li>
-<li><p>In a browser, go to the dashboard page at <a href='http://localhost:9981/page/dashboard/' target='_blank'>http://localhost:9981/page/dashboard/</a>. Inspect the dashboard page at <code>/public/page/dashboard/index.pug</code> for an example of using multiple components in one page. Find the reused <code>&#39;list-el&#39;</code>, as well as <code>&#39;circle-el&#39;</code> and <code>&#39;gauge-el&#39;</code> in the HTML. Inspect <code>&#39;script.&#39;</code> <code>&#39;function UIinit&#39;</code>. Note that the Circle and Gauge components are loaded from absolute URLs. This means that components can easily be shared across different web projects. In this example, <code>ListBusiness</code> is also used as the component communication &#39;message bus&#39; (The message bus features are found in BLX, the base class for <code>ListBusiness</code>.) <code>&#39;sb.addComp&#39;</code> connects each component to the bus, as long as the component implements a function named <code>&#39;init&#39;</code>. (The non-dashboard examples didn&#39;t call <code>&#39;sb.addComp&#39;</code> because their components did not send or receive messages.) Because <code>ListBusines</code>s was already present for loading list data, it was convenient to use it as message bus as well. You can use a separate message bus insteadby using <code>&#39;const _blx = new BLX(null)</code>&#39;.</p>
-</li>
-<li><p>On the dashboard page at <a href='http://localhost:9981/page/dashboard/' target='_blank'>http://localhost:9981/page/dashboard/</a>, click on one of the list links to see how the circle and gauge display values change. Repeat for each list item. The list component has detected that it is enabled to communicate and has pushed hidden list data (values for circle and gauge) to the bus (rather than just opening a new tab). Because circle and gauge components are also registered with the bus, they receive the values and use their component-specific implementation to update the display. This way, components are loosely coupled. </p>
-</li>
-<li><p>Optional: Learn about the component communication implementation. First inspect the function <code>&#39;addComp&#39;</code> at <code>/public/page/list/ListBusiness.js</code>; it passes a reference to the bus component. Look at the <code>&#39;ListEl.init&#39;</code> function in <code>/public/_webComp/List.pug</code>. The component instance <code>&#39;listEl&#39;</code> keeps a reference to the bus. In the same file, look for the <code>&#39;text/x-dot-template&#39;</code> and see how <code>&#39;listEl.nav&#39;</code> is triggered when the user clicks on the link. Inspect the function definition <code>&#39;ListEl.nav&#39;</code>. It sends the data to the bus using key &#39;mySelection&#39;; see <code>&#39;blx.emit(&#39;mySelection&#39;</code>. In the Circle component implementation at <code>/public/_webComp/circle.pug</code>, find function <code>&#39;CircleEl.init&#39;</code> (the equivalent of <code>&#39;ListEl.init&#39;</code> for the Circle compoment). With <code>&#39;_blx.on(&#39;mySelection&#39;...&#39;</code> it specifies to update the component display when the bus received a message with key &#39;mySelection&#39;. In summary, the components are &#39;loosely coupled&#39; because neither component requires the presence of other components. </p>
-</li>
-<li><p>We like creating and using components when it make us more productive, and the code becomes more maintainable. We decide this per use case. Be your own judge! </p>
-</li>
-<li><p>If this tutorial felt a little heavy, we would be happy to help get you started with in-house seminars, workshops and &#39;training the trainer&#39;.  That applies to other labs as well.  Just email us at hi [at] appthings.io or contact us through <a href='https://m.appthings.io' target='_blank'>https://m.appthings.io</a>.</p>
+<li><p>In your browser, the admin app should now be available at http://[Droplet IP]:8081
+You can trigger a bake with http://[Droplet IP]:8081/api/bake?secret=123&amp;folder=/myfolder</p>
 </li>
 </ol>
-
-        <div class="mui--text-left"><a class="mui-btn mui-btn--raised" href="./10-ssr/">
-             Next <span class="mui--hidden-xs">Tutorial</span></a><a class="mui-btn" href="./8-mobile/">Previous <span class="mui--hidden-xs">Tutorial</span></a><a class="mui-btn" href="./0-agenda/"><span class="mui--hidden-xs mui--hidden-sm">Return to&nbsp;</span><span>Agenda </span></a></div>
-      </div>
-      <script>
-        TS.onAppReady(UIinit)
-        function UIinit() {
-        	initSubmenu()
-        }
-        
-      </script>
-    </div>
-  </body>
-</html>
+<div class="mui--text-left"><a class="mui-btn mui-btn--raised" href="./10-ssr/"> Next <span class="mui--hidden-xs">Tutorial</span></a><a class="mui-btn" href="./8-mobile/">Previous <span class="mui--hidden-xs">Tutorial</span></a><a class="mui-btn" href="./0-agenda/"><span class="mui--hidden-xs mui--hidden-sm">Return to&nbsp;</span><span>Agenda </span></a></div></div><script>TS.onAppReady(UIinit)
+function UIinit() {
+	initSubmenu()
+}
+</script></div><!- nB v2.05.01 --></body></html>
