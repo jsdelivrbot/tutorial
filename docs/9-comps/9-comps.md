@@ -2,7 +2,7 @@
 
 1. You can develop faster if you let a server in the cloud do the heavy lifting of compiling, building and deploying your code. This is why we created a build server infrastructure, named _META_. This tutorial will show how to set up and use it. Once you go META, you'll never go back (to development on your desktop).
 
-2. Go to  <a href='https://codeanywhere.com' target='_blank'>Code Anywhere</a>]and sign up for free. Validate your account from the email you will receive (important). In the Editor, select "File-New Connection-DigitalOcean" and copy the $10 coupon code. Then go to <a href='https://www.digitalocean.com' target='_blank'>Digital Ocean</a>, create an account, and apply the coupon on the "Billing" page. Do not create a droplet at Digital Ocean.
+2. Go to  <a href='https://codeanywhere.com' target='_blank'>Code Anywhere</a> and sign up for free. Validate your account from the email you will receive (important). In the Editor, select "File-New Connection-DigitalOcean" and copy the $10 coupon code. Then go to <a href='https://www.digitalocean.com' target='_blank'>Digital Ocean</a>, create an account, and apply the coupon on the "Billing" page. Do not create a droplet at Digital Ocean.
 
 3. In Codeanywhere, go to File-New Connection-Digital Ocean. Select a 1GB machine at the location nearest to you. From the list of images, choose `Docker... on 16.04`. As hostname, enter `dockermeta1` or another hostname of your choice. Ensure that "Codeanywhere SSH Key" is checked, then click 'Create'. You will be prompted for your Digital Ocean credentials. 
 
