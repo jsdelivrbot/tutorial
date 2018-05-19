@@ -28,9 +28,8 @@ function closeDrawer() {
 You can trigger a bake with http://[Droplet IP]:8081/api/bake?secret=123&amp;folder=/myfolder.</p>
 </li>
 </ol>
-<p>How to install Codiad:</p>
-<ul>
-<li>get a DO Ubuntu 16.04 image (Codeanywhere(CA) let&#39;s you buy the 512mb machine, which is &#39;temporarily sold out&#39; on DO site, and make sure you take the $10 credit via CA)
+<p>How to install Codiad:
+`get a DO Ubuntu 16.04 image (Codeanywhere(CA) let&#39;s you buy the 512mb machine, which is &#39;temporarily sold out&#39; on DO site, and make sure you take the $10 credit via CA)
 as root:
 adduser app_user (or whatever)
 usermod -aG sudo app_user
@@ -45,14 +44,13 @@ sudo chown www-data:www-data -R /var/www/html/
 go to <a href="http://your_ip">http://your_ip</a>
 projectdir is relative to /var/www/html/workspace
 You can set absolute paths but need to whitelist in config.php
-(<a href="https://github.com/Codiad/Codiad/wiki/Pathing-&amp;-The-Workspace">https://github.com/Codiad/Codiad/wiki/Pathing-&amp;-The-Workspace</a>)</li>
-</ul>
+(<a href="https://github.com/Codiad/Codiad/wiki/Pathing-&amp;-The-Workspace">https://github.com/Codiad/Codiad/wiki/Pathing-&amp;-The-Workspace</a>)</p>
 <p>Settings (right pane bottom left) add Exension &quot;pug&quot; &quot;jade&quot; to support pug.
 Settings - Editor set Wrap Lines to &quot;Wrap Lines&quot;</p>
 <p>Marketplace (right tab), install plugins:
 codegit, codetransfer, dragdrop, duplicate, gitadmin, terminal
 reload browser tab
-See all at: <a href="http://market.codiad.com/">http://market.codiad.com/</a></p>
+See all at: <a href="http://market.codiad.com/`">http://market.codiad.com/`</a></p>
 <p>Comments on Codiad vs. CA (Codeanywhere):</p>
 <ul>
 <li>Gitadmin plugin create project from git repo: &quot;Note: This Will Only Work If Your Git Repo - Does Not Require Interactive Authentication And Your Server Has Git Installed.&quot;</li>
@@ -64,6 +62,7 @@ See all at: <a href="http://market.codiad.com/">http://market.codiad.com/</a></p
 <li>CA allows to create instances on DO with automatic install of CA SSH key.</li>
 <li>CA theme fonts are crisper (on Retina like I have).</li>
 <li>Codiad doesn&#39;t have a top menu or icon bar.</li>
+<li>Codiad doesn&#39;t support drag and drop file from outside browser into project tree</li>
 </ul>
 <p>cd /var
 ls -al
