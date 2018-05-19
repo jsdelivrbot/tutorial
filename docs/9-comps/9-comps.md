@@ -32,6 +32,9 @@ sudo touch /var/www/html/config.php
 sudo chown www-data:www-data -R /var/www/html/
 go to http://your_ip
 projectdir is relative to /var/www/html/workspace
+You can set absolute paths but need to whitelist in config.php
+(https://github.com/Codiad/Codiad/wiki/Pathing-&-The-Workspace)
+
 Settings (right pane bottom left) add Exension "pug" "jade" to support pug.
 Settings - Editor set Wrap Lines to "Wrap Lines"
 
@@ -49,6 +52,7 @@ Comments on Codiad vs. CA (Codeanywhere):
 - You can't delete the active (selected) project (Administration-Projects), which likely means the last/only project can't be deleted.
 - CA allows to create instances on DO with automatic install of CA SSH key.
 - CA theme fonts are crisper (on Retina like I have).
+- Codiad doesn't have a top menu or icon bar.
 
 
 

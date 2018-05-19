@@ -44,9 +44,11 @@ sudo touch /var/www/html/config.php
 sudo chown www-data:www-data -R /var/www/html/
 go to <a href="http://your_ip">http://your_ip</a>
 projectdir is relative to /var/www/html/workspace
-Settings (right pane bottom left) add Exension &quot;pug&quot; &quot;jade&quot; to support pug.
-Settings - Editor set Wrap Lines to &quot;Wrap Lines&quot;</li>
+You can set absolute paths but need to whitelist in config.php
+(<a href="https://github.com/Codiad/Codiad/wiki/Pathing-&amp;-The-Workspace">https://github.com/Codiad/Codiad/wiki/Pathing-&amp;-The-Workspace</a>)</li>
 </ul>
+<p>Settings (right pane bottom left) add Exension &quot;pug&quot; &quot;jade&quot; to support pug.
+Settings - Editor set Wrap Lines to &quot;Wrap Lines&quot;</p>
 <p>Marketplace (right tab), install plugins:
 codegit, codetransfer, dragdrop, duplicate, gitadmin, terminal
 reload browser tab
@@ -61,6 +63,7 @@ See all at: <a href="http://market.codiad.com/">http://market.codiad.com/</a></p
 <li>You can&#39;t delete the active (selected) project (Administration-Projects), which likely means the last/only project can&#39;t be deleted.</li>
 <li>CA allows to create instances on DO with automatic install of CA SSH key.</li>
 <li>CA theme fonts are crisper (on Retina like I have).</li>
+<li>Codiad doesn&#39;t have a top menu or icon bar.</li>
 </ul>
 <p>cd /var
 ls -al
