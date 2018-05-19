@@ -17,15 +17,17 @@
 7. In your browser, the admin app should now be available at http://[Droplet IP]:8081. You can find the Droplet IP Address in your list of Droplets in your Digital Ocean account.
 You can trigger a bake with http://[Droplet IP]:8081/api/bake?secret=123&folder=/myfolder.
 
+How to install Codiad:
+- get a DO Ubuntu 16.04 image (Codeanywhere(CA) let's you buy the 512mb machine, which is 'temporarily sold out' on DO site, and make sure you take the $10 credit via CA)
 as root:
-adduser app_user
+adduser app_user (or whatever)
 usermod -aG sudo app_user
 su app_user
 cd /home/app_user
 sudo apt-get install apache2 php7.0 libapache2-mod-php7.0 
 sudo service apache2 restart
 sudo rm -rfv /var/www/html/*
-sudo git clone https://github.com/Codiad/Codiad /var/www/html/ (work with latest)
+sudo git clone https://github.com/Codiad/Codiad /var/www/html/ (work with latest master)
 sudo touch /var/www/html/config.php
 sudo chown www-data:www-data -R /var/www/html/
 go to http://your_ip
@@ -38,14 +40,15 @@ codegit, codetransfer, dragdrop, duplicate, gitadmin, terminal
 reload browser tab
 See all at: http://market.codiad.com/
 
-Comments:
+Comments on Codiad vs. CA (Codeanywhere):
 - Gitadmin plugin create project from git repo: "Note: This Will Only Work If Your Git Repo - Does Not Require Interactive Authentication And Your Server Has Git Installed."
 - Codegit plugin pull has warning "Please install shell program"
-- Codetransfer plugin does not support SSH
-- Terminal plugin not sure what it does, it prompts for password, font unreadable
-- Codeanywhere creates 'container' for each project, with SSH console, can add linux stuff to it. You can clone the container and reuse for other projects.
-- You can't delete the active (selected) project (Administration-Projects), which means the last/only project can't be deleted.
-
+- Codetransfer plugin (FTP) does SCP with password (not SSH key).
+- Terminal plugin not great, not sure what it does, it prompts for password, font unreadable, not an SSH Terminal, display in small popup window, not a full tab.
+- CA creates 'container' for each project, with SSH console, can add linux stuff to it. You can clone the container and reuse for other projects.
+- You can't delete the active (selected) project (Administration-Projects), which likely means the last/only project can't be deleted.
+- CA allows to create instances on DO with automatic install of CA SSH key.
+- CA theme fonts are crisper (on Retina like I have).
 
 
 
