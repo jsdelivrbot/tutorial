@@ -18,7 +18,7 @@
 You can trigger a bake with http://[Droplet IP]:8081/api/bake?secret=123&folder=/myfolder.
 
 How to install Codiad:
-`get a DO Ubuntu 16.04 image (Codeanywhere(CA) let's you buy the 512mb machine, which is 'temporarily sold out' on DO site, and make sure you take the $10 credit via CA)
+```get a DO Ubuntu 16.04 image (Codeanywhere(CA) let's you buy the 512mb machine, which is 'temporarily sold out' on DO site, and make sure you take the $10 credit via CA)
 as root:
 adduser app_user (or whatever)
 usermod -aG sudo app_user
@@ -41,7 +41,8 @@ Settings - Editor set Wrap Lines to "Wrap Lines"
 Marketplace (right tab), install plugins:
 codegit, codetransfer, dragdrop, duplicate, gitadmin, terminal
 reload browser tab
-See all at: http://market.codiad.com/`
+See all at: http://market.codiad.com/
+```
 
 Comments on Codiad vs. CA (Codeanywhere):
 - Gitadmin plugin create project from git repo: "Note: This Will Only Work If Your Git Repo - Does Not Require Interactive Authentication And Your Server Has Git Installed."
