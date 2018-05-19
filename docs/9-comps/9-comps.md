@@ -10,10 +10,22 @@
 
 5. The admin app we are about to install will use FTP to access the site you wish to administer. In previous tutorials, you will have installed the Blog project to CDN77, but you can connect to any hosting environment that supports FTP. In CDN77, get the FTP connection info (host, user and pass) under CDN - CDN-Storages by clicking on the CDN STORAGE LABEL. In the Codeanywhere docker console, enter `sshfs -o allow_other xUSERx@xHOSTx:/www/ /home/admin/mnt` to mount it. Omit `www/` if your site is at the root of the FTP. Enter the pass when prompted. [Use `umount -f /home/admin/mnt` if you need to unmount this.] You can verify your successful mounts with ` ps aux | grep -i sftp | grep -v grep`.
 
-6. Create a <a href='https://github.com' target='_blank'>github account</a> if you don't have one. In Codeanywhere File-New Connection-Github, get the contents of <a href='https://github.com/topseed/meta-admin-ex' target='_blank'>topseed/meta-admin-ex</a>. Open `/exMeta2/admin.yaml`, set `mount` to `/home/admin/mnt/` and `srv_www` to `/home/admin/www_admin/`, and save. [TODO: this should be the default]. If you like, you can change the `secret` (password); you will use it to access the admin app later.
+6. In Codeanywhere File-New Connection-Git from URL, get the contents of <a href='https://github.com/topseed/meta-admin-ex' target='_blank'>https://github.com/topseed/tutorial.git</a>. Open `/exMeta2/admin.yaml`, set `mount` to `/home/admin/mnt/` and `srv_www` to `/home/admin/www_admin/`, and save. [TODO: this should be the default]. If you like, you can change the `secret` (password); you will use it to access the admin app later.
 
 7. [TODO nbake -a] Docker has a user named 'admin'. Back in the Codeanywhere docker console, type `passwd admin` to change its password. Start an FTP server in docker with `nohup vsftpd&`. This FTP server will have the folder `/admin` as its root. In Codeanywhere File-New Connection-FTP, establish a plain FTP connection to the Droplet IP address on port 21 with username `admin` and the password you specified. Copy/paste (via rightclick) the contents of the folder `/exMeta2` including the edited `admin.yaml` to the FTP root folder (which represents `/admin` in the docker container). In the docker console, install node modules with `npm i`. Then start the admin app with `node index .` (The `.` dot at the end is important).
 
-7. In your browser, the admin app should now be available at http://[Droplet IP]:8081
-You can trigger a bake with http://[Droplet IP]:8081/api/bake?secret=123&folder=/myfolder
+7. In your browser, the admin app should now be available at http://[Droplet IP]:8081. You can find the Droplet IP Address in your list of Droplets in your Digital Ocean account.
+You can trigger a bake with http://[Droplet IP]:8081/api/bake?secret=123&folder=/myfolder.
 
+as root:
+adduser app_user
+usermod -aG sudo app_user
+su app_user
+cd /home/app_user
+sudo apt-get install apache2 php7.0 libapache2-mod-php7.0 
+sudo service apache2 restart
+sudo rm -rfv /var/www/html/*
+sudo git clone https://github.com/Codiad/Codiad /var/www/html/
+sudo touch /var/www/html/config.php
+sudo chown www-data:www-data -R /var/www/html/
+go to http/your_ip
