@@ -25,7 +25,37 @@ cd /home/app_user
 sudo apt-get install apache2 php7.0 libapache2-mod-php7.0 
 sudo service apache2 restart
 sudo rm -rfv /var/www/html/*
-sudo git clone https://github.com/Codiad/Codiad /var/www/html/
+sudo git clone https://github.com/Codiad/Codiad /var/www/html/ (work with latest)
 sudo touch /var/www/html/config.php
 sudo chown www-data:www-data -R /var/www/html/
-go to http/your_ip
+go to http://your_ip
+projectdir is relative to /var/www/html/workspace
+Settings (right pane bottom left) add Exension "pug" "jade" to support pug.
+Settings - Editor set Wrap Lines to "Wrap Lines"
+
+Marketplace (right tab), install plugins:
+codegit, codetransfer, dragdrop, duplicate, gitadmin, terminal
+reload browser tab
+See all at: http://market.codiad.com/
+
+Comments:
+- Gitadmin plugin create project from git repo: "Note: This Will Only Work If Your Git Repo - Does Not Require Interactive Authentication And Your Server Has Git Installed."
+- Codegit plugin pull has warning "Please install shell program"
+- Codetransfer plugin does not support SSH
+- Terminal plugin not sure what it does, it prompts for password, font unreadable
+- Codeanywhere creates 'container' for each project, with SSH console, can add linux stuff to it. You can clone the container and reuse for other projects.
+- You can't delete the active (selected) project (Administration-Projects), which means the last/only project can't be deleted.
+
+
+
+
+
+cd /var
+ls -al
+cd www/html
+ls -al
+cd workspace
+ls -al
+
+
+
