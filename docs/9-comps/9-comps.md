@@ -12,7 +12,7 @@
 
 6. The Docker image has a user named 'admin'. In the Codeanywhere docker console, type `passwd admin` to change its password. Start an FTP server in docker with `nohup vsftpd&`. This FTP server will have the folder `/home/admin` as its root. Optional: In Codeanywhere File-New Connection-FTP, establish a plain FTP connection to the Droplet IP address on port 21 with username `admin` and the password you specified. This is where you would be able to modify content of the docker image while it is running.
 
-7. In the docker console, type `cd /home/admin` to go to the 'physical' admin folder. Install the sample admin app with `nbake -a`. [To re] Install node modules including Express with `npm i`. Inspect `admin.yaml` with `nano admin.yaml`. Ensure `mount` is set to `/home/admin/mnt/` and `srv_www` to `/home/admin/www_admin/`. Start the admin app with `node index.js .` (the `.` is important. )
+7. Still in the docker console, type `cd /home/admin` to go to the 'physical' admin folder. Install the sample admin app with `nbake -a`. [To re] Install node modules including Express with `npm i`. Inspect `admin.yaml` with `nano admin.yaml`. Ensure `mount` is set to `/home/admin/mnt/` and `srv_www` to `/home/admin/www_admin/`. Start the admin app with `node index.js .` (the `.` is important. )
 
 8. In your browser, the admin app should now be available at http://[Droplet IP]:8081. You can find the Droplet IP Address in your list of Droplets in your Digital Ocean account.
 You can trigger a bake of the mounted app with http://[Droplet IP]:8081/api/bake?secret=123&folder=/.
