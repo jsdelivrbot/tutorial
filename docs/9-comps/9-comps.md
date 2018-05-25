@@ -16,8 +16,8 @@
 
 8. Still in the docker console, type `cd /home/admin/dev1` to go to the 'physical' admin folder. Install the sample admin app with `nbake -a`. [To re] Install node modules including Express with `npm i`. Inspect `admin.yaml` with `nano admin.yaml`. Ensure `mount` is set to `/home/admin/prod1/` and `srv_www` to `/home/admin/dev1/www_admin/`. Start the admin app with `pm2 start index.js -- .` (the `.` is important. )
 
-9. In your browser, the admin app should now be available at http://[Droplet IP]:8081. You can find the Droplet IP Address in your list of Droplets in your Digital Ocean account.
-You can trigger a bake of the mounted app with http://[Droplet IP]:8081/api/bake?secret=123&folder=/.
+9. In your browser, the admin app should now be available at http://DROPLET_IP:8081. You can find the Droplet IP Address in your list of Droplets in your Digital Ocean account.
+You can trigger a bake of the mounted app with http://DROPLET_IP:8081/api/bake?secret=123&folder=/.
 
 9. Get a project from github:
  ```cd /home/admin/dev1'
@@ -25,14 +25,58 @@ export GIT_DISCOVERY_ACROSS_FILESYSTEM=1 //one-time only
 git clone https://github.com/topseed/nbake-intro-blog
 cd nbake-intro-blog
 ```
-10. Using git (in Codeanywhere SSH Console). 
- ```cd /home/admin/projectname'
+
+10. TBD: To run the project in a static http server ('dev server):
+```
+		cd /home/admin/dev1/myproject
+		create /home/admin/dev1/myproject/Wedgefile
+	      :8080
+	      gzip
+	      root www
+	      tls off
+	    
+	From inside the running Docker continer, run WedgeServer
+	
+	     /root/wedge
+
+	Test from host (outside of the docker):
+
+	     curl localhost:8080
+	    
+	 If you get a port in use error:
+	 
+		 lsof -i tcp:8080
+
+	Then run http://DROPLET_IP:8080
+```
+
+11. Using git (in Codeanywhere SSH Console). 
+ ```cd /home/admin/dev1/projectname'
 git add -A // To track all files
 git commit -am "message" // To commit changes
 git push origin master // Push your local changes to repository
+
+12. If you want to use your local editor (e.g. VS Code) to edit the project, 
+install WebDrive from webdrive.com and restart your maching. (We use WebDrive because ignores .git folder)/
+Then map [droplet IP] as FTP with admin:yourpw to a drive letten. In your editor, open the project folder from that drive. Use git from commandline as above to add, commit or push.
+To autobake (in VS Code), Install the runonsave plugin, edit VS User or Workspace Settings
+
+```
+    "emeraldwalk.runonsave": {
+        "commands": [
+            {
+                "match": "\\.pug$",
+                "cmd": "curl \"http://DROPLET_IP:8081/api/bake?secret=123&folder=/\""
+            },
+            {
+                "match": "\\.md$",
+                "cmd": "curl \"http://DROPLET_IP:8081/api/bake?secret=123&folder=/\""
+            }
+        ]
+    }
 ```
 
----
+13. Alternatively you can trigger api bake from Codeanywhere 'Run Project' button. Setup as follows: File - New Connection - Container, name 'nbake1'. Create a 'Blank Development Stack Ubuntu 14.04'.Once it is started, rightclick on it, select 'Config' and add `"curl \"http://DROPLET_IP:8081/api/bake?secret=123&folder=/\""` to 'commands'. In the left pane top, rightclick on 'Default' and select 'Project Config'. In the file that opens, set devbox nbake1 default to true, change others to false and save the file. Press the 'Run Project' button to trigger the api call.
 
 How to install Codiad:
 ```get a DO Ubuntu 16.04 image (Codeanywhere(CA) let's you buy the 512mb machine, which is 'temporarily sold out' on DO site, and make sure you take the $10 credit via CA)

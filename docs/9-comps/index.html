@@ -26,8 +26,8 @@ function closeDrawer() {
 </li>
 <li><p>Still in the docker console, type <code>cd /home/admin/dev1</code> to go to the &#39;physical&#39; admin folder. Install the sample admin app with <code>nbake -a</code>. [To re] Install node modules including Express with <code>npm i</code>. Inspect <code>admin.yaml</code> with <code>nano admin.yaml</code>. Ensure <code>mount</code> is set to <code>/home/admin/prod1/</code> and <code>srv_www</code> to <code>/home/admin/dev1/www_admin/</code>. Start the admin app with <code>pm2 start index.js -- .</code> (the <code>.</code> is important. )</p>
 </li>
-<li><p>In your browser, the admin app should now be available at http://[Droplet IP]:8081. You can find the Droplet IP Address in your list of Droplets in your Digital Ocean account.
-You can trigger a bake of the mounted app with http://[Droplet IP]:8081/api/bake?secret=123&amp;folder=/.</p>
+<li><p>In your browser, the admin app should now be available at <a href="http://DROPLET_IP:8081">http://DROPLET_IP:8081</a>. You can find the Droplet IP Address in your list of Droplets in your Digital Ocean account.
+You can trigger a bake of the mounted app with <a href="http://DROPLET_IP:8081/api/bake?secret=123&amp;folder=/">http://DROPLET_IP:8081/api/bake?secret=123&amp;folder=/</a>.</p>
 </li>
 <li><p>Get a project from github:
 <code>cd /home/admin/dev1&#39;
@@ -35,13 +35,55 @@ export GIT_DISCOVERY_ACROSS_FILESYSTEM=1 //one-time only
 git clone https://github.com/topseed/nbake-intro-blog
 cd nbake-intro-blog</code></p>
 </li>
-<li>Using git (in Codeanywhere SSH Console). 
-<code>cd /home/admin/projectname&#39;
+<li><p>TBD: To run the project in a static http server (&#39;dev server):</p>
+<pre><code>    cd /home/admin/dev1/myproject
+    create /home/admin/dev1/myproject/Wedgefile
+      :8080
+      gzip
+      root www
+      tls off
+
+From inside the running Docker continer, run WedgeServer
+
+     /root/wedge
+
+Test from host (outside of the docker):
+
+     curl localhost:8080
+
+ If you get a port in use error:
+
+     lsof -i tcp:8080
+
+Then run http://DROPLET_IP:8080
+</code></pre></li>
+<li><p>Using git (in Codeanywhere SSH Console). 
+<code>`</code>cd /home/admin/dev1/projectname&#39;
 git add -A // To track all files
 git commit -am &quot;message&quot; // To commit changes
-git push origin master // Push your local changes to repository</code></li>
+git push origin master // Push your local changes to repository</p>
+</li>
+<li><p>If you want to use your local editor (e.g. VS Code) to edit the project, 
+install WebDrive from webdrive.com and restart your maching. (We use WebDrive because ignores .git folder)/
+Then map [droplet IP] as FTP with admin:yourpw to a drive letten. In your editor, open the project folder from that drive. Use git from commandline as above to add, commit or push.
+To autobake (in VS Code), Install the runonsave plugin, edit VS User or Workspace Settings</p>
+</li>
 </ol>
-<hr>
+<pre><code>    &quot;emeraldwalk.runonsave&quot;: {
+        &quot;commands&quot;: [
+            {
+                &quot;match&quot;: &quot;\\.pug$&quot;,
+                &quot;cmd&quot;: &quot;curl \&quot;http://DROPLET_IP:8081/api/bake?secret=123&amp;folder=/\&quot;&quot;
+            },
+            {
+                &quot;match&quot;: &quot;\\.md$&quot;,
+                &quot;cmd&quot;: &quot;curl \&quot;http://DROPLET_IP:8081/api/bake?secret=123&amp;folder=/\&quot;&quot;
+            }
+        ]
+    }
+</code></pre><ol start="13">
+<li>Alternatively you can trigger api bake from Codeanywhere &#39;Run Project&#39; button. Setup as follows: File - New Connection - Container, name &#39;nbake1&#39;. Create a &#39;Blank Development Stack Ubuntu 14.04&#39;.Once it is started, rightclick on it, select &#39;Config&#39; and add <code>&quot;curl \&quot;http://DROPLET_IP:8081/api/bake?secret=123&amp;folder=/\&quot;&quot;</code> to &#39;commands&#39;. In the left pane top, rightclick on &#39;Default&#39; and select &#39;Project Config&#39;. In the file that opens, set devbox nbake1 default to true, change others to false and save the file. Press the &#39;Run Project&#39; button to trigger the api call.</li>
+</ol>
 <p>How to install Codiad:
 <code>`</code>get a DO Ubuntu 16.04 image (Codeanywhere(CA) let&#39;s you buy the 512mb machine, which is &#39;temporarily sold out&#39; on DO site, and make sure you take the $10 credit via CA)
 as root:
