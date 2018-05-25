@@ -4,18 +4,32 @@
 
 2. Go to  <a href='https://codeanywhere.com' target='_blank'>Code Anywhere</a> and sign up for free. Validate your account from the email you will receive (important). In the Editor, select "File-New Connection-DigitalOcean" and copy the $10 coupon code. Then go to <a href='https://www.digitalocean.com' target='_blank'>Digital Ocean</a>, create an account, and apply the coupon on the "Billing" page. Do not create a droplet at Digital Ocean.
 
-3. In Codeanywhere, go to File-New Connection-Digital Ocean. Select a 1GB machine at the location nearest to you. From the list of images, choose `Docker... on 16.04`. As hostname, enter `dockermeta1` or another hostname of your choice. Ensure that "Codeanywhere SSH Key" is checked, then click 'Create'. You will be prompted for your Digital Ocean credentials. 
+3. In Codeanywhere, go to File-New Connection-Digital Ocean. Select a 1GB machine at the location nearest to you. From the list of images, choose `Docker... on 16.04`. As hostname, enter `dockermeta1` or another hostname of your choice. Ensure that "Codeanywhere SSH Key" is checked, then click 'Create'. You will be prompted for your Digital Ocean credentials. Allow the installation complete.
 
-4. When the connection is available in the left pane, rightclick to open an SSH Terminal. On the command line, enter `docker pull nbake/meta:latest`. This will download the META docker image. Then enter `docker run -d --privileged -p 20-21:20-21 -p 8080-8082:8080-8082 nbake/meta /sbin/my_init` to start the app on ports 8080 and 8081. Type `docker ps` to get the CONTAINER ID (e.g. b6fbd9d948eb). Finally, enter `docker exec -ti xCONTAINER-IDx /bin/bash` to get to the docker container console. You can list the files in the docker container with `ls -la`.
+4. At Digital Ocean on the Droplet detail page, click 'Volumes' and 'Add Volume'. This will be our primary store for persistent data, such as projects in development. Choose the minimum size (1GB) as you can increase it later, or larger; it will still be very cheap. Set volumne name to 'storage1'. Choose 'Automatically Format &Mount', 'Ext4' filesystem ('XFS' if you plan to have large video files), and click 'Create Volume' to attach it. In Codeanywhere, rightclick on the created connection ('dockermeta1') to open an SSH Terminal. On the command line, enter `cd /mnt/dev1` and `ls -la` to verify. Return to the root directory with `cd /`.
 
-5. The admin app we are about to install in step 7 below will use FTP to access the site you wish to administer. In previous tutorials, you will have installed the Blog project to CDN77, but you can connect to any hosting environment that supports FTP. In CDN77, get the FTP connection info (host, user and pass) under CDN - CDN-Storages by clicking on the CDN STORAGE LABEL. In the Codeanywhere docker console, enter `sshfs -o allow_other xUSERx@xHOSTx:/www/ /home/admin/mnt` to mount it. Omit `www/` if your site is at the root of the FTP. Enter the pass when prompted. [Use `umount -f /home/admin/mnt` if you need to unmount this.] You can verify your successful mounts with ` ps aux | grep -i sftp | grep -v grep`.
+5. Still in Codeanywhere SSH Terminal, enter `docker pull nbake/meta:latest`. This will download the META docker image. Then enter `docker run -d --privileged -p 20-21:20-21 -p 8080-8082:8080-8082 --mount type=bind,source=/mnt/dev1,target=/home/admin/dev1 nbake/meta /sbin/my_init` to start the app on ports 8080 and 8081. Type `docker ps` to get the CONTAINER ID (e.g. b6fbd9d948eb). Finally, enter `docker exec -ti xCONTAINER-IDx /bin/bash` to get to the docker container console. You can list the files in the docker container with `ls -la`.
 
-6. The Docker image has a user named 'admin'. In the Codeanywhere docker console, type `passwd admin` to change its password. Start an FTP server in docker with `nohup vsftpd&`. This FTP server will have the folder `/home/admin` as its root. Optional: In Codeanywhere File-New Connection-FTP, establish a plain FTP connection to the Droplet IP address on port 21 with username `admin` and the password you specified. This is where you would be able to modify content of the docker image while it is running.
+6. The Docker image has a user named 'admin'. In the Codeanywhere docker console, type `passwd admin` to change its password. Start an FTP server in docker with `nohup vsftpd&`. This FTP server will have the folder `/home/admin` as its root. Optional: In Codeanywhere File-New Connection-FTP, establish a plain FTP connection to the Droplet IP address on port 21 with username `admin` and the password you specified. This is where you would be able to add or remove files via FTP while vvsftpd is running.
 
-7. Still in the docker console, type `cd /home/admin` to go to the 'physical' admin folder. Install the sample admin app with `nbake -a`. [To re] Install node modules including Express with `npm i`. Inspect `admin.yaml` with `nano admin.yaml`. Ensure `mount` is set to `/home/admin/mnt/` and `srv_www` to `/home/admin/www_admin/`. Start the admin app with `node index.js .` (the `.` is important. )
+7. The admin app we are about to install will use FTP to access the production site you wish to administer. In previous tutorials, you will have installed the Blog project to CDN77, but you can connect to any hosting environment that supports FTP. In CDN77, get the FTP connection info (host, user and pass) under CDN - CDN-Storages by clicking on the CDN STORAGE LABEL. In the Codeanywhere docker console, enter `mkdir /home/admin/prod1`, then `sshfs -o allow_other xUSERx@xHOSTx:/www/ /home/admin/prod1` to mount it. Omit `www/` if your site is at the root of the FTP. Enter the pass when prompted. [Use `umount -f /home/admin/prod1` if you need to unmount this.] You can verify your successful mounts with ` ps aux | grep -i sftp | grep -v grep`.
+
+8. Still in the docker console, type `cd /home/admin/dev1` to go to the 'physical' admin folder. Install the sample admin app with `nbake -a`. [To re] Install node modules including Express with `npm i`. Inspect `admin.yaml` with `nano admin.yaml`. Ensure `mount` is set to `/home/admin/prod1/` and `srv_www` to `/home/admin/dev1/www_admin/`. Start the admin app with `pm2 start index.js -- .` (the `.` is important. )
 
 8. In your browser, the admin app should now be available at http://[Droplet IP]:8081. You can find the Droplet IP Address in your list of Droplets in your Digital Ocean account.
 You can trigger a bake of the mounted app with http://[Droplet IP]:8081/api/bake?secret=123&folder=/.
+
+9. Get a project from github:
+ ```cd /home/admin/dev1'
+git clone https://github.com/topseed/nbake-intro-blog
+cd nbake-intro-blog
+```
+10. Using git (in Codeanywhere SSH Console). 
+ ```cd /home/admin/projectname'
+git add -A // To track all files
+git commit -am "message" // To commit changes
+git push origin master // Push your local changes to repository
+```
 
 ---
 
