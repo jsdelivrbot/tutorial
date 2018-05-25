@@ -16,7 +16,7 @@ function closeDrawer() {
 </li>
 <li><p>In Codeanywhere, go to File-New Connection-Digital Ocean. Select a 1GB machine at the location nearest to you. From the list of images, choose <code>Docker... on 16.04</code>. As hostname, enter <code>dockermeta1</code> or another hostname of your choice. Ensure that &quot;Codeanywhere SSH Key&quot; is checked, then click &#39;Create&#39;. You will be prompted for your Digital Ocean credentials. Allow the installation complete.</p>
 </li>
-<li><p>At Digital Ocean on the Droplet detail page, click &#39;Volumes&#39; and &#39;Add Volume&#39;. This will be our primary store for persistent data, such as projects in development. Choose the minimum size (1GB) as you can increase it later, or larger; it will still be very cheap. Set volumne name to &#39;storage1&#39;. Choose &#39;Automatically Format &amp;Mount&#39;, &#39;Ext4&#39; filesystem (&#39;XFS&#39; if you plan to have large video files), and click &#39;Create Volume&#39; to attach it. In Codeanywhere, rightclick on the created connection (&#39;dockermeta1&#39;) to open an SSH Terminal. On the command line, enter <code>cd /mnt/dev1</code> and <code>ls -la</code> to verify. Return to the root directory with <code>cd /</code>.</p>
+<li><p>At Digital Ocean on the Droplet detail page, click &#39;Volumes&#39; and &#39;Add Volume&#39;. This will be our primary store for persistent data, such as projects in development. Choose the minimum size (1GB) as you can increase it later, or larger; it will still be very cheap. Set volumne name to &#39;dev1&#39;. Choose &#39;Automatically Format &amp; Mount&#39;, &#39;Ext4&#39; filesystem (&#39;XFS&#39; if you plan to have large video files), and click &#39;Create Volume&#39; to attach it. In Codeanywhere, rightclick on the created connection (&#39;dockermeta1&#39;) to open an SSH Terminal. On the command line, enter <code>cd /mnt/dev1</code> and <code>ls -la</code> to verify. Return to the root directory with <code>cd /</code>.</p>
 </li>
 <li><p>Still in Codeanywhere SSH Terminal, enter <code>docker pull nbake/meta:latest</code>. This will download the META docker image. Then enter <code>docker run -d --privileged -p 20-21:20-21 -p 8080-8082:8080-8082 --mount type=bind,source=/mnt/dev1,target=/home/admin/dev1 nbake/meta /sbin/my_init</code> to start the app on ports 8080 and 8081. Type <code>docker ps</code> to get the CONTAINER ID (e.g. b6fbd9d948eb). Finally, enter <code>docker exec -ti xCONTAINER-IDx /bin/bash</code> to get to the docker container console. You can list the files in the docker container with <code>ls -la</code>.</p>
 </li>
@@ -43,7 +43,7 @@ cd nbake-intro-blog</code></p>
       root www
       tls off
 
-From inside the running Docker continer, run WedgeServer
+From inside the running Docker container, run WedgeServer
 
      /root/wedge
 
@@ -65,7 +65,7 @@ git push origin master // Push your local changes to repository</p>
 </li>
 <li><p>If you want to use your local editor (e.g. VS Code) to edit the project, 
 install WebDrive from webdrive.com and restart your maching. (We use WebDrive because ignores .git folder)/
-Then map [droplet IP] as FTP with admin:yourpw to a drive letten. In your editor, open the project folder from that drive. Use git from commandline as above to add, commit or push.
+Then map host (DROPLET_IP) as FTP with admin:yourpw to a drive letten. In your editor, open the project folder from that drive. Use git from commandline as above to add, commit or push.
 To autobake (in VS Code), Install the runonsave plugin, edit VS User or Workspace Settings</p>
 </li>
 </ol>
