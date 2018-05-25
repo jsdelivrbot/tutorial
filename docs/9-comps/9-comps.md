@@ -16,11 +16,12 @@
 
 8. Still in the docker console, type `cd /home/admin/dev1` to go to the 'physical' admin folder. Install the sample admin app with `nbake -a`. [To re] Install node modules including Express with `npm i`. Inspect `admin.yaml` with `nano admin.yaml`. Ensure `mount` is set to `/home/admin/prod1/` and `srv_www` to `/home/admin/dev1/www_admin/`. Start the admin app with `pm2 start index.js -- .` (the `.` is important. )
 
-8. In your browser, the admin app should now be available at http://[Droplet IP]:8081. You can find the Droplet IP Address in your list of Droplets in your Digital Ocean account.
+9. In your browser, the admin app should now be available at http://[Droplet IP]:8081. You can find the Droplet IP Address in your list of Droplets in your Digital Ocean account.
 You can trigger a bake of the mounted app with http://[Droplet IP]:8081/api/bake?secret=123&folder=/.
 
 9. Get a project from github:
  ```cd /home/admin/dev1'
+export GIT_DISCOVERY_ACROSS_FILESYSTEM=1 //one-time only
 git clone https://github.com/topseed/nbake-intro-blog
 cd nbake-intro-blog
 ```
